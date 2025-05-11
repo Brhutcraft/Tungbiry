@@ -82,7 +82,7 @@ a {
   margin-right: 1rem;
   display: block;
   /* --- BỔ SUNG: Chỉnh độ trong suốt (opacity) cho ảnh logo --- */
-  opacity: 0.7; /* Ảnh hiển thị mờ đục 90% */
+  opacity: 0.5; /* Ảnh hiển thị mờ đục 90% */
   transition: opacity 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà */
   /* ---------------------------------------------------------- */
 }
