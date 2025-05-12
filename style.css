@@ -346,6 +346,11 @@ header p {
   line-height: 1.7; /* Tăng khoảng cách dòng */
   text-shadow: 0 1px 4px rgba(0,0,0,0.5); /* Tăng bóng đổ cho dễ đọc */
    /* ----------------------------------------------- */
+  color: var(--text-light); /* Chữ trên banner: Trắng */
+
+  /* --- BỔ SUNG: Thêm độ trong suốt cho dòng chữ --- */
+  opacity: 0.8; /* Giá trị 0.8 tương đương với 80% độ mờ (20% trong suốt) */
+  /* --------------------------------------------- */
 }
 
 .button {
