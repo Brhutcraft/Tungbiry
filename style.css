@@ -1,4 +1,4 @@
-/* style.css - BỘ MÀU TỐI GIẢN&TINH TẾ (ĐÃ BỔ SUNG CÁC SECTION MỚI, ICON SOCIAL FOOTER, VÀ MOBILE MENU SLIDE-IN) */
+ /* style.css - BỘ MÀU TỐI GIẢN&TINH TẾ (ĐÃ BỔ SUNG CÁC SECTION MỚI, ICON SOCIAL FOOTER, VÀ MOBILE MENU SLIDE-IN) */
 
 /* --- BỔ SUNG: Import font Lora từ Google Fonts cho quote --- */
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap');
@@ -252,7 +252,26 @@ a {
      background-color: rgba(0, 0, 0, 0.05); /* Hiệu ứng nền nhẹ khi hover */
 }
 
-/* --- KẾT THÚC MOBILE MENU SLIDE-IN STYLES --- */
+/* --- BẮT ĐẦU CSS cho Social Icons trong Mobile Menu --- */
+.mobile-menu .menu-social {
+  margin-top: 20px; /* Thêm khoảng cách phía trên */
+  padding: 15px; /* Thêm padding xung quanh */
+  text-align: center; /* Căn giữa các icon */
+  border-top: 1px solid var(--mobile-menu-border); /* Thêm đường viền phân cách */
+}
+
+.mobile-menu .menu-social .social-link {
+  display: inline-block; /* Hiển thị các icon trên cùng một hàng */
+  margin: 0 10px; /* Khoảng cách giữa các icon */
+  font-size: 24px; /* Kích thước icon */
+  color: var(--mobile-menu-text); /* Màu icon */
+  transition: color 0.3s ease; /* Hiệu ứng chuyển đổi màu khi hover */
+}
+
+.mobile-menu .menu-social .social-link:hover {
+  color: var(--main-color); /* Màu khi hover */
+}
+/* --- KẾT THÚC CSS cho Social Icons trong Mobile Menu --- */
 
 
 /* Responsive */
