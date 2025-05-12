@@ -337,8 +337,8 @@ header h1 {
   /* ----------------------------------------------- */
 
   /* --- THAY THẾ: Sử dụng rgba() cho màu chữ để tạo độ trong suốt --- */
-  /* Màu trắng (#FFFFFF) chuyển sang rgba(255, 255, 255, 0.8) với 80% độ mờ */
-  color: rgba(255, 255, 255, 0.8);
+  /* Màu trắng (#FFFFFF) chuyển sang rgba(255, 255, 255, 0.6) với 60% độ mờ */
+  color: rgba(255, 255, 255, 0.6);
   /* -------------------------------------------------------- */
 
   /* Đã xóa opacity ở đây */
