@@ -336,6 +336,11 @@ header h1 {
   letter-spacing: -1px; /* Giảm nhẹ khoảng cách ký tự */
   /* ----------------------------------------------- */
   color: var(--text-light); /* Chữ trên banner: Trắng */
+
+  /* --- BỔ SUNG: Thêm độ trong suốt cho H1 --- */
+  opacity: 0.6; /* Áp dụng độ trong suốt cho tiêu đề H1 */
+  /* Bạn có thể điều chỉnh giá trị 0.8 để tăng/giảm độ mờ */
+  /* ----------------------------------------- */
 }
 
 header p {
@@ -347,16 +352,10 @@ header p {
   text-shadow: 0 1px 4px rgba(0,0,0,0.5); /* Tăng bóng đổ cho dễ đọc */
    /* ----------------------------------------------- */
   color: var(--text-light); /* Chữ trên banner: Trắng */
-  /* Đã xóa opacity ở đây để chỉ áp dụng cho dòng đầu tiên bằng class riêng */
+  /* opacity không được áp dụng ở đây */
 }
 
-/* --- BỔ SUNG: Style riêng cho dòng chữ đầu tiên trong header --- */
-.header-first-line {
-  opacity: 0.8; /* Áp dụng độ trong suốt cho dòng chữ này */
-  /* Bạn có thể điều chỉnh giá trị 0.8 để tăng/giảm độ mờ */
-  /* Các thuộc tính khác như font, color sẽ tự động kế thừa từ thẻ p cha */
-}
-/* --------------------------------------------------------- */
+/* Đã xóa quy tắc .header-first-line vì không còn cần thiết */
 
 
 .button {
@@ -608,9 +607,7 @@ header p {
    transition: transform 0.3s ease-out;
 }
 
-  /* Xóa hiệu ứng hover scale riêng cho ảnh */
   .category:hover img {
-    /* transform: scale(1.05); */
   }
 
 /* Tạo một khu vực riêng cho nội dung văn bản bên trong card */
