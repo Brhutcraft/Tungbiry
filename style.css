@@ -335,12 +335,13 @@ header h1 {
   text-shadow: 0 2px 8px rgba(0,0,0,0.6); /* Tăng bóng đổ để chữ nổi bật trên nền */
   letter-spacing: -1px; /* Giảm nhẹ khoảng cách ký tự */
   /* ----------------------------------------------- */
-  color: var(--text-light); /* Chữ trên banner: Trắng */
 
-  /* --- BỔ SUNG: Thêm độ trong suốt cho H1 --- */
-  opacity: 0.6; /* Áp dụng độ trong suốt cho tiêu đề H1 */
-  /* Bạn có thể điều chỉnh giá trị 0.8 để tăng/giảm độ mờ */
-  /* ----------------------------------------- */
+  /* --- THAY THẾ: Sử dụng rgba() cho màu chữ để tạo độ trong suốt --- */
+  /* Màu trắng (#FFFFFF) chuyển sang rgba(255, 255, 255, 0.8) với 80% độ mờ */
+  color: rgba(255, 255, 255, 0.8);
+  /* -------------------------------------------------------- */
+
+  /* Đã xóa opacity ở đây */
 }
 
 header p {
