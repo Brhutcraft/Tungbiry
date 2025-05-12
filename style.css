@@ -347,11 +347,17 @@ header p {
   text-shadow: 0 1px 4px rgba(0,0,0,0.5); /* Tăng bóng đổ cho dễ đọc */
    /* ----------------------------------------------- */
   color: var(--text-light); /* Chữ trên banner: Trắng */
-
-  /* --- BỔ SUNG: Thêm độ trong suốt cho dòng chữ --- */
-  opacity: 0.5; /* Giá trị 0.8 tương đương với 80% độ mờ (20% trong suốt) */
-  /* --------------------------------------------- */
+  /* Đã xóa opacity ở đây để chỉ áp dụng cho dòng đầu tiên bằng class riêng */
 }
+
+/* --- BỔ SUNG: Style riêng cho dòng chữ đầu tiên trong header --- */
+.header-first-line {
+  opacity: 0.8; /* Áp dụng độ trong suốt cho dòng chữ này */
+  /* Bạn có thể điều chỉnh giá trị 0.8 để tăng/giảm độ mờ */
+  /* Các thuộc tính khác như font, color sẽ tự động kế thừa từ thẻ p cha */
+}
+/* --------------------------------------------------------- */
+
 
 .button {
   margin-top: 1.5rem;
