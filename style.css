@@ -349,7 +349,7 @@ header p {
   color: var(--text-light); /* Chữ trên banner: Trắng */
 
   /* --- BỔ SUNG: Thêm độ trong suốt cho dòng chữ --- */
-  opacity: 0.8; /* Giá trị 0.8 tương đương với 80% độ mờ (20% trong suốt) */
+  opacity: 0.5; /* Giá trị 0.8 tương đương với 80% độ mờ (20% trong suốt) */
   /* --------------------------------------------- */
 }
 
