@@ -2,6 +2,9 @@
 
 /* --- BỔ SUNG: Import font Lora từ Google Fonts cho quote --- */
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* --- BỔ SUNG: Import font Raleway cho tiêu đề và Open Sans cho nội dung --- */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;700&display=swap');
 /* ------------------------------------------------------------- */
 
 :root {
@@ -31,7 +34,9 @@ html {
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* --- ĐÃ SỬA: Thay đổi font-family mặc định cho body --- */
+  font-family: 'Open Sans', sans-serif; /* Sử dụng Open Sans làm font mặc định */
+  /* --------------------------------------------------- */
   background-color: var(--background); /* Nền body: Trắng Tinh Khiết */
   color: var(--text-dark); /* Chữ: Xám Đậm */
   line-height: 1.6;
@@ -103,6 +108,9 @@ a {
   font-weight: 500;
   color: var(--text-dark); /* Chữ link: Xám Đậm */
   transition: color 0.3s ease;
+  /* --- ĐÃ SỬA: Thêm font cho link navbar --- */
+  font-family: 'Open Sans', sans-serif;
+  /* ----------------------------------------- */
 }
 
 .nav-links li a:hover {
@@ -234,6 +242,9 @@ a {
     font-size: 1.1rem; /* Tăng kích thước font */
     font-weight: 500;
     transition: color 0.3s ease, background-color 0.3s ease;
+    /* --- ĐÃ SỬA: Thêm font cho link mobile menu --- */
+    font-family: 'Open Sans', sans-serif;
+    /* --------------------------------------------- */
 }
 
 .mobile-menu .nav-links li a:hover {
@@ -301,7 +312,7 @@ a {
      }
 }
 
-
+/* --- STYLE CHO HEADER VỚI FONT MỚI --- */
 header {
   background: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/full2kne1134848563423638875.jpg') center/cover no-repeat;
   height: 70vh;
@@ -316,15 +327,25 @@ header {
 }
 
 header h1 {
-  font-size: clamp(1.8rem, 5vw, 2.5rem);
-  margin-bottom: 0.5rem;
-  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  /* --- ĐÃ SỬA: Font, kích thước và style cho h1 --- */
+  font-family: 'Raleway', sans-serif; /* Font Raleway cho tiêu đề */
+  font-size: clamp(2.8rem, 6vw, 3.5rem); /* Kích thước lớn hơn, linh hoạt */
+  font-weight: 700; /* Đậm hơn */
+  margin-bottom: 0.8rem; /* Khoảng cách dưới tiêu đề */
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6); /* Tăng bóng đổ để chữ nổi bật trên nền */
+  letter-spacing: -1px; /* Giảm nhẹ khoảng cách ký tự */
+  /* ----------------------------------------------- */
+  color: var(--text-light); /* Chữ trên banner: Trắng */
 }
 
 header p {
-  font-size: clamp(1rem, 3vw, 1.1rem);
-  max-width: 600px;
-  text-shadow: 0 1px 3px rgba(0,1px,0,0.4); /* Adjusted text-shadow slightly */
+  /* --- ĐÃ SỬA: Font, kích thước và style cho p trong header --- */
+  font-family: 'Open Sans', sans-serif; /* Font Open Sans cho đoạn văn */
+  font-size: clamp(1.1rem, 3.5vw, 1.3rem); /* Kích thước dễ đọc hơn, linh hoạt */
+  max-width: 700px; /* Tăng chiều rộng tối đa */
+  line-height: 1.7; /* Tăng khoảng cách dòng */
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5); /* Tăng bóng đổ cho dễ đọc */
+   /* ----------------------------------------------- */
 }
 
 .button {
@@ -338,12 +359,18 @@ header p {
   display: inline-block;
   border: none;
   cursor: pointer;
+  /* --- ĐÃ SỬA: Thêm font cho button --- */
+  font-family: 'Open Sans', sans-serif; /* Font Open Sans cho chữ nút */
+  font-size: 1em; /* Giữ kích thước hiện tại hoặc điều chỉnh */
+  /* ------------------------------------ */
 }
 
 .button:hover {
   background: #808080; /* Giữ nguyên: Ghi Xám Đặc hơn khi hover */
   transform: translateY(-2px);
 }
+/* --- KẾT THÚC STYLE CHO HEADER VỚI FONT MỚI --- */
+
 
 /* Styles cho phần Slider Trích dẫn - Nền section trắng, ảnh nền trong từng hộp */
 .quotes-slider-section {
@@ -363,6 +390,9 @@ header p {
   font-size: clamp(1.5rem, 4vw, 2rem);
   margin-bottom: 2rem;
   color: var(--text-dark);
+   /* --- ĐÃ SỬA: Thêm font cho h2 các section khác (dùng font tiêu đề) --- */
+  font-family: 'Raleway', sans-serif;
+  /* ------------------------------------------------------------------ */
 }
 
 /* Styling cho SVG nếu vẫn dùng */
@@ -442,7 +472,7 @@ header p {
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-/* --- Chỉnh sửa: Kiểu chữ và Căn giữa cho đoạn văn trong quote --- */
+/* --- Giữ nguyên: Kiểu chữ và Căn giữa cho đoạn văn trong quote (dùng font Lora) --- */
 .quote-item blockquote p {
     font-style: italic;
     font-family: 'Lora', serif;
@@ -594,6 +624,9 @@ header p {
    padding: 0;
    border-radius: 0;
    transition: color 0.3s ease;
+   /* --- BỔ SUNG: Thêm font cho h3 trong category --- */
+   font-family: 'Raleway', sans-serif;
+   /* ----------------------------------------------- */
  }
 
   /* Thay đổi màu chữ tiêu đề khi rê chuột */
@@ -608,15 +641,9 @@ header p {
     font-size: 0.95rem;
     color: #555;
     line-height: 1.4;
-}
-
-
-/* Điều chỉnh lại padding cho section trên mobile nếu cần */
-@media (max-width: 768px) {
-  .categories {
-    padding: 1.5rem;
-  }
-  /* Grid minmax(250px, 1fr) sẽ tự động xử lý việc xếp các card thành 1 cột trên mobile */
+     /* --- BỔ SUNG: Thêm font cho p trong category --- */
+    font-family: 'Open Sans', sans-serif;
+    /* ----------------------------------------------- */
 }
 
 
@@ -640,6 +667,9 @@ header p {
     color: var(--text-dark);
     line-height: 1.2;
     text-align: center;
+     /* --- ĐÃ SỬA: Font cho h2 trong about-content --- */
+    font-family: 'Raleway', sans-serif;
+    /* --------------------------------------------- */
 }
 
 /* Style cho đoạn văn ngay sau H2 (dịch nghĩa) */
@@ -654,6 +684,9 @@ header p {
      padding: 0;
      box-shadow: none;
      border-radius: 0;
+      /* --- ĐÃ SỬA: Font cho p dịch nghĩa trong about-content --- */
+     font-family: 'Open Sans', sans-serif;
+     /* ------------------------------------------------------ */
 }
 
 /* Style cho các đoạn văn bản chính - làm chúng trông như các khung - Nền xám rất nhạt */
@@ -667,6 +700,9 @@ header p {
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+     /* --- ĐÃ SỬA: Font cho p nội dung trong about-content --- */
+    font-family: 'Open Sans', sans-serif;
+    /* ---------------------------------------------------- */
 }
 
 /* Khoảng trống phía trên tiêu đề H2 thứ hai (phần tiếng Anh) */
@@ -699,12 +735,18 @@ footer {
   font-size: 0.9rem;
   margin: 0.5rem 0;
   line-height: 1.5;
+   /* --- BỔ SUNG: Thêm font cho p trong footer --- */
+  font-family: 'Open Sans', sans-serif;
+  /* ------------------------------------------- */
 }
 
 .footer-content a {
   color: var(--main-color);
   font-weight: bold;
   transition: color 0.3s ease;
+   /* --- BỔ SUNG: Thêm font cho a trong footer --- */
+  font-family: 'Open Sans', sans-serif;
+  /* ------------------------------------------- */
 }
 
 /* Footer Social Icons */
@@ -740,6 +782,9 @@ footer {
   font-size: clamp(1.5rem, 4vw, 2rem);
   margin-bottom: 2.5rem;
   color: var(--text-dark);
+   /* --- BỔ SUNG: Thêm font cho h2 trong gallery-process-section --- */
+  font-family: 'Raleway', sans-serif;
+  /* ------------------------------------------------------------- */
 }
 
 .gallery-grid {
@@ -787,6 +832,9 @@ footer {
   border-radius: 0;
     margin-bottom: 0;
     line-height: 1.5;
+     /* --- BỔ SUNG: Thêm font cho p trong gallery-item --- */
+    font-family: 'Open Sans', sans-serif;
+    /* ------------------------------------------------- */
 }
 
 
@@ -808,6 +856,9 @@ footer {
     margin-bottom: 1rem;
     color: var(--text-dark);
     line-height: 1.2;
+    /* --- BỔ SUNG: Thêm font cho h2 trong cta-section --- */
+    font-family: 'Raleway', sans-serif;
+    /* ------------------------------------------------- */
 }
 
 .cta-section p {
@@ -821,6 +872,9 @@ footer {
     box-shadow: none;
     border-radius: 0;
     padding: 0;
+     /* --- BỔ SUNG: Thêm font cho p trong cta-section --- */
+    font-family: 'Open Sans', sans-serif;
+    /* ------------------------------------------------- */
 }
 
 /* Nút trong CTA sẽ tự động dùng style của class .button đã có */
