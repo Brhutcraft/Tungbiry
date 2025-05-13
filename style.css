@@ -1,14 +1,11 @@
-/* style.css - BỘ MÀU TỐI GIẢN&TINH TẾ */
+/* style.css - BỘ MÀU TỐI GIẢN&TINH TẾ (FONT CHỮ MỚI) */
 
-/* --- BỔ SUNG: Import font Lora từ Google Fonts cho quote --- */
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
-/* --- BỔ SUNG: Import font Raleway cho tiêu đề và Open Sans cho nội dung --- */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;700&display=swap');
-/* ------------------------------------------------------------- */
+/* --- ĐÃ SỬA: Import các font chữ mới từ Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap'); /* Giữ Lora cho quote */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap'); /* Thêm Inter cho body và Poppins cho tiêu đề */
+/* ---------------------------------------------------- */
 
 :root {
-  /* --- ĐÃ SỬA: Đổi các biến màu cho tông tối --- */
   --background: #1A1A2E; /* MÀU NỀN CHÍNH: Xanh Đen Đậm */
   --text-dark: #E0E0E0; /* MÀU CHỮ CHUNG: Xám Nhạt */
   --text-light: #FFFFFF; /* MÀU CHỮ SÁNG: Trắng Tinh */
@@ -19,14 +16,11 @@
 
   --element-background-dark: #2C2C4B; /* NỀN THÀNH PHẦN TỐI: Xanh Đậm Hơi Nhạt Hơn */
   --border-color-dark: #3A3A5A; /* MÀU ĐƯỜNG KẺ TỐI */
-  /* ------------------------------------------------- */
 
-
-  /* BỔ SUNG: Màu cho Overlay và Mobile Menu */
-  --overlay-color: rgba(0, 0, 0, 0.5); /* Lớp phủ nền đen mờ (Giữ nguyên) */
-  --mobile-menu-bg: var(--background); /* Nền menu mobile: Xanh Đen Đậm */
-  --mobile-menu-text: var(--text-dark); /* Chữ menu mobile: Xám Nhạt */
-  --mobile-menu-border: var(--border-color-dark); /* Đường kẻ phân cách nhạt */
+  --overlay-color: rgba(0, 0, 0, 0.5); /* Lớp phủ nền đen mờ */
+  --mobile-menu-bg: var(--background);
+  --mobile-menu-text: var(--text-dark);
+  --mobile-menu-border: var(--border-color-dark);
 }
 
 * {
@@ -40,9 +34,11 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: var(--background); /* Nền body: Xanh Đen Đậm */
-  color: var(--text-dark); /* Chữ: Xám Nhạt */
+  /* --- ĐÃ SỬA: Font cho body --- */
+  font-family: 'Inter', sans-serif; /* Sử dụng Inter làm font mặc định */
+  /* ---------------------------- */
+  background-color: var(--background);
+  color: var(--text-dark);
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
@@ -54,25 +50,21 @@ body.menu-open {
 
 a {
   text-decoration: none;
-  color: inherit; /* Sẽ kế thừa màu chữ từ cha (body -> var(--text-dark) -> Xám Nhạt) */
+  color: inherit;
   transition: color 0.3s ease;
 }
 
-/* Hover cho link mặc định - Đổi màu để nổi bật trên nền tối */
 a:hover {
-    color: var(--main-color); /* Màu nhấn Cyan/Teal Sáng */
+    color: var(--main-color);
 }
-
 
 /* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* Giữ màu nền Ghi Xám với opacity, có thể điều chỉnh opacity nếu cần */
-  background-color: rgba(169, 169, 169, 0.2); /* Giảm opacity để nền tối phía dưới hiển thị rõ hơn */
+  background-color: rgba(169, 169, 169, 0.2);
   padding: 0.8rem 1.2rem;
-  /* Đổi màu bóng đổ cho phù hợp nền tối */
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   position: sticky;
   top: 0;
@@ -96,7 +88,6 @@ a:hover {
   border-radius: 8px;
   margin-right: 1rem;
   display: block;
-  /* Độ trong suốt của ảnh logo - giữ nguyên opacity 0.5 */
   opacity: 0.5;
   transition: opacity 0.3s ease;
 }
@@ -113,14 +104,13 @@ a:hover {
 
 .nav-links li a {
   font-weight: 500;
-  /* Màu chữ link - Kế thừa từ body (var(--text-dark) -> Xám Nhạt) */
-  /* color: var(--text-dark); */
   transition: color 0.3s ease;
-  font-family: 'Open Sans', sans-serif;
+  /* --- ĐÃ SỬA: Font cho link navbar --- */
+  font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+  /* --------------------------------- */
 }
 
 .nav-links li a:hover {
-  /* Màu khi hover - Màu nhấn Cyan/Teal Sáng */
   color: var(--main-color);
 }
 
@@ -132,13 +122,10 @@ a:hover {
 .cart-icon {
   font-size: 1.4rem;
   position: relative;
-  /* Màu icon giỏ hàng - Kế thừa từ body (var(--text-dark) -> Xám Nhạt) */
-  /* color: var(--text-dark); */
   transition: color 0.3s ease;
 }
 
 .cart-icon:hover {
-  /* Màu khi hover - Màu nhấn Cyan/Teal Sáng */
   color: var(--main-color);
 }
 
@@ -146,9 +133,8 @@ a:hover {
   position: absolute;
   top: -8px;
   right: -10px;
-  /* Nền số lượng - Màu nhấn Cyan/Teal Sáng */
   background: var(--main-color);
-  color: white; /* Chữ trắng */
+  color: white;
   font-size: 0.7rem;
   padding: 2px 6px;
   border-radius: 50%;
@@ -157,13 +143,10 @@ a:hover {
 .kofi-icon {
      font-size: 1.4rem;
      margin-left: 1rem;
-     /* Màu icon Kofi - Kế thừa từ body (var(--text-dark) -> Xám Nhạt) */
-     /* color: var(--text-dark); */
      transition: color 0.3s ease;
 }
 
 .kofi-icon:hover {
-     /* Màu khi hover - Màu nhấn Cyan/Teal Sáng */
     color: var(--main-color);
 }
 
@@ -173,15 +156,12 @@ a:hover {
   font-size: 1.5rem;
   cursor: pointer;
   margin-left: 1rem;
-  /* Màu icon hamburger - Kế thừa từ body (var(--text-dark) -> Xám Nhạt) */
-  /* color: var(--text-dark); */
   padding: 5px;
   z-index: 1010;
 }
 
 /* --- MOBILE MENU SLIDE-IN STYLES --- */
 
-/* Lớp phủ nền khi menu mở - Giữ nguyên */
 .mobile-menu-overlay {
     position: fixed;
     top: 0;
@@ -200,7 +180,6 @@ a:hover {
     visibility: visible;
 }
 
-/* Wrapper cho Mobile Menu */
 .mobile-menu-wrapper {
     position: fixed;
     top: 0;
@@ -208,12 +187,10 @@ a:hover {
     width: 80%;
     max-width: 300px;
     height: 100vh;
-    /* Nền menu mobile - Xanh Đen Đậm */
     background-color: var(--mobile-menu-bg);
     z-index: 1000;
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
-    /* Đổi màu bóng đổ cho phù hợp nền tối */
     box-shadow: 2px 0 8px rgba(0,0,0,0.5);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -223,20 +200,17 @@ a:hover {
     transform: translateX(0);
 }
 
-/* Nội dung bên trong Mobile Menu */
 .mobile-menu {
     padding: 2rem 1.5rem;
     display: flex;
     flex-direction: column;
 }
 
-/* Nút đóng menu */
 .close-btn {
     position: absolute;
     top: 1rem;
     right: 1rem;
     font-size: 1.8rem;
-    /* Màu nút đóng - Xám Nhạt */
     color: var(--mobile-menu-text);
     background: none;
     border: none;
@@ -245,7 +219,6 @@ a:hover {
     z-index: 1020;
 }
 
-/* Style danh sách link trong mobile menu */
 .mobile-menu .nav-links {
     display: flex;
     flex-direction: column;
@@ -256,7 +229,6 @@ a:hover {
 
 .mobile-menu .nav-links li {
     list-style: none;
-    /* Đường kẻ phân cách - Màu đường kẻ tối */
     border-bottom: 1px solid var(--mobile-menu-border);
 }
 .mobile-menu .nav-links li:last-child {
@@ -267,18 +239,17 @@ a:hover {
 .mobile-menu .nav-links li a {
     display: block;
     padding: 1rem 0;
-    /* Màu chữ link - Xám Nhạt */
     color: var(--mobile-menu-text);
     font-size: 1.1rem;
     font-weight: 500;
     transition: color 0.3s ease, background-color 0.3s ease;
-    font-family: 'Open Sans', sans-serif;
+    /* --- ĐÃ SỬA: Font cho link mobile menu --- */
+    font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+    /* --------------------------------------- */
 }
 
 .mobile-menu .nav-links li a:hover {
-     /* Màu khi hover - Màu nhấn Cyan/Teal Sáng */
      color: var(--main-color);
-     /* Hiệu ứng nền nhẹ khi hover - Đổi sang màu sáng mờ */
      background-color: rgba(255, 255, 255, 0.05);
 }
 
@@ -287,7 +258,6 @@ a:hover {
   margin-top: 20px;
   padding: 15px;
   text-align: center;
-  /* Thêm đường viền phân cách - Màu đường kẻ tối */
   border-top: 1px solid var(--mobile-menu-border);
 }
 
@@ -295,13 +265,11 @@ a:hover {
   display: inline-block;
   margin: 0 10px;
   font-size: 24px;
-  /* Màu icon - Xám Nhạt */
   color: var(--mobile-menu-text);
   transition: color 0.3s ease;
 }
 
 .mobile-menu .menu-social .social-link:hover {
-  /* Màu khi hover - Màu nhấn Cyan/Teal Sáng */
   color: var(--main-color);
 }
 /* --- KẾT THÚC CSS cho Social Icons trong Mobile Menu --- */
@@ -352,7 +320,7 @@ a:hover {
 
      .mobile-menu-overlay,
      .mobile-menu-wrapper {
-         display: none !important; /* Sử dụng !important để đảm bảo ẩn trên desktop */
+         display: none !important;
      }
 
      body.menu-open {
@@ -360,7 +328,7 @@ a:hover {
      }
 }
 
-/* --- STYLE CHO HEADER VỚI FONT MỚI VÀ NỀN TỐI --- */
+/* --- STYLE CHO HEADER VỚI FONT VÀ NỀN TỐI --- */
 header {
   background: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/full2kne1134848563423638875.jpg') center/cover no-repeat;
   height: 70vh;
@@ -369,81 +337,61 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: var(--text-light); /* Chữ trên banner: Trắng */
+  color: var(--text-light);
   padding: 1rem;
   position: relative;
-  /* Có thể thêm lớp phủ tối nhẹ lên ảnh nền nếu chữ khó đọc */
 }
-/* Ví dụ thêm lớp phủ tối cho header: */
-/*
-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4); // Lớp phủ đen 40%
-    z-index: 1;
-}
-header > * {
-    position: relative; // Đảm bảo nội dung nằm trên lớp phủ
-    z-index: 2;
-}
-*/
-
 
 header h1 {
-  font-family: 'Raleway', sans-serif;
+  /* --- ĐÃ SỬA: Font cho h1 --- */
+  font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
+  /* -------------------------- */
   font-size: clamp(2.8rem, 6vw, 3.5rem);
   font-weight: 700;
   margin-bottom: 0.8rem;
-  /* Tăng bóng đổ để chữ nổi bật trên nền ảnh */
   text-shadow: 0 3px 10px rgba(0,0,0,0.8);
   letter-spacing: -1px;
-  /* Màu trắng ngà với độ mờ 80% (tăng độ mờ so với bản sáng) */
-  color: rgba(240, 240, 240, 0.8); /* Sử dụng màu trắng ngà F0F0F0 */
+  color: rgba(240, 240, 240, 0.8);
 }
 
 header p {
-  font-family: 'Open Sans', sans-serif;
+  /* --- ĐÃ SỬA: Font cho p trong header --- */
+  font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+  /* ------------------------------------- */
   font-size: clamp(1.1rem, 3.5vw, 1.3rem);
   max-width: 700px;
   line-height: 1.7;
-  /* Tăng bóng đổ cho dễ đọc trên nền ảnh */
   text-shadow: 0 2px 6px rgba(0,0,0,0.7);
-  /* Màu chữ trắng */
   color: var(--text-light);
 }
 
 .button {
   margin-top: 1.5rem;
-  /* Đổi màu nền nút sang màu nhấn mờ hoặc semi-transparent */
-  background: rgba(0, 188, 212, 0.8); /* Màu nhấn Cyan/Teal Sáng với opacity 80% */
+  background: rgba(0, 188, 212, 0.8);
   padding: 0.7rem 1.2rem;
-  color: var(--text-light); /* Giữ màu chữ trắng */
+  color: var(--text-light);
   border-radius: 5px;
   font-weight: bold;
   transition: background 0.3s ease, transform 0.2s ease;
   display: inline-block;
   border: none;
   cursor: pointer;
-  font-family: 'Open Sans', sans-serif;
+  /* --- ĐÃ SỬA: Font cho button --- */
+  font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+  /* ------------------------------ */
   font-size: 1em;
 }
 
 .button:hover {
-  /* Đổi màu nền khi hover sang màu nhấn đặc hoặc đậm hơn */
-  background: var(--main-color); /* Màu nhấn Cyan/Teal Sáng đặc */
+  background: var(--main-color);
   transform: translateY(-2px);
 }
 /* --- KẾT THÚC STYLE CHO HEADER --- */
 
 
-/* Styles cho phần Slider Trích dẫn - Nền section tối, ảnh nền trong từng hộp quote */
+/* Styles cho phần Slider Trích dẫn */
 .quotes-slider-section {
   padding: 3rem 0;
-  /* Nền section - Xanh Đen Đậm */
   background-color: var(--background);
   overflow: hidden;
   text-align: center;
@@ -458,9 +406,10 @@ header p {
 .quotes-slider-section h2 {
   font-size: clamp(1.5rem, 4vw, 2rem);
   margin-bottom: 2rem;
-  /* Màu chữ h2 - Xám Nhạt */
   color: var(--text-dark);
-  font-family: 'Raleway', sans-serif;
+   /* --- ĐÃ SỬA: Font cho h2 các section khác --- */
+  font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
+  /* ------------------------------------------ */
 }
 
 /* Styling cho SVG nếu vẫn dùng */
@@ -468,11 +417,9 @@ header p {
     margin: 0 10px;
     width: 25px;
     height: 25px;
-    /* Màu SVG - Màu nhấn Cyan/Teal Sáng */
     color: var(--main-color);
     stroke-width: 2;
 }
-
 
 .quotes-slider-wrapper {
   display: flex;
@@ -480,7 +427,6 @@ header p {
   scroll-snap-type: x mandatory;
   gap: 1.5rem;
   padding: 0 1.5rem 1.5rem 1.5rem;
-
   scrollbar-width: none;
   -ms-overflow-style: none;
   scroll-behavior: smooth;
@@ -496,25 +442,20 @@ header p {
   scroll-snap-align: start;
 }
 
-/* Cải thiện giao diện Blockquote bên trong item - Có ảnh nền và lớp phủ bên trong */
+/* Cải thiện giao diện Blockquote bên trong item */
 .quote-item blockquote {
-    /* Đổi màu nền hộp quote sang màu tối nhạt hơn */
-    background-color: var(--element-background-dark); /* Xanh Đậm Hơi Nhạt Hơn */
+    background-color: var(--element-background-dark);
     padding: 2rem;
     border-radius: 10px;
-    /* Đổi màu bóng đổ cho phù hợp nền tối */
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     margin: 0;
     display: flex;
     flex-direction: column;
     height: 100%;
     justify-content: center;
-    /* Màu viền trái - Màu nhấn Cyan/Teal Sáng */
     border-left: 5px solid var(--main-color);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-
     min-height: 350px;
-
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -522,7 +463,6 @@ header p {
     overflow: hidden;
 }
 
-/* Thêm lớp phủ (Overlay) BÊN TRONG từng hộp quote để chữ dễ đọc trên nền ảnh */
 .quote-item blockquote::before {
     content: '';
     position: absolute;
@@ -530,12 +470,10 @@ header p {
     left: 0;
     right: 0;
     bottom: 0;
-    /* Lớp phủ trắng mờ trên ảnh nền (Giữ nguyên hoặc điều chỉnh opacity) */
-    background-color: rgba(255, 255, 255, 0.1); /* Giảm opacity để thấy ảnh rõ hơn trên nền tối */
+    background-color: rgba(255, 255, 255, 0.1);
     z-index: 1;
 }
 
-/* Đảm bảo chữ (p và footer) nằm trên lớp phủ bên trong hộp */
 .quote-item blockquote p,
 .quote-item blockquote footer {
     position: relative;
@@ -543,14 +481,13 @@ header p {
     opacity: 0;
     transform: translateY(10px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-    /* Màu chữ trong quote - Trắng */
     color: var(--text-light);
 }
 
 /* --- Giữ nguyên: Kiểu chữ và Căn giữa cho đoạn văn trong quote (dùng font Lora) --- */
 .quote-item blockquote p {
     font-style: italic;
-    font-family: 'Lora', serif;
+    font-family: 'Lora', serif; /* Giữ font Lora */
     text-align: center;
 }
 /* -------------------------------------------------------------- */
@@ -593,7 +530,6 @@ header p {
     background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/17465126690376539023984443098602.jpg');
 }
 
-
 /* Responsive cho item trích dẫn */
 @media (max-width: 768px) {
     .quotes-slider-wrapper .quote-item {
@@ -633,7 +569,6 @@ header p {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
   padding: 2rem;
-  /* Nền section - Xanh Đen Đậm */
   background: var(--background);
   transition: background-color 0.3s ease;
   max-width: 1200px;
@@ -643,10 +578,8 @@ header p {
 .category {
   border-radius: 10px;
   overflow: hidden;
-  /* Nền card - Xanh Đậm Hơi Nhạt Hơn */
   background: var(--element-background-dark);
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-  /* Đổi màu bóng đổ cho phù hợp nền tối */
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
   display: flex;
   flex-direction: column;
@@ -657,7 +590,6 @@ header p {
 
  .category:hover {
    transform: translateY(-5px) scale(1.02);
-    /* Đổi màu bóng đổ khi hover */
    box-shadow: 0 8px 20px rgba(0,0,0,0.45);
  }
 
@@ -675,7 +607,6 @@ header p {
 /* Tạo một khu vực riêng cho nội dung văn bản bên trong card */
 .category-content {
     padding: 1rem;
-    /* Nền content bên trong card - Giữ màu nền card */
     background-color: var(--element-background-dark);
     flex-grow: 1;
     display: flex;
@@ -688,62 +619,113 @@ header p {
  .category h3 {
    position: static;
    margin: 0 0 0.5rem 0;
-   /* Màu chữ h3 - Xám Nhạt */
    color: var(--text-dark);
    font-size: 1.1rem;
    background: none;
    padding: 0;
    border-radius: 0;
    transition: color 0.3s ease;
-   font-family: 'Raleway', sans-serif;
+   /* --- ĐÃ SỬA: Font cho h3 trong category --- */
+   font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
+   /* ---------------------------------------- */
  }
 
-  /* Thay đổi màu chữ tiêu đề khi rê chuột */
   .category:hover h3 {
-     /* Màu khi hover - Màu nhấn Cyan/Teal Sáng */
      color: var(--main-color);
   }
 
-/* Thêm style cho đoạn văn mô tả (nếu bạn muốn thêm sau này) */
+/* Thêm style cho đoạn văn mô tả */
 .category-content p {
     margin: 0;
     font-size: 0.95rem;
-    /* Màu chữ p trong category - Xám Nhạt Vừa */
     color: var(--accent-secondary);
     line-height: 1.4;
-    font-family: 'Open Sans', sans-serif;
+     /* --- ĐÃ SỬA: Font cho p trong category --- */
+    font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+    /* --------------------------------------- */
 }
 
 
-/* Styles cho phần nội dung chính trang Giới thiệu (about-content) - Nền section tối */
-/* Lưu ý: style chi tiết cho about-content đã được chuyển sang about.css */
-/* Giữ lại quy tắc chung cho section này nếu cần */
+/* Styles cho phần nội dung chính trang Giới thiệu (about-content) */
 .about-content {
   padding: 4rem 0;
-  /* Nền section - Xanh Đen Đậm */
   background-color: var(--background);
   transition: background-color 0.3s ease;
 }
 
-/* Các rule cụ thể bên trong about-content (h2, p, etc.) nên nằm trong about.css */
-/* Nếu style.css cần định nghĩa chung cho h2, p... thì đặt ở đây */
-/* Nhưng các rule chi tiết cho layout và màu sắc cụ thể của trang About nên ở about.css */
-/* Ví dụ: */
-/*
-.about-content h2 { ... }
-.about-content p { ... }
-*/
+.about-content .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    text-align: left;
+}
 
+.about-content h2 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+    line-height: 1.2;
+    text-align: center;
+     /* --- ĐÃ SỬA: Font cho h2 trong about-content --- */
+    font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
+    /* --------------------------------------------- */
+}
 
-/* Footer - Nền xanh đen đậm */
+/* Style cho đoạn văn ngay sau H2 (dịch nghĩa) */
+.about-content h2 + p {
+     font-size: 1.1rem;
+     font-style: italic;
+     color: var(--accent-secondary); /* Giữ màu xám phụ */
+     margin-top: 0;
+     margin-bottom: 3rem;
+     text-align: center;
+     background-color: transparent;
+     padding: 0;
+     box-shadow: none;
+     border-radius: 0;
+      /* --- ĐÃ SỬA: Font cho p dịch nghĩa trong about-content --- */
+     font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+     /* ------------------------------------------------------ */
+}
+
+/* Style cho các đoạn văn bản chính - làm chúng trông như các khung */
+.about-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: var(--text-dark); /* Màu chữ chung */
+    background-color: var(--element-background-dark); /* Nền khung Xanh Đậm Hơi Nhạt Hơn */
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+     /* --- ĐÃ SỬA: Font cho p nội dung trong about-content --- */
+    font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+    /* ---------------------------------------------------- */
+}
+
+/* Khoảng trống phía trên tiêu đề H2 thứ hai (phần tiếng Anh) */
+.about-content h2:nth-of-type(2) {
+    margin-top: 4rem;
+     margin-bottom: 2rem;
+}
+
+/* Đảm bảo tiêu đề H2 đầu tiên không có margin trên thừa */
+.about-content .container>h2:first-child {
+    margin-top: 0;
+}
+
+/* Loại bỏ margin dưới cho đoạn văn cuối cùng */
+.about-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Footer */
 footer {
-  /* Nền footer - Xanh Đen Đậm */
-  background-color: var(--background); /* Sử dụng màu nền chính */
-  /* Màu chữ footer - Xám Nhạt */
+  background-color: var(--background);
   color: var(--text-dark);
   padding: 2rem 1rem;
   text-align: center;
-  /* Viền trên - Màu nhấn Cyan/Teal Sáng */
   border-top: 3px solid var(--main-color);
   transition: background-color 0.3s ease;
 }
@@ -752,19 +734,21 @@ footer {
   font-size: 0.9rem;
   margin: 0.5rem 0;
   line-height: 1.5;
-  font-family: 'Open Sans', sans-serif;
+   /* --- ĐÃ SỬA: Font cho p trong footer --- */
+  font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+  /* ------------------------------------- */
 }
 
 .footer-content a {
-  /* Màu link footer - Màu nhấn Cyan/Teal Sáng */
   color: var(--main-color);
   font-weight: bold;
   transition: color 0.3s ease;
-  font-family: 'Open Sans', sans-serif;
+   /* --- ĐÃ SỬA: Font cho a trong footer --- */
+  font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+  /* ------------------------------------- */
 }
 
 .footer-content a:hover {
-  /* Màu link footer khi hover - Trắng Tinh Khiết */
   color: var(--text-light);
 }
 
@@ -778,23 +762,20 @@ footer {
 
 .footer-social a {
     font-size: 1.5rem;
-    /* Màu icon - Xám Nhạt */
     color: var(--text-dark);
     transition: color 0.3s ease;
 }
 
 .footer-social a:hover {
-    /* Màu icon khi hover - Màu nhấn Cyan/Teal Sáng */
     color: var(--main-color);
 }
 
 
 /* --- BẮT ĐẦU BỔ SUNG CSS CHO CÁC SECTION MỚI (Gallery, CTA) --- */
 
-/* Styles cho section Không Gian&Quy Trình (Gallery&Process) - Nền section tối */
+/* Styles cho section Không Gian&Quy Trình (Gallery&Process) */
 .gallery-process-section {
   padding: 3rem 1.5rem;
-  /* Nền section - Xanh Đen Đậm */
   background-color: var(--background);
   text-align: center;
   transition: background-color 0.3s ease;
@@ -803,9 +784,10 @@ footer {
 .gallery-process-section h2 {
   font-size: clamp(1.5rem, 4vw, 2rem);
   margin-bottom: 2.5rem;
-  /* Màu chữ h2 - Xám Nhạt */
   color: var(--text-dark);
-  font-family: 'Raleway', sans-serif;
+   /* --- ĐÃ SỬA: Font cho h2 trong gallery-process-section --- */
+  font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
+  /* ---------------------------------------------------- */
 }
 
 .gallery-grid {
@@ -817,11 +799,9 @@ footer {
 }
 
 .gallery-item {
-  /* Nền item gallery - Xanh Đậm Hơi Nhạt Hơn */
   background-color: var(--element-background-dark);
   border-radius: 8px;
   overflow: hidden;
-  /* Đổi màu bóng đổ cho phù hợp nền tối */
   box-shadow: 0 2px 8px rgba(0,0,0,0.3);
   display: flex;
   flex-direction: column;
@@ -830,7 +810,6 @@ footer {
 
 .gallery-item:hover {
    transform: translateY(-5px);
-    /* Đổi màu bóng đổ khi hover */
    box-shadow: 0 4px 15px rgba(0,0,0,0.45);
 }
 
@@ -849,7 +828,6 @@ footer {
   padding: 1rem;
   margin-top: auto;
   font-size: 0.95rem;
-  /* Màu chữ p trong gallery item - Xám Nhạt */
   color: var(--text-dark);
   text-align: left;
   background-color: transparent;
@@ -857,14 +835,15 @@ footer {
   border-radius: 0;
     margin-bottom: 0;
     line-height: 1.5;
-    font-family: 'Open Sans', sans-serif;
+     /* --- ĐÃ SỬA: Font cho p trong gallery-item --- */
+    font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+    /* --------------------------------------------- */
 }
 
 
-/* Styles cho section Kêu Gọi Hành Động Đặc Biệt (Call to Action) - Nền section tối nhạt hơn */
+/* Styles cho section Kêu Gọi Hành Động Đặc Biệt (Call to Action) */
 .cta-section {
     padding: 4rem 1.5rem;
-    /* Nền section CTA - Xanh Đậm Hơi Nhạt Hơn */
     background-color: var(--element-background-dark);
     text-align: center;
     transition: background-color 0.3s ease;
@@ -878,16 +857,16 @@ footer {
 .cta-section h2 {
     font-size: clamp(1.8rem, 5vw, 2.5rem);
     margin-bottom: 1rem;
-    /* Màu chữ h2 - Xám Nhạt */
     color: var(--text-dark);
     line-height: 1.2;
-    font-family: 'Raleway', sans-serif;
+    /* --- ĐÃ SỬA: Font cho h2 trong cta-section --- */
+    font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
+    /* ------------------------------------------ */
 }
 
 .cta-section p {
     font-size: clamp(1rem, 3vw, 1.1rem);
     margin-bottom: 2rem;
-    /* Màu chữ p - Xám Nhạt Vừa */
     color: var(--accent-secondary);
     max-width: 600px;
     margin-left: auto;
@@ -896,7 +875,9 @@ footer {
     box-shadow: none;
     border-radius: 0;
     padding: 0;
-    font-family: 'Open Sans', sans-serif;
+     /* --- ĐÃ SỬA: Font cho p trong cta-section --- */
+    font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+    /* ------------------------------------------- */
 }
 
 /* Nút trong CTA sẽ tự động dùng style của class .button đã có */
