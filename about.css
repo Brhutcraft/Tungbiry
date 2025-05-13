@@ -3,15 +3,17 @@
 /* ========================================= */
 
 /* Reset/Base styles - Cần đảm bảo style.css đã có reset hoặc base */
-/* Ví dụ đơn giản (nếu style.css chưa có): */
-/*
+/* Điều chỉnh màu nền và màu chữ cơ bản cho Body */
 body {
     margin: 0;
     font-family: 'Lato', sans-serif;
-    color: #333;
     line-height: 1.6;
-    background-color: #f8f8f8;
+    /* Màu nền xanh đen đậm */
+    background-color: #1A1A2E; /* Hoặc một màu xanh đen đậm khác như #0A192F */
+    /* Màu chữ mặc định sáng để nổi trên nền tối */
+    color: #E0E0E0; /* Màu xám nhạt */
 }
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -22,7 +24,7 @@ img {
     height: auto;
     display: block;
 }
-*/
+
 
 .about-page-content {
     padding: 80px 0; /* Khoảng cách trên dưới cho nội dung chính */
@@ -34,7 +36,8 @@ img {
     align-items: center;
     margin-bottom: 80px; /* Khoảng cách giữa các section lớn */
     padding: 40px 0;
-    border-bottom: 1px solid #eee; /* Đường kẻ nhẹ phân cách các section */
+    /* Đường kẻ nhẹ phân cách các section - đổi màu để hiển thị trên nền tối */
+    border-bottom: 1px solid #3A3A5A; /* Màu đường kẻ xám xanh nhạt */
 }
 
 .content-section:last-child {
@@ -53,7 +56,6 @@ img {
 .section-content {
     flex: 1; /* Cho phép phần nội dung chiếm không gian */
     padding: 0 20px;
-    /* margin-bottom: 30px; */ /* Có thể cần điều chỉnh margin này khi xếp dọc */
 }
 
 .section-image {
@@ -66,12 +68,13 @@ img {
 
 .section-image img {
     border-radius: 8px; /* Bo góc nhẹ cho ảnh */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Đổ bóng nhẹ */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Đổ bóng đậm hơn trên nền tối */
 }
 
 .image-caption {
     font-size: 0.9em;
-    color: #555;
+    /* Màu chữ sáng hơn hoặc cùng màu chữ body */
+    color: #B0B0B0;
     margin-top: 10px;
     text-align: center;
 }
@@ -83,7 +86,8 @@ img {
 
 h1, h2, h3 {
     font-family: 'Playfair Display', serif;
-    color: #2a4a3a; /* Màu xanh đậm hơi trầm */
+    /* Đổi màu tiêu đề sang màu sáng để nổi trên nền tối */
+    color: #FFFFFF; /* Màu trắng */
     line-height: 1.3;
     margin-bottom: 20px;
 }
@@ -93,27 +97,29 @@ h1 {
     font-weight: 700;
     letter-spacing: -0.03em; /* Giãn chữ âm nhẹ cho Playfair Display */
     margin-bottom: 10px;
+    color: #F0F0F0; /* Có thể dùng màu trắng ngà cho h1 */
 }
 
 h2 {
     font-size: 2em; /* Kích thước cho tiêu đề section */
     font-weight: 700;
     margin-bottom: 25px; /* Khoảng cách dưới h2 lớn hơn */
-    position: relative; /* Dùng cho hiệu ứng độc lạ */
-    padding-bottom: 10px; /* Khoảng trống cho pseudo-element */
+    position: relative;
+    padding-bottom: 10px;
 }
 
-/* Hiệu ứng đường kẻ độc lạ dưới h2 */
+/* Hiệu ứng đường kẻ độc lạ dưới h2 - Đổi màu để hiển thị trên nền tối */
 h2::after {
     content: '';
     position: absolute;
-    left: 0; /* Hoặc center nếu text-align center */
+    left: 0;
     bottom: 0;
     width: 50px; /* Chiều dài đường kẻ */
     height: 3px;
-    background-color: #78a48d; /* Màu xanh lá nhạt hơn */
+    /* Màu đường kẻ sáng, có thể là màu nhấn */
+    background-color: #8A9EFF; /* Một màu xanh tím nhạt nổi bật */
     border-radius: 2px;
-    transition: width 0.3s ease-in-out; /* Hiệu ứng khi hover/AOS */
+    transition: width 0.3s ease-in-out;
 }
 
 /* Ví dụ hover cho h2 */
@@ -126,33 +132,41 @@ h3 {
     font-size: 1.5em; /* Kích thước cho tiêu đề phụ (tên người sáng lập) */
     font-weight: 700;
     margin-bottom: 15px;
+    color: #B5B5FF; /* Màu xanh tím nhạt hơn cho h3 */
 }
 
 .subtitle {
     font-size: 1.2em;
-    color: #555;
-    margin-top: -10px; /* Kéo sát subtitle lên h1 */
+    /* Đổi màu subtitle sang màu sáng */
+    color: #B0B0B0;
+    margin-top: -10px;
     margin-bottom: 30px;
     font-family: 'Lato', sans-serif;
+    font-weight: 300;
 }
 
 .divider {
     width: 80px;
     height: 2px;
-    background-color: #78a48d;
-    margin: 20px auto; /* Căn giữa */
+    /* Đổi màu divider sang màu sáng */
+    background-color: #8A9EFF; /* Giống màu đường kẻ h2 */
+    margin: 20px auto;
     border-radius: 1px;
 }
 
 p {
     margin-bottom: 20px;
     font-family: 'Lato', sans-serif;
-    font-weight: 300; /* Font nhẹ nhàng */
+    font-weight: 300;
+    /* Màu chữ đã đặt ở body, nếu muốn p khác thì đặt lại ở đây */
+    /* color: #E0E0E0; */
 }
 
 .first-paragraph {
     font-size: 1.15em;
     line-height: 1.8;
+    /* Màu dropcap sáng, có thể là màu nhấn */
+    color: #B5B5FF;
 }
 
 .dropcap {
@@ -162,12 +176,15 @@ p {
     line-height: 0.8;
     margin-right: 10px;
     margin-bottom: 5px;
-    color: #78a48d; /* Màu xanh lá nhấn nhá */
+    /* Màu dropcap đã đặt ở first-paragraph, nếu muốn khác thì đặt lại ở đây */
+    /* color: #8A9EFF; */
     font-weight: 700;
 }
 
 strong {
-    font-weight: 700; /* Đảm bảo strong vẫn đậm */
+    font-weight: 700;
+    /* Màu strong có thể giữ nguyên màu chữ body hoặc đậm hơn một chút */
+    color: #FFFFFF;
 }
 
 
@@ -177,7 +194,7 @@ strong {
 
 /* Values Section */
 .values-list {
-    list-style: none; /* Bỏ bullet mặc định */
+    list-style: none;
     padding: 0;
     margin-top: 20px;
 }
@@ -188,24 +205,27 @@ strong {
     position: relative;
 }
 
-/* Custom bullet point */
+/* Custom bullet point - Đổi màu để hiển thị trên nền tối */
 .values-list li::before {
     content: '\2022'; /* Dấu chấm Unicode */
-    color: #78a48d; /* Màu xanh lá */
+    color: #8A9EFF; /* Màu nhấn sáng */
     font-size: 1.5em;
     position: absolute;
     left: 0;
     top: 0;
-    line-height: 1.5; /* Căn chỉnh với text */
+    line-height: 1.5;
 }
 
 .quote-box {
-    background-color: #eef4f0; /* Nền nhẹ */
-    border-left: 4px solid #78a48d; /* Đường kẻ nhấn */
+    /* Đổi màu nền và viền để phù hợp nền tối */
+    background-color: #2C2C4B; /* Một màu xanh đậm nhạt hơn nền body */
+    border-left: 4px solid #8A9EFF; /* Màu nhấn sáng */
     padding: 20px;
     font-style: italic;
-    color: #555;
+    /* Màu chữ trong quote box sáng */
+    color: #E0E0E0;
     margin-top: 30px;
+    border-radius: 0 8px 8px 0; /* Bo góc bên phải */
 }
 
 .quote-box span {
@@ -214,7 +234,8 @@ strong {
     margin-top: 10px;
     font-style: normal;
     font-weight: 700;
-    color: #444;
+    /* Màu tên tác giả sáng hơn */
+    color: #FFFFFF;
 }
 
 /* Explore Styles Section */
@@ -224,107 +245,114 @@ strong {
 
 .styles-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Lưới responsive */
-    gap: 30px; /* Khoảng cách giữa các item */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
     margin-top: 40px;
 }
 
 .style-item {
-    display: block; /* Biến a thành block để chứa hết ảnh và text */
-    text-decoration: none; /* Bỏ gạch chân link */
-    color: inherit; /* Kế thừa màu chữ */
+    display: block;
+    text-decoration: none;
+    color: inherit;
     text-align: center;
     border-radius: 8px;
-    overflow: hidden; /* Đảm bảo ảnh không tràn ra */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Đổ bóng đậm hơn */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-color: #2C2C4B; /* Nền nhẹ hơn cho từng item */
 }
 
 .style-item:hover {
-    transform: translateY(-5px); /* Nâng nhẹ lên khi hover */
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
 }
 
 .style-item img {
     width: 100%;
-    height: 200px; /* Chiều cao cố định cho ảnh grid (có thể dùng object-fit) */
-    object-fit: cover; /* Cắt ảnh để vừa với kích thước */
+    height: 200px;
+    object-fit: cover;
     display: block;
     transition: transform 0.3s ease-in-out;
 }
 
 .style-item:hover img {
-    transform: scale(1.05); /* Zoom nhẹ ảnh khi hover */
+    transform: scale(1.05);
 }
 
 .style-name {
     display: block;
     padding: 15px 10px;
-    background-color: #fff;
+    /* Màu nền và chữ cho tên phong cách */
+    background-color: #1A1A2E; /* Nền giống body */
     font-size: 1.2em;
     font-weight: 700;
-    color: #2a4a3a;
+    color: #FFFFFF; /* Chữ trắng */
     font-family: 'Playfair Display', serif;
 }
 
 /* Founder Section */
 .founder-details {
     display: flex;
-    flex-direction: column; /* Mặc định xếp dọc trên mobile */
+    flex-direction: column;
     align-items: center;
-    gap: 40px; /* Khoảng cách giữa ảnh và bio */
+    gap: 40px;
     margin-top: 40px;
 }
 
 .founder-photo {
-    flex-shrink: 0; /* Ảnh không co lại */
-    width: 200px; /* Kích thước ảnh cố định */
+    flex-shrink: 0;
+    width: 200px;
     height: 200px;
-    border-radius: 50%; /* Ảnh tròn */
+    border-radius: 50%;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Đổ bóng đậm hơn */
+    border: 3px solid #8A9EFF; /* Thêm viền màu nhấn cho ảnh đại diện */
 }
 
 .founder-photo img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Cắt ảnh để vừa khung tròn */
+    object-fit: cover;
 }
 
 .founder-bio {
-    flex: 1; /* Bio chiếm phần còn lại */
-    text-align: center; /* Căn giữa text trên mobile */
+    flex: 1;
+    text-align: center;
 }
 
 .founder-bio h3 {
-     margin-bottom: 5px; /* Giảm khoảng cách dưới tên */
+     margin-bottom: 5px;
 }
 
 .founder-role {
     font-style: italic;
-    color: #777;
+    /* Màu chữ vai trò sáng hơn một chút */
+    color: #B0B0B0;
     margin-bottom: 20px;
 }
 
 /* Call to action button */
 .btn.primary-btn {
-    display: inline-block; /* Hiển thị như block nhưng co theo nội dung */
-    background-color: #78a48d; /* Màu nền */
-    color: #fff; /* Màu chữ */
+    display: inline-block;
+    background-color: #8A9EFF; /* Màu nền nút là màu nhấn */
+    color: #1A1A2E; /* Màu chữ trên nút là màu nền đậm */
     padding: 12px 25px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: 700;
     transition: background-color 0.3s ease;
     font-family: 'Lato', sans-serif;
+    border: 1px solid #8A9EFF; /* Thêm viền cùng màu */
 }
 
 .btn.primary-btn:hover {
-    background-color: #5f816c; /* Màu đậm hơn khi hover */
+    background-color: #B5B5FF; /* Màu nhấn nhạt hơn khi hover */
+    color: #1A1A2E;
+    border-color: #B5B5FF;
 }
 
 .mt-3 {
-    margin-top: 15px; /* Khoảng cách trên */
+    margin-top: 15px;
 }
 
 
@@ -339,63 +367,67 @@ strong {
 
     .content-section {
         flex-direction: row; /* Xếp ngang trên tablet và desktop */
-        align-items: flex-start; /* Căn chỉnh các item lên đầu */
-        gap: 60px; /* Khoảng cách giữa nội dung và ảnh/quote */
+        align-items: flex-start;
+        gap: 60px;
     }
 
-    /* Đảo ngược thứ tự ở một số section để tạo sự độc lạ */
+    /* Đảo ngược thứ tự ở một số section */
     .story-section .section-image {
-        order: 2; /* Đặt ảnh sau nội dung */
+        order: 2;
     }
      .story-section .section-content {
-        order: 1; /* Đặt nội dung trước ảnh */
+        order: 1;
     }
-
 
     .vision-section .section-image {
-        order: 1; /* Đặt ảnh trước nội dung (mặc định) */
+        order: 1;
     }
      .vision-section .section-content {
-        order: 2; /* Đặt nội dung sau ảnh */
+        order: 2;
     }
-
 
     .section-content,
     .section-image,
     .section-quote {
-         padding: 0; /* Bỏ padding ngang đã đặt cho mobile */
+         padding: 0;
     }
 
-
     .section-content {
-         margin-bottom: 0; /* Bỏ margin dưới khi xếp ngang */
+         margin-bottom: 0;
     }
 
     .founder-details {
-        flex-direction: row; /* Xếp ngang trên tablet và desktop */
-        text-align: left; /* Căn trái text trong bio */
+        flex-direction: row;
+        text-align: left;
         gap: 60px;
     }
 
     .founder-bio {
-         text-align: left; /* Căn trái cho bio */
+         text-align: left;
     }
 
     h2::after {
-        left: 0; /* Giữ đường kẻ bên trái cho tiêu đề căn trái */
+        left: 0;
     }
 
-    .values-section h2::after {
-         right: 0; /* Đặt đường kẻ bên phải cho tiêu đề căn phải */
-         left: auto; /* Hủy thuộc tính left */
+    /* Căn chỉnh đường kẻ h2 cho tiêu đề căn giữa hoặc căn phải */
+    .text-center h2::after {
+        left: 50%;
+        transform: translateX(-50%); /* Căn giữa */
     }
+
+    /* Nếu có tiêu đề h2 căn phải */
+    /* .text-right h2::after {
+         right: 0;
+         left: auto;
+    } */
 
 
 }
 
 @media (min-width: 992px) {
     h1 {
-        font-size: 4em; /* Kích thước lớn hơn trên desktop */
+        font-size: 4em;
     }
 
     h2 {
@@ -411,12 +443,12 @@ strong {
     }
 
     .content-section {
-        gap: 80px; /* Khoảng cách lớn hơn trên desktop */
+        gap: 80px;
         margin-bottom: 100px;
     }
 
      .section-content {
-        flex: 1.5; /* Nội dung có thể chiếm nhiều không gian hơn ảnh */
+        flex: 1.5;
      }
 
      .section-image {
@@ -424,13 +456,13 @@ strong {
      }
 
     .founder-photo {
-        width: 250px; /* Kích thước ảnh lớn hơn trên desktop */
+        width: 250px;
         height: 250px;
     }
 
     .styles-grid {
-         grid-template-columns: repeat(3, 1fr); /* 3 cột trên desktop */
+         grid-template-columns: repeat(3, 1fr);
          gap: 40px;
     }
-}
 
+}
