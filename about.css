@@ -1,1 +1,888 @@
 
+/* style.css - BỘ MÀU TỐI GIẢN&TINH TẾ (FONT CHỮ MỚI) */
+
+/* --- ĐÃ SỬA: Import các font chữ mới từ Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap'); /* Giữ Lora cho quote */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap'); /* Thêm Inter cho body và Poppins cho tiêu đề */
+/* ---------------------------------------------------- */
+
+:root {
+  --background: #1A1A2E; /* MÀU NỀN CHÍNH: Xanh Đen Đậm */
+  --text-dark: #E0E0E0; /* MÀU CHỮ CHUNG: Xám Nhạt */
+  --text-light: #FFFFFF; /* MÀU CHỮ SÁNG: Trắng Tinh */
+
+  --main-color: #00BCD4; /* MÀU CHỦ ĐẠO/NHẤN 1: Cyan/Teal Sáng */
+  --accent: #8A9EFF; /* MÀU NHẤN 2: Xanh Tím Nhạt */
+  --accent-secondary: #B0B0B0; /* MÀU XÁM PHỤ: Xám Nhạt Vừa */
+
+  --element-background-dark: #2C2C4B; /* NỀN THÀNH PHẦN TỐI: Xanh Đậm Hơi Nhạt Hơn */
+  --border-color-dark: #3A3A5A; /* MÀU ĐƯỜNG KẺ TỐI */
+
+  --overlay-color: rgba(0, 0, 0, 0.5); /* Lớp phủ nền đen mờ */
+  --mobile-menu-bg: var(--background);
+  --mobile-menu-text: var(--text-dark);
+  --mobile-menu-border: var(--border-color-dark);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* --- ĐÃ SỬA: Font cho body --- */
+  font-family: 'Inter', sans-serif; /* Sử dụng Inter làm font mặc định */
+  /* ---------------------------- */
+  background-color: var(--background);
+  color: var(--text-dark);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+body.menu-open {
+    overflow-y: hidden;
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--main-color);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(169, 169, 169, 0.2);
+  padding: 0.8rem 1.2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  width: auto;
+}
+
+.nav-logo img {
+  width: 130px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 1rem;
+  display: block;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.nav-links {
+  list-style: none;
+  gap: 1rem;
+  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
+}
+
+.desktop-nav-links {
+    display: flex;
+}
+
+.nav-links li a {
+  font-weight: 500;
+  transition: color 0.3s ease;
+  /* --- ĐÃ SỬA: Font cho link navbar --- */
+  font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+  /* --------------------------------- */
+}
+
+.nav-links li a:hover {
+  color: var(--main-color);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.cart-icon {
+  font-size: 1.4rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.cart-icon:hover {
+  color: var(--main-color);
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: var(--main-color);
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+.kofi-icon {
+     font-size: 1.4rem;
+     margin-left: 1rem;
+     transition: color 0.3s ease;
+}
+
+.kofi-icon:hover {
+    color: var(--main-color);
+}
+
+
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  padding: 5px;
+  z-index: 1010;
+}
+
+/* --- MOBILE MENU SLIDE-IN STYLES --- */
+
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--overlay-color);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-menu-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: var(--mobile-menu-bg);
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.5);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.mobile-menu-wrapper.open {
+    transform: translateX(0);
+}
+
+.mobile-menu {
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.8rem;
+    color: var(--mobile-menu-text);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1020;
+}
+
+.mobile-menu .nav-links {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.5rem;
+    padding: 0;
+    gap: 0;
+}
+
+.mobile-menu .nav-links li {
+    list-style: none;
+    border-bottom: 1px solid var(--mobile-menu-border);
+}
+.mobile-menu .nav-links li:last-child {
+    border-bottom: none;
+}
+
+
+.mobile-menu .nav-links li a {
+    display: block;
+    padding: 1rem 0;
+    color: var(--mobile-menu-text);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    /* --- ĐÃ SỬA: Font cho link mobile menu --- */
+    font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+    /* --------------------------------------- */
+}
+
+.mobile-menu .nav-links li a:hover {
+     color: var(--main-color);
+     background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* --- CSS cho Social Icons trong Mobile Menu --- */
+.mobile-menu .menu-social {
+  margin-top: 20px;
+  padding: 15px;
+  text-align: center;
+  border-top: 1px solid var(--mobile-menu-border);
+}
+
+.mobile-menu .menu-social .social-link {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 24px;
+  color: var(--mobile-menu-text);
+  transition: color 0.3s ease;
+}
+
+.mobile-menu .menu-social .social-link:hover {
+  color: var(--main-color);
+}
+/* --- KẾT THÚC CSS cho Social Icons trong Mobile Menu --- */
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-left {
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .desktop-nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-right {
+      margin-left: auto;
+      padding-left: 1rem;
+  }
+
+   .nav-logo, .hamburger {
+       align-self: center;
+   }
+
+   .mobile-menu-overlay,
+   .mobile-menu-wrapper {
+   }
+
+   body.menu-open {
+        overflow-y: hidden;
+    }
+}
+
+@media (min-width: 769px) {
+    .desktop-nav-links {
+        display: flex;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+     .mobile-menu-overlay,
+     .mobile-menu-wrapper {
+         display: none !important;
+     }
+
+     body.menu-open {
+         overflow-y: auto;
+     }
+}
+
+/* --- STYLE CHO HEADER VỚI FONT VÀ NỀN TỐI --- */
+header {
+  background: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/full2kne1134848563423638875.jpg') center/cover no-repeat;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--text-light);
+  padding: 1rem;
+  position: relative;
+}
+
+header h1 {
+  /* --- ĐÃ SỬA: Font cho h1 --- */
+  font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
+  /* -------------------------- */
+  font-size: clamp(2.8rem, 6vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.8);
+  letter-spacing: -1px;
+  color: rgba(240, 240, 240, 0.8);
+}
+
+header p {
+  /* --- ĐÃ SỬA: Font cho p trong header --- */
+  font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+  /* ------------------------------------- */
+  font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+  max-width: 700px;
+  line-height: 1.7;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+  color: var(--text-light);
+}
+
+.button {
+  margin-top: 1.5rem;
+  background: rgba(0, 188, 212, 0.8);
+  padding: 0.7rem 1.2rem;
+  color: var(--text-light);
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  /* --- ĐÃ SỬA: Font cho button --- */
+  font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+  /* ------------------------------ */
+  font-size: 1em;
+}
+
+.button:hover {
+  background: var(--main-color);
+  transform: translateY(-2px);
+}
+/* --- KẾT THÚC STYLE CHO HEADER --- */
+
+
+/* Styles cho phần Slider Trích dẫn */
+.quotes-slider-section {
+  padding: 3rem 0;
+  background-color: var(--background);
+  overflow: hidden;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.quotes-slider-section .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.quotes-slider-section h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 2rem;
+  color: var(--text-dark);
+   /* --- ĐÃ SỬA: Font cho h2 các section khác --- */
+  font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
+  /* ------------------------------------------ */
+}
+
+/* Styling cho SVG nếu vẫn dùng */
+.quotes-slider-section h2 svg {
+    margin: 0 10px;
+    width: 25px;
+    height: 25px;
+    color: var(--main-color);
+    stroke-width: 2;
+}
+
+.quotes-slider-wrapper {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 1.5rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+
+.quotes-slider-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.quotes-slider-wrapper .quote-item {
+  flex: 0 0 auto;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+/* Cải thiện giao diện Blockquote bên trong item */
+.quote-item blockquote {
+    background-color: var(--element-background-dark);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    border-left: 5px solid var(--main-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    min-height: 350px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.quote-item blockquote::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    z-index: 1;
+}
+
+.quote-item blockquote p,
+.quote-item blockquote footer {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    color: var(--text-light);
+}
+
+/* --- Giữ nguyên: Kiểu chữ và Căn giữa cho đoạn văn trong quote (dùng font Lora) --- */
+.quote-item blockquote p {
+    font-style: italic;
+    font-family: 'Lora', serif; /* Giữ font Lora */
+    text-align: center;
+}
+/* -------------------------------------------------------------- */
+
+
+/* CSS cho hiệu ứng hiện dần văn bản khi item hiển thị */
+.quote-item.is-in-view blockquote p,
+.quote-item.is-in-view blockquote footer {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===================================================
+   Các rule riêng cho từng trích dẫn (để dùng ảnh nền khác nhau)
+   Bạn cần thay thế đường dẫn ảnh ở đây
+   =================================================== */
+
+/* Trích dẫn thứ 1 */
+.quotes-slider-wrapper .quote-item:nth-child(1) blockquote {
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/17453029449736329168703743478656.jpg');
+}
+
+/* Trích dẫn thứ 2 */
+.quotes-slider-wrapper .quote-item:nth-child(2) blockquote {
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/17465133939912039875614403165308.jpg');
+}
+
+/* Trích dẫn thứ 3 */
+.quotes-slider-wrapper .quote-item:nth-child(3) blockquote {
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/17465127147144149722737175316447.jpg');
+}
+
+/* Trích dẫn thứ 4 */
+.quotes-slider-wrapper .quote-item:nth-child(4) blockquote {
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/1746514185906737048108887341860.jpg');
+}
+
+/* Trích dẫn thứ 5 */
+.quotes-slider-wrapper .quote-item:nth-child(5) blockquote {
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/17465126690376539023984443098602.jpg');
+}
+
+/* Responsive cho item trích dẫn */
+@media (max-width: 768px) {
+    .quotes-slider-wrapper .quote-item {
+         width: calc(100% / 1.5);
+         max-width: none;
+         margin: 0 auto;
+    }
+     .quotes-slider-wrapper {
+        padding: 0 1.5rem 1.5rem 1.5rem;
+     }
+}
+
+@media (min-width: 769px) {
+    .quotes-slider-wrapper .quote-item {
+        width: calc( (100% - 1.5rem) / 2.25 );
+        max-width: none;
+        margin: 0;
+    }
+     .quotes-slider-wrapper {
+        padding: 0 1.5rem 1.5rem 1.5rem;
+     }
+}
+
+@media (min-width: 1024px) {
+     .quotes-slider-wrapper .quote-item {
+        width: calc( (100% - 1.5rem * 2) / 3 );
+     }
+      .quotes-slider-wrapper {
+         padding: 0 1.5rem 1.5rem 1.5rem;
+      }
+}
+
+
+/* Categories Section - Chuyển sang dạng Card */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  background: var(--background);
+  transition: background-color 0.3s ease;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.category {
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--element-background-dark);
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+ .category:hover {
+   transform: translateY(-5px) scale(1.02);
+   box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+ }
+
+ .category img {
+   width: 100%;
+   height: 200px;
+   object-fit: cover;
+   display: block;
+   transition: transform 0.3s ease-out;
+}
+
+  .category:hover img {
+  }
+
+/* Tạo một khu vực riêng cho nội dung văn bản bên trong card */
+.category-content {
+    padding: 1rem;
+    background-color: var(--element-background-dark);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+
+ .category h3 {
+   position: static;
+   margin: 0 0 0.5rem 0;
+   color: var(--text-dark);
+   font-size: 1.1rem;
+   background: none;
+   padding: 0;
+   border-radius: 0;
+   transition: color 0.3s ease;
+   /* --- ĐÃ SỬA: Font cho h3 trong category --- */
+   font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
+   /* ---------------------------------------- */
+ }
+
+  .category:hover h3 {
+     color: var(--main-color);
+  }
+
+/* Thêm style cho đoạn văn mô tả */
+.category-content p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--accent-secondary);
+    line-height: 1.4;
+     /* --- ĐÃ SỬA: Font cho p trong category --- */
+    font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+    /* --------------------------------------- */
+}
+
+
+/* Styles cho phần nội dung chính trang Giới thiệu (about-content) */
+.about-content {
+  padding: 4rem 0;
+  background-color: var(--background);
+  transition: background-color 0.3s ease;
+}
+
+.about-content .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    text-align: left;
+}
+
+.about-content h2 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+    line-height: 1.2;
+    text-align: center;
+     /* --- ĐÃ SỬA: Font cho h2 trong about-content --- */
+    font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
+    /* --------------------------------------------- */
+}
+
+/* Style cho đoạn văn ngay sau H2 (dịch nghĩa) */
+.about-content h2 + p {
+     font-size: 1.1rem;
+     font-style: italic;
+     color: var(--accent-secondary); /* Giữ màu xám phụ */
+     margin-top: 0;
+     margin-bottom: 3rem;
+     text-align: center;
+     background-color: transparent;
+     padding: 0;
+     box-shadow: none;
+     border-radius: 0;
+      /* --- ĐÃ SỬA: Font cho p dịch nghĩa trong about-content --- */
+     font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+     /* ------------------------------------------------------ */
+}
+
+/* Style cho các đoạn văn bản chính - làm chúng trông như các khung */
+.about-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: var(--text-dark); /* Màu chữ chung */
+    background-color: var(--element-background-dark); /* Nền khung Xanh Đậm Hơi Nhạt Hơn */
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+     /* --- ĐÃ SỬA: Font cho p nội dung trong about-content --- */
+    font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+    /* ---------------------------------------------------- */
+}
+
+/* Khoảng trống phía trên tiêu đề H2 thứ hai (phần tiếng Anh) */
+.about-content h2:nth-of-type(2) {
+    margin-top: 4rem;
+     margin-bottom: 2rem;
+}
+
+/* Đảm bảo tiêu đề H2 đầu tiên không có margin trên thừa */
+.about-content .container>h2:first-child {
+    margin-top: 0;
+}
+
+/* Loại bỏ margin dưới cho đoạn văn cuối cùng */
+.about-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Footer */
+footer {
+  background-color: var(--background);
+  color: var(--text-dark);
+  padding: 2rem 1rem;
+  text-align: center;
+  border-top: 3px solid var(--main-color);
+  transition: background-color 0.3s ease;
+}
+
+.footer-content p {
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  line-height: 1.5;
+   /* --- ĐÃ SỬA: Font cho p trong footer --- */
+  font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+  /* ------------------------------------- */
+}
+
+.footer-content a {
+  color: var(--main-color);
+  font-weight: bold;
+  transition: color 0.3s ease;
+   /* --- ĐÃ SỬA: Font cho a trong footer --- */
+  font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+  /* ------------------------------------- */
+}
+
+.footer-content a:hover {
+  color: var(--text-light);
+}
+
+/* Footer Social Icons */
+.footer-social {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.footer-social a {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--main-color);
+}
+
+
+/* --- BẮT ĐẦU BỔ SUNG CSS CHO CÁC SECTION MỚI (Gallery, CTA) --- */
+
+/* Styles cho section Không Gian&Quy Trình (Gallery&Process) */
+.gallery-process-section {
+  padding: 3rem 1.5rem;
+  background-color: var(--background);
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.gallery-process-section h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 2.5rem;
+  color: var(--text-dark);
+   /* --- ĐÃ SỬA: Font cho h2 trong gallery-process-section --- */
+  font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
+  /* ---------------------------------------------------- */
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  background-color: var(--element-background-dark);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.gallery-item:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 4px 15px rgba(0,0,0,0.45);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+   transition: transform 0.3s ease-out;
+}
+
+  .category:hover img {
+  }
+
+.gallery-item p {
+  padding: 1rem;
+  margin-top: auto;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  text-align: left;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+    margin-bottom: 0;
+    line-height: 1.5;
+     /* --- ĐÃ SỬA: Font cho p trong gallery-item --- */
+    font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+    /* --------------------------------------------- */
+}
+
+
+/* Styles cho section Kêu Gọi Hành Động Đặc Biệt (Call to Action) */
+.cta-section {
+    padding: 4rem 1.5rem;
+    background-color: var(--element-background-dark);
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.cta-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-section h2 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    line-height: 1.2;
+    /* --- ĐÃ SỬA: Font cho h2 trong cta-section --- */
+    font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
+    /* ------------------------------------------ */
+}
+
+.cta-section p {
+    font-size: clamp(1rem, 3vw, 1.1rem);
+    margin-bottom: 2rem;
+    color: var(--accent-secondary);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+     /* --- ĐÃ SỬA: Font cho p trong cta-section --- */
+    font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+    /* ------------------------------------------- */
+}
+
+/* Nút trong CTA sẽ tự động dùng style của class .button đã có */
+.cta-section .button {
+    margin-top: 1.5rem;
+}
+/* --- KẾT THÚC BỔ SUNG CSS CHO CÁC SECTION MỚI --- */
