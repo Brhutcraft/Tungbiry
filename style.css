@@ -1,4 +1,4 @@
- /* style.css - BỘ MÀU TỐI GIẢN&TINH TẾ (ĐÃ BỔ SUNG CÁC SECTION MỚI, ICON SOCIAL FOOTER, VÀ MOBILE MENU SLIDE-IN) */
+/* style.css - BỘ MÀU TỐI GIẢN&TINH TẾ (ĐÃ BỔ SUNG CÁC SECTION MỚI, ICON SOCIAL FOOTER, VÀ MOBILE MENU SLIDE-IN) */
 
 /* --- BỔ SUNG: Import font Lora từ Google Fonts cho quote --- */
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap');
@@ -723,7 +723,9 @@ header p {
     line-height: 1.8;
     margin-bottom: 2rem;
     color: var(--text-dark);
-    background-color: #F8F8F8;
+    /* --- ĐÃ SỬA: Điều chỉnh màu nền để giống ảnh hơn (xám nhạt) --- */
+    background-color: #EEEEEE; /* Sử dụng màu xám nhạt tương tự ảnh */
+    /* ---------------------------------------------------------- */
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
