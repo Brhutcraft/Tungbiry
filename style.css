@@ -1,386 +1,468 @@
 /* ========================================= */
-/* General Base Styles (Keeping relevant parts) */
+/* General Styles for About Page Content     */
 /* ========================================= */
 
-/* Cần đảm bảo file CSS này hoặc một file base/reset khác đã có reset CSS cơ bản */
-/* hoặc bạn có thể thêm một đoạn reset đơn giản ở đầu file */
-/*
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-body, h1, h2, h3, p, ul, li {
-    margin: 0;
-    padding: 0;
-}
-*/
-
+/* Reset/Base styles - Cần đảm bảo style.css đã có reset hoặc base */
+/* Điều chỉnh màu nền và màu chữ cơ bản cho Body */
 body {
     margin: 0;
-    font-family: 'Lato', sans-serif; /* Áp dụng font Lato */
+    font-family: 'Lato', sans-serif;
     line-height: 1.6;
-    /* Áp dụng màu nền và màu chữ tổng thể */
+    /* Màu nền xanh đen đậm */
     background-color: #1A1A2E; /* Hoặc một màu xanh đen đậm khác như #0A192F */
+    /* Màu chữ mặc định sáng để nổi trên nền tối */
     color: #E0E0E0; /* Màu xám nhạt */
-    overflow-x: hidden; /* Ngăn scroll ngang */
-    /* Các style layout khác của body sẽ được giữ nguyên từ style.css gốc của bạn */
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    width: 100%;
-    /* Các style layout khác của container sẽ được giữ nguyên */
 }
-
 img {
     max-width: 100%;
     height: auto;
     display: block;
-    /* Các style layout/decoration khác của img sẽ được giữ nguyên */
 }
 
-a {
-    text-decoration: none;
-    color: inherit; /* Kế thừa màu chữ từ cha mặc định */
-    /* Các style khác của a sẽ được giữ nguyên */
+
+.about-page-content {
+    padding: 80px 0; /* Khoảng cách trên dưới cho nội dung chính */
+}
+
+.content-section {
+    display: flex;
+    flex-direction: column; /* Mặc định xếp dọc trên mobile */
+    align-items: center;
+    margin-bottom: 80px; /* Khoảng cách giữa các section lớn */
+    padding: 40px 0;
+    /* Đường kẻ nhẹ phân cách các section - đổi màu để hiển thị trên nền tối */
+    border-bottom: 1px solid #3A3A5A; /* Màu đường kẻ xám xanh nhạt */
+}
+
+.content-section:last-child {
+    border-bottom: none; /* Không có đường kẻ ở section cuối */
+    margin-bottom: 40px;
+}
+
+.section-header {
+    margin-bottom: 40px;
+}
+
+.section-header.text-center {
+    text-align: center;
+}
+
+.section-content {
+    flex: 1; /* Cho phép phần nội dung chiếm không gian */
+    padding: 0 20px;
+}
+
+.section-image {
+    flex: 1; /* Cho phép phần ảnh chiếm không gian */
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column; /* Xếp ảnh và caption dọc */
+    align-items: center;
+}
+
+.section-image img {
+    border-radius: 8px; /* Bo góc nhẹ cho ảnh */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Đổ bóng đậm hơn trên nền tối */
+}
+
+.image-caption {
+    font-size: 0.9em;
+    /* Màu chữ sáng hơn hoặc cùng màu chữ body */
+    color: #B0B0B0;
+    margin-top: 10px;
+    text-align: center;
 }
 
 
 /* ========================================= */
-/* Typography and Headings Styles (Full)     */
-/* Áp dụng toàn bộ style chữ, màu chữ, trang trí chữ từ About page CSS */
+/* Typography and Headings Styles          */
 /* ========================================= */
 
 h1, h2, h3 {
-    font-family: 'Playfair Display', serif; /* Áp dụng font Playfair Display */
-    color: #FFFFFF; /* Màu tiêu đề sáng */
+    font-family: 'Playfair Display', serif;
+    /* Đổi màu tiêu đề sang màu sáng để nổi trên nền tối */
+    color: #FFFFFF; /* Màu trắng */
     line-height: 1.3;
-    margin-bottom: 20px; /* Khoảng cách dưới tiêu đề (có thể cần điều chỉnh lại ở từng section) */
-    /* Các style layout khác của tiêu đề sẽ được giữ nguyên */
+    margin-bottom: 20px;
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 3em; /* Kích thước lớn cho tiêu đề chính */
     font-weight: 700;
-    letter-spacing: -0.03em;
-    margin-bottom: 10px; /* Điều chỉnh khoảng cách dưới h1 */
-    color: #F0F0F0;
-    /* Các style layout khác của h1 sẽ được giữ nguyên */
+    letter-spacing: -0.03em; /* Giãn chữ âm nhẹ cho Playfair Display */
+    margin-bottom: 10px;
+    color: #F0F0F0; /* Có thể dùng màu trắng ngà cho h1 */
 }
 
 h2 {
-    font-size: 2em;
+    font-size: 2em; /* Kích thước cho tiêu đề section */
     font-weight: 700;
-    margin-bottom: 25px;
-    position: relative; /* Cần thiết cho ::after */
-    padding-bottom: 10px; /* Khoảng trống cho đường kẻ ::after */
-     /* Các style layout khác của h2 sẽ được giữ nguyên */
+    margin-bottom: 25px; /* Khoảng cách dưới h2 lớn hơn */
+    position: relative;
+    padding-bottom: 10px;
 }
 
-/* Hiệu ứng đường kẻ độc lạ dưới h2 */
+/* Hiệu ứng đường kẻ độc lạ dưới h2 - Đổi màu để hiển thị trên nền tối */
 h2::after {
     content: '';
     position: absolute;
-    left: 0; /* Mặc định căn trái */
+    left: 0;
     bottom: 0;
     width: 50px; /* Chiều dài đường kẻ */
     height: 3px;
-    background-color: #8A9EFF; /* Màu nhấn sáng */
+    /* Màu đường kẻ sáng, có thể là màu nhấn */
+    background-color: #8A9EFF; /* Một màu xanh tím nhạt nổi bật */
     border-radius: 2px;
     transition: width 0.3s ease-in-out;
-    /* Các style layout khác của ::after sẽ được giữ nguyên */
 }
 
-/* Căn chỉnh đường kẻ h2 khi tiêu đề căn giữa (ví dụ: trong header) */
-.text-center h2::after,
-header h1 + p + h2::after {
-    left: 50%;
-    transform: translateX(-50%); /* Căn giữa */
-}
-/* Nếu bạn có h2 trong quotes-slider-section và muốn căn giữa */
-.quotes-slider-section h2::after {
-    left: 50%;
-    transform: translateX(-50%);
-}
+/* Ví dụ hover cho h2 */
+/* h2:hover::after {
+    width: 80px;
+} */
 
 
 h3 {
-    font-size: 1.5em;
+    font-size: 1.5em; /* Kích thước cho tiêu đề phụ (tên người sáng lập) */
     font-weight: 700;
     margin-bottom: 15px;
-    color: #B5B5FF; /* Màu xanh tím nhạt hơn */
-    /* Các style layout khác của h3 sẽ được giữ nguyên */
+    color: #B5B5FF; /* Màu xanh tím nhạt hơn cho h3 */
 }
 
 .subtitle {
     font-size: 1.2em;
+    /* Đổi màu subtitle sang màu sáng */
     color: #B0B0B0;
     margin-top: -10px;
     margin-bottom: 30px;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-    /* Các style layout khác của subtitle sẽ được giữ nguyên */
 }
 
 .divider {
-    width: 80px; /* Giữ lại width vì nó liên quan đến kích thước trực quan của divider */
+    width: 80px;
     height: 2px;
-    background-color: #8A9EFF;
+    /* Đổi màu divider sang màu sáng */
+    background-color: #8A9EFF; /* Giống màu đường kẻ h2 */
     margin: 20px auto;
     border-radius: 1px;
-    /* Các style layout khác của divider sẽ được giữ nguyên */
 }
 
 p {
     margin-bottom: 20px;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-    color: #E0E0E0; /* Đảm bảo p dùng màu này nếu không kế thừa từ body */
-    /* Các style layout khác của p sẽ được giữ nguyên */
+    /* Màu chữ đã đặt ở body, nếu muốn p khác thì đặt lại ở đây */
+    /* color: #E0E0E0; */
 }
 
 .first-paragraph {
     font-size: 1.15em;
     line-height: 1.8;
-    color: #B5B5FF; /* Màu nhấn cho đoạn đầu tiên */
-    /* Các style layout khác sẽ được giữ nguyên */
+    /* Màu dropcap sáng, có thể là màu nhấn */
+    color: #B5B5FF;
 }
 
 .dropcap {
-    float: left; /* Giữ lại float vì nó là style trình bày chữ */
+    float: left;
     font-size: 4em;
     font-family: 'Playfair Display', serif;
     line-height: 0.8;
     margin-right: 10px;
     margin-bottom: 5px;
+    /* Màu dropcap đã đặt ở first-paragraph, nếu muốn khác thì đặt lại ở đây */
+    /* color: #8A9EFF; */
     font-weight: 700;
-    color: #8A9EFF; /* Màu nhấn cho dropcap */
-    /* Các style layout khác sẽ được giữ nguyên */
 }
 
 strong {
     font-weight: 700;
-    color: #FFFFFF; /* Màu đậm hơn cho strong */
-    /* Các style layout khác sẽ được giữ nguyên */
+    /* Màu strong có thể giữ nguyên màu chữ body hoặc đậm hơn một chút */
+    color: #FFFFFF;
 }
 
-/* Style cho nút (Button) - giữ nguyên vì nó là một thành phần UI theo theme */
-.button {
+
+/* ========================================= */
+/* Specific Section Styles                 */
+/* ========================================= */
+
+/* Values Section */
+.values-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.values-list li {
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+}
+
+/* Custom bullet point - Đổi màu để hiển thị trên nền tối */
+.values-list li::before {
+    content: '\2022'; /* Dấu chấm Unicode */
+    color: #8A9EFF; /* Màu nhấn sáng */
+    font-size: 1.5em;
+    position: absolute;
+    left: 0;
+    top: 0;
+    line-height: 1.5;
+}
+
+.quote-box {
+    /* Đổi màu nền và viền để phù hợp nền tối */
+    background-color: #2C2C4B; /* Một màu xanh đậm nhạt hơn nền body */
+    border-left: 4px solid #8A9EFF; /* Màu nhấn sáng */
+    padding: 20px;
+    font-style: italic;
+    /* Màu chữ trong quote box sáng */
+    color: #E0E0E0;
+    margin-top: 30px;
+    border-radius: 0 8px 8px 0; /* Bo góc bên phải */
+}
+
+.quote-box span {
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+    font-style: normal;
+    font-weight: 700;
+    /* Màu tên tác giả sáng hơn */
+    color: #FFFFFF;
+}
+
+/* Explore Styles Section */
+.explore-styles-section {
+    margin-bottom: 80px;
+}
+
+.styles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.style-item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Đổ bóng đậm hơn */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-color: #2C2C4B; /* Nền nhẹ hơn cho từng item */
+}
+
+.style-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+.style-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.style-item:hover img {
+    transform: scale(1.05);
+}
+
+.style-name {
+    display: block;
+    padding: 15px 10px;
+    /* Màu nền và chữ cho tên phong cách */
+    background-color: #1A1A2E; /* Nền giống body */
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #FFFFFF; /* Chữ trắng */
+    font-family: 'Playfair Display', serif;
+}
+
+/* Founder Section */
+.founder-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.founder-photo {
+    flex-shrink: 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Đổ bóng đậm hơn */
+    border: 3px solid #8A9EFF; /* Thêm viền màu nhấn cho ảnh đại diện */
+}
+
+.founder-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.founder-bio {
+    flex: 1;
+    text-align: center;
+}
+
+.founder-bio h3 {
+     margin-bottom: 5px;
+}
+
+.founder-role {
+    font-style: italic;
+    /* Màu chữ vai trò sáng hơn một chút */
+    color: #B0B0B0;
+    margin-bottom: 20px;
+}
+
+/* Call to action button */
+.btn.primary-btn {
     display: inline-block;
-    background-color: #8A9EFF;
-    color: #1A1A2E;
+    background-color: #8A9EFF; /* Màu nền nút là màu nhấn */
+    color: #1A1A2E; /* Màu chữ trên nút là màu nền đậm */
     padding: 12px 25px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: 700;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease;
     font-family: 'Lato', sans-serif;
-    border: 1px solid #8A9EFF;
+    border: 1px solid #8A9EFF; /* Thêm viền cùng màu */
 }
 
-.button:hover {
-    background-color: #B5B5FF;
+.btn.primary-btn:hover {
+    background-color: #B5B5FF; /* Màu nhấn nhạt hơn khi hover */
     color: #1A1A2E;
     border-color: #B5B5FF;
-    transform: translateY(-3px);
+}
+
+.mt-3 {
+    margin-top: 15px;
 }
 
 
 /* ========================================= */
-/* Homepage Specific Sections Typography     */
-/* Chỉ áp dụng style chữ, màu chữ cho các section cụ thể của trang chủ */
-/* Các style layout, box-shadow, background-color, v.v. sẽ được giữ nguyên từ style.css gốc của bạn */
-/* ========================================= */
-
-/* Header Section - Chỉ điều chỉnh style chữ */
-header {
-    /* Giữ nguyên padding, text-align, và các style layout khác từ style.css gốc */
-    text-align: center; /* Giả định header text căn giữa */
-}
-
-header h1 {
-     /* Style h1 đã được định nghĩa ở trên, không cần ghi đè layout */
-     margin-bottom: 15px; /* Điều chỉnh lại khoảng cách dưới h1 trong header nếu cần */
-}
-
-header p {
-    /* Style p đã được định nghĩa ở trên, không cần ghi đè layout */
-    font-size: 1.2em; /* Có thể tăng kích thước p trong header */
-    margin-bottom: 40px; /* Khoảng cách dưới p trước button */
-}
-
-
-/* Quotes Slider Section - Chỉ style chữ trong blockquote */
-.quotes-slider-wrapper blockquote p {
-    font-style: italic; /* Áp dụng font style italic */
-    font-size: 1.1em; /* Điều chỉnh kích thước chữ trích dẫn */
-    color: #E0E0E0; /* Màu chữ trích dẫn */
-    line-height: 1.7;
-    margin: 0; /* Loại bỏ margin mặc định của p trong blockquote */
-    text-align: center; /* Căn giữa text */
-    font-family: 'Lato', sans-serif; /* Đảm bảo font Lato */
-    font-weight: 300;
-    /* Các style layout, background, border, padding của .quotes-slider-wrapper và blockquote sẽ được giữ nguyên từ style.css gốc */
-}
-
-
-/* Categories Section - Chỉ style chữ trong tên danh mục */
-.category-content h3 {
-    font-family: 'Playfair Display', serif; /* Áp dụng font Playfair Display */
-    font-size: 1.2em; /* Điều chỉnh kích thước h3 cho item */
-    font-weight: 700;
-    color: #FFFFFF; /* Chữ trắng */
-    margin: 0; /* Reset margin default của h3 */
-    /* Các style layout, padding, background của .categories và .category sẽ được giữ nguyên từ style.css gốc */
-}
-
-
-/* Footer - Chỉ style chữ và link */
-footer {
-    /* Giữ nguyên padding, background-color, và các style layout khác từ style.css gốc */
-    text-align: center; /* Giả định footer text căn giữa */
-    color: #B0B0B0; /* Màu chữ mặc định trong footer */
-    font-size: 0.9em; /* Kích thước font nhỏ hơn cho toàn bộ footer */
-    font-family: 'Lato', sans-serif; /* Đảm bảo font Lato cho footer */
-}
-
-.footer-content p {
-    margin-bottom: 10px; /* Khoảng cách giữa các đoạn p trong footer */
-     /* Màu chữ đã được đặt ở footer, p sẽ kế thừa */
-}
-
-footer a {
-    color: #8A9EFF; /* Màu link trong footer */
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    color: #B5B5FF;
-}
-
-/* Style cho social icons trong footer nếu cần */
-.footer-social .social-link {
-    /* Giữ nguyên margin, font-size từ style.css gốc */
-    color: #E0E0E0; /* Màu icon social */
-    transition: color 0.3s ease;
-}
-
-.footer-social .social-link:hover {
-    color: #8A9EFF; /* Màu icon hover */
-}
-
-
-/* ========================================= */
-/* Navbar & Mobile Menu Styles (Keeping from previous response) */
-/* Giữ nguyên các style này vì chúng là layout cho navbar/menu */
-/* ========================================= */
-
-.mobile-menu-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); z-index: 1050; visibility: hidden; opacity: 0; transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-.mobile-menu-wrapper {
-     position: fixed; top: 0; right: 0; width: 280px; height: 100%; background-color: #1A1A2E; z-index: 1100; transform: translateX(100%); transition: transform 0.3s ease; padding: 20px; box-shadow: -4px 0 8px rgba(0,0,0,0.3);
-}
-.mobile-menu-wrapper.active {
-    transform: translateX(0);
-}
-.mobile-menu-overlay.active {
-    visibility: visible; opacity: 1;
-}
-
-.navbar {
-    display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background-color: #1A1A2E; color: #E0E0E0; position: fixed; width: 100%; top: 0; left: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-.nav-left {
-    display: flex; align-items: center; gap: 30px;
-}
-.nav-logo img {
-    height: 40px; width: auto;
-}
-.nav-links {
-    list-style: none; display: flex; gap: 20px;
-}
-.nav-links li a {
-    color: #E0E0E0; font-weight: 400; transition: color 0.3s ease;
-}
-.nav-links li a:hover {
-    color: #8A9EFF;
-}
-.desktop-nav-links {
-    display: none; /* Mặc định ẩn trên mobile */
-}
-.hamburger {
-    font-size: 1.8em; cursor: pointer; display: block; color: #E0E0E0;
-}
-.nav-right {
-     display: flex; align-items: center;
-}
-.kofi-icon {
-     font-size: 1.5em; color: #E0E0E0; transition: color 0.3s ease;
-}
-.kofi-icon:hover {
-    color: #8A9EFF;
-}
-.mobile-menu .close-btn {
-    background: none; border: none; color: #E0E0E0; font-size: 1.8em; position: absolute; top: 15px; right: 15px; cursor: pointer;
-}
-.mobile-menu .nav-links {
-    flex-direction: column; gap: 15px; margin-top: 60px;
-}
-.mobile-menu .nav-links li a {
-    display: block; padding: 10px 0; color: #E0E0E0; font-size: 1.1em; border-bottom: 1px solid #3A3A5A;
-}
-.mobile-menu .nav-links li:last-child a {
-     border-bottom: none;
-}
-.mobile-menu .menu-social {
-     margin-top: 40px; text-align: center;
-}
-.mobile-menu .menu-social .social-link {
-     margin: 0 10px; font-size: 1.8em; color: #E0E0E0; transition: color 0.3s ease;
-}
-.mobile-menu .menu-social .social-link:hover {
-    color: #8A9EFF;
-}
-
-
-/* ========================================= */
-/* Responsive Adjustments (Typography focus) */
-/* Chỉ điều chỉnh các style liên quan đến chữ và khoảng cách xung quanh chữ */
-/* Các style layout, kích thước phần tử chính sẽ được giữ nguyên từ style.css gốc của bạn */
+/* Responsive Adjustments                  */
 /* ========================================= */
 
 @media (min-width: 768px) {
-    /* Typography Adjustments */
-    h1 { font-size: 3.5em; } /* Điều chỉnh kích thước h1 */
-    h2 { font-size: 2.2em; } /* Điều chỉnh kích thước h2 */
-    h3 { font-size: 1.6em; } /* Điều chỉnh kích thước h3 */
-    header p { font-size: 1.3em; } /* Điều chỉnh kích thước p trong header */
-    .quotes-slider-wrapper blockquote p { font-size: 1.2em; } /* Điều chỉnh kích thước chữ trích dẫn */
-    footer { font-size: 1em; } /* Điều chỉnh kích thước font footer */
+    .about-page-content {
+        padding: 100px 0;
+    }
 
-    /* Navigation */
-    .desktop-nav-links {
-        display: flex; /* Hiển thị desktop nav */
+    .content-section {
+        flex-direction: row; /* Xếp ngang trên tablet và desktop */
+        align-items: flex-start;
+        gap: 60px;
     }
-    .hamburger {
-        display: none; /* Ẩn hamburger */
+
+    /* Đảo ngược thứ tự ở một số section */
+    .story-section .section-image {
+        order: 2;
     }
+     .story-section .section-content {
+        order: 1;
+    }
+
+    .vision-section .section-image {
+        order: 1;
+    }
+     .vision-section .section-content {
+        order: 2;
+    }
+
+    .section-content,
+    .section-image,
+    .section-quote {
+         padding: 0;
+    }
+
+    .section-content {
+         margin-bottom: 0;
+    }
+
+    .founder-details {
+        flex-direction: row;
+        text-align: left;
+        gap: 60px;
+    }
+
+    .founder-bio {
+         text-align: left;
+    }
+
+    h2::after {
+        left: 0;
+    }
+
+    /* Căn chỉnh đường kẻ h2 cho tiêu đề căn giữa hoặc căn phải */
+    .text-center h2::after {
+        left: 50%;
+        transform: translateX(-50%); /* Căn giữa */
+    }
+
+    /* Nếu có tiêu đề h2 căn phải */
+    /* .text-right h2::after {
+         right: 0;
+         left: auto;
+    } */
+
+
 }
 
 @media (min-width: 992px) {
-    /* Typography Adjustments */
-    h1 { font-size: 4em; }
-    h2 { font-size: 2.5em; }
-    h3 { font-size: 1.8em; }
-    header p { font-size: 1.4em; }
-    .quotes-slider-wrapper blockquote p { font-size: 1.3em; }
-    footer { font-size: 1em; }
-
-    /* Navbar links gap */
-    .nav-links {
-        gap: 30px;
+    h1 {
+        font-size: 4em;
     }
+
+    h2 {
+        font-size: 2.5em;
+    }
+
+    h3 {
+        font-size: 1.8em;
+    }
+
+    .about-page-content {
+        padding: 120px 0;
+    }
+
+    .content-section {
+        gap: 80px;
+        margin-bottom: 100px;
+    }
+
+     .section-content {
+        flex: 1.5;
+     }
+
+     .section-image {
+        flex: 1;
+     }
+
+    .founder-photo {
+        width: 250px;
+        height: 250px;
+    }
+
+    .styles-grid {
+         grid-template-columns: repeat(3, 1fr);
+         gap: 40px;
+    }
+
 }
