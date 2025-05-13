@@ -1,16 +1,18 @@
 /* ========================================= */
-/* About Page CSS - Magazine Style (Dark Theme & Modern - Final Color Adjustments & Explore Styles) */
+/* About Page CSS - Magazine Style (Refined Dark Theme & Professional) */
 /* ========================================= */
 
-/* Import Google Fonts (chọn font phù hợp với phong cách tạp chí hiện đại) */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+/* Import Google Fonts (chọn font phù hợp với phong cách tạp chí hiện đại và chuyên nghiệp) */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap');
+/* Gợi ý: Merriweather cho tiêu đề (có chân), Open Sans cho nội dung (không chân, sạch sẽ) */
 
 
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif; /* Font nội dung sạch sẽ */
+    font-weight: 400; /* Độ đậm mặc định */
     line-height: 1.8;
-    color: #dcdcdc; /* Màu chữ sáng cho nền tối */
-    background-color: #1a2a2a; /* MÀU NỀN CHÍNH: Tông rất tối */
+    color: #e0e0e0; /* Màu chữ sáng (xám nhạt) cho nền tối */
+    background-color: #1e2a38; /* MÀU NỀN CHÍNH: Xanh dương đen (Deep Blue-Grey) */
     margin: 0;
     padding: 0;
     text-rendering: optimizeLegibility;
@@ -24,20 +26,19 @@ body {
     padding: 0 25px;
 }
 
-/* Section chính của trang About - Phong cách tạp chí */
+/* Section chính của trang About - Tạo khối nội dung nổi bật trên nền body */
 .about-content.magazine-layout {
     padding: 60px 0 80px 0;
-    background-color: #2a2a2a; /* NỀN NỘI DUNG CHÍNH: Tối hơn một chút */
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
-    margin-top: 30px;
-    margin-bottom: 30px;
-    border-radius: 10px;
+    background-color: #283645; /* NỀN NỘI DUNG CHÍNH: Hơi sáng hơn body */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5); /* Bóng đổ chuyên nghiệp hơn */
+    margin: 30px auto; /* Căn giữa và tạo khoảng cách với đầu/cuối trang */
+    border-radius: 12px; /* Bo tròn góc nhiều hơn */
     overflow: hidden;
     position: relative;
     z-index: 1;
 }
 
-/* Họa tiết nền nhẹ cho section chính */
+/* Họa tiết nền tinh tế cho section chính */
 .about-content.magazine-layout::before {
     content: '';
     position: absolute;
@@ -45,10 +46,11 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9IiM0NDQ0NDQiIGZpbGwtb3BhY2l0eT0iMC40IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxwYXRoIGQ9Ik0wIDQwTDIwIDIwIDIwIDBIMHoiLz4KICAgICAgICA8cGF0aCBkPSJNMjAgNDBMNDAgMjAgNDAgMEgyMHoiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0yMCAyMEwwIDQwIDQwIDQweiIgZmlsbD0iIzQ0NDQ0NCIvPgogICAgPC9nPgogICAgICA8L3N2Zz4=');
+    /* Họa tiết dạng chấm hoặc đường kẻ tinh tế hơn */
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgNiA2IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMCUyRnN2ZyI+PGcgZmlsbD0iIzRhNWE2YyIgZmlsbC1vcGFjaXR5PSIwLjQiIGZpbGwtcnVsZT0iZXZlbm9kZSI+PHBhdGggZD0iTTUuOTg1IDZWMGgwLTAwNWwxIC4wMDUgNC45OCA2eiIvPjxwYXRoIGQ9Ik01Ljk4NSA2VjBoMC0wMDVsMSAuMDA1IDQuOTggNnoiLz48L2c+PC9zdmc+'); /* Họa tiết đường chéo tinh tế */
     background-repeat: repeat;
-    background-size: 30px;
-    opacity: 0.4;
+    background-size: 12px; /* Kích thước họa tiết nhỏ */
+    opacity: 0.3;
     pointer-events: none;
     z-index: 0;
 }
@@ -57,42 +59,45 @@ body {
 /* Phần tiêu đề đầu bài tạp chí */
 .magazine-header {
     text-align: center;
-    margin-bottom: 50px;
-    padding-bottom: 25px;
-    border-bottom: 1px solid #444;
+    margin-bottom: 60px; /* Tăng khoảng cách */
+    padding-bottom: 30px;
+    border-bottom: 1px solid #4e5d6c; /* Đường kẻ màu đậm hơn */
     position: relative;
 }
 
 .magazine-header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 4em;
-    color: #e0e0e0; /* Màu tiêu đề sáng */
-    margin-bottom: 8px;
+    font-family: 'Merriweather', serif; /* Font tiêu đề có chân */
+    font-size: 4.2em; /* Tăng kích thước */
+    color: #ffffff; /* Màu tiêu đề trắng tinh */
+    margin-bottom: 10px;
     letter-spacing: 3px;
     text-transform: uppercase;
+    font-weight: 700; /* Độ đậm */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Bóng đổ nhẹ */
 }
 
 .magazine-header .subtitle {
-    font-family: 'Lato', sans-serif;
-    font-size: 1.6em;
-    color: #b0b0b0; /* Màu phụ đề xám sáng */
+    font-family: 'Open Sans', sans-serif; /* Font nội dung */
+    font-size: 1.7em; /* Tăng kích thước */
+    color: #b0b0b0; /* Màu phụ đề xám */
     margin-top: 0;
     font-style: italic;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
+    font-weight: 300; /* Chữ mảnh */
 }
 
 .magazine-divider {
-    width: 100px;
-    height: 5px;
-    background-color: #b5651d; /* MÀU NHẤN: Burnt Orange */
-    margin: 25px auto 0 auto;
-    border-radius: 3px;
+    width: 120px; /* Tăng chiều dài */
+    height: 4px;
+    background-color: #c4a07b; /* MÀU NHẤN CHÍNH: Muted Gold/Brass */
+    margin: 30px auto 0 auto;
+    border-radius: 2px;
 }
 
 /* Nội dung chính của bài viết (tạp chí) */
 .magazine-article {
     column-count: 1;
-    column-gap: 50px;
+    column-gap: 60px; /* Tăng khoảng cách giữa các cột */
 }
 
 /* Áp dụng nhiều cột cho màn hình lớn hơn */
@@ -105,11 +110,11 @@ body {
 /* Reset để các phần tử không bị chia cột */
 .article-intro,
 .article-section,
-.explore-styles, /* Thêm explore-styles */
+.explore-styles,
 .founder-section,
 .magazine-header {
     column-span: all;
-    margin-bottom: 50px;
+    margin-bottom: 60px; /* Tăng khoảng cách dưới mỗi section */
     page-break-inside: avoid;
     break-inside: avoid-column;
     position: relative;
@@ -118,57 +123,58 @@ body {
 
 
 .article-intro {
-    padding: 30px 40px;
-    background-color: #3a3a3a; /* NỀN PHỤ: Xám đậm hơn */
-    border-left: 6px solid #b5651d; /* Viền màu nhấn */
-    border-radius: 8px;
-    margin-bottom: 40px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 40px 50px; /* Tăng padding */
+    background-color: #344352; /* NỀN PHỤ: Màu tối hơn một chút */
+    border-left: 8px solid #c4a07b; /* Viền màu nhấn dày hơn */
+    border-radius: 10px;
+    margin-bottom: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 
 .article-intro .first-paragraph {
-    font-size: 1.3em;
+    font-size: 1.4em; /* Tăng kích thước font */
     font-weight: 400;
     margin-bottom: 20px;
-    color: #ffffff; /* Tăng độ sáng cho chữ */
+    color: #e0e0e0; /* Màu chữ sáng */
 }
 
 /* Hiệu ứng chữ cái lớn đầu dòng (Drop Cap) */
 .first-paragraph .dropcap {
     float: left;
-    font-family: 'Playfair Display', serif;
-    font-size: 4.5em;
+    font-family: 'Merriweather', serif; /* Font tiêu đề */
+    font-size: 5em; /* Tăng kích thước */
     line-height: 0.7;
     margin-right: 15px;
     font-weight: 700;
-    color: #b5651d;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    color: #c4a07b; /* Màu dropcap (Muted Gold) */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .article-section h2 {
-    font-family: 'Lora', serif;
-    font-size: 2.2em;
-    color: #e0e0e0; /* Màu tiêu đề sáng */
-    margin-bottom: 25px;
-    margin-top: 10px;
+    font-family: 'Merriweather', serif; /* Font tiêu đề có chân */
+    font-size: 2.4em; /* Tăng kích thước */
+    color: #ffffff; /* Màu tiêu đề trắng tinh */
+    margin-bottom: 30px; /* Tăng khoảng cách */
+    margin-top: 15px; /* Thêm khoảng cách trên */
     position: relative;
-    padding-bottom: 12px;
+    padding-bottom: 15px;
+    font-weight: 700;
 }
 
 /* Đường kẻ dưới tiêu đề section */
 .article-section h2::after {
     content: '';
     display: block;
-    width: 60px;
-    height: 4px;
-    background-color: #b5651d;
-    margin-top: 8px;
+    width: 80px; /* Tăng chiều dài */
+    height: 5px; /* Tăng độ dày */
+    background-color: #c4a07b; /* Màu gạch chân (Muted Gold) */
+    margin-top: 10px;
 }
 
 .article-section p {
-    font-size: 1.15em;
-    color: #f8f8f8; /* Tăng độ sáng cho chữ chính */
+    font-size: 1.2em; /* Tăng font size */
+    color: #e0e0e0; /* Màu chữ sáng */
     margin-bottom: 25px;
     text-align: justify;
 }
@@ -182,37 +188,41 @@ body {
 .article-section ul li {
     list-style: none;
     position: relative;
-    padding-left: 25px;
-    margin-bottom: 15px;
-    font-size: 1.15em;
-    color: #f8f8f8; /* Tăng độ sáng cho chữ */
+    padding-left: 30px; /* Tăng khoảng cách cho dấu chấm */
+    margin-bottom: 18px; /* Tăng khoảng cách giữa các item */
+    font-size: 1.2em; /* Tăng font size */
+    color: #e0e0e0; /* Màu chữ sáng */
+    font-weight: 300; /* Chữ mảnh hơn */
 }
 /* Tạo dấu chấm tùy chỉnh */
 .article-section ul li::before {
     content: '\2022';
-    color: #7f9f7f; /* MÀU PHỤ: Muted Sea Green */
+    color: #7b9c8d; /* MÀU PHỤ: Desaturated Teal/Green */
     font-weight: bold;
     display: inline-block;
     width: 1em;
     margin-left: -1em;
     position: absolute;
     left: 0;
+    font-size: 1.3em; /* Kích thước dấu chấm */
 }
 
 
 .article-section ul li strong {
-    color: #ffffff; /* Tăng độ sáng cho chữ đậm */
+    color: #ffffff; /* Màu chữ đậm trắng tinh */
+    font-weight: 600; /* Độ đậm */
 }
 
 
-/* Bố cục đặc biệt cho các section */
+/* Bố cục đặc biệt cho các section - Sử dụng Flexbox hoặc Grid để tạo layout phức tạp hơn*/
+/* Áp dụng khoảng cách và căn chỉnh tốt hơn */
 .story-section,
 .values-section,
 .vision-section {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 40px;
+    gap: 50px; /* Tăng khoảng cách giữa các phần tử */
 }
 
 
@@ -222,7 +232,7 @@ body {
      .values-section,
      .vision-section {
         flex-direction: row;
-        gap: 60px;
+        gap: 80px; /* Tăng khoảng cách giữa các cột trên desktop */
         align-items: flex-start;
      }
 
@@ -234,13 +244,13 @@ body {
      }
 
      .story-content { flex-basis: 60%; flex-shrink: 0; }
-     .story-image { flex-basis: 40%; flex-shrink: 0; margin-top: 30px; }
+     .story-image { flex-basis: 40%; flex-shrink: 0; margin-top: 40px; } /* Điều chỉnh margin top */
 
      .values-content { flex-basis: 60%; flex-shrink: 0; }
-     .values-quote { flex-basis: 40%; flex-shrink: 0; margin-top: 50px; }
+     .values-quote { flex-basis: 40%; flex-shrink: 0; margin-top: 60px; } /* Điều chỉnh margin top */
 
-     .vision-image { flex-basis: 40%; flex-shrink: 0; margin-top: 30px;}
-     .vision-content { flex-basis: 60%; flex-shrink: 0; margin-top: 30px; }
+     .vision-image { flex-basis: 40%; flex-shrink: 0; margin-top: 40px;}
+     .vision-content { flex-basis: 60%; flex-shrink: 0; margin-top: 40px; } /* Điều chỉnh margin top */
 }
 
 
@@ -250,27 +260,28 @@ body {
     display: block;
     max-width: 100%;
     height: auto;
-    border: 5px solid #4a4a4a; /* Viền tối */
-    padding: 8px;
-    background-color: #3a3a3a; /* Nền tối cho padding */
-    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+    border: 6px solid #4e5d6c; /* Viền màu đậm */
+    padding: 10px; /* Tăng padding */
+    background-color: #344352; /* Nền tối cho padding */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 .image-caption {
-    font-size: 0.95em;
-    color: #b0b0b0; /* Màu caption xám sáng */
+    font-size: 1em; /* Tăng font size caption */
+    color: #b0b0b0; /* Màu caption xám */
     text-align: center;
-    margin-top: 10px;
+    margin-top: 15px; /* Tăng khoảng cách trên caption */
     font-style: italic;
+    font-weight: 300;
 }
 
 
-/* Section Giá Trị (Values) - Nền phụ xám đậm */
+/* Section Giá Trị (Values) - Nền phụ */
 .values-section {
-    padding: 40px;
-    background-color: #3a3a3a; /* Nền phụ xám đậm */
-    border-radius: 8px;
-    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2);
+    padding: 50px; /* Tăng padding */
+    background-color: #344352; /* Nền phụ */
+    border-radius: 10px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
 }
 /* Đảm bảo các phần tử con không bị ảnh hưởng bởi padding nếu đã có */
 .values-section .values-content,
@@ -281,34 +292,34 @@ body {
 
 .quote-box {
     border: none;
-    border-left: 5px solid #b5651d; /* Viền màu nhấn */
-    padding: 20px 25px;
+    border-left: 5px solid #c4a07b; /* Viền màu nhấn */
+    padding: 25px 30px; /* Tăng padding */
     margin-left: 0;
-    font-family: 'Lora', serif;
-    font-size: 1.4em;
+    font-family: 'Merriweather', serif; /* Font tiêu đề cho quote */
+    font-size: 1.5em; /* Tăng font size */
     font-style: italic;
-    color: #f8f8f8; /* Tăng độ sáng cho chữ */
+    color: #e0e0e0; /* Màu chữ sáng */
     background-color: transparent;
     position: relative;
 }
 /* Thêm dấu trích dẫn trang trí */
 .quote-box::before {
     content: '\201C';
-    font-size: 3em;
-    color: #b5651d;
+    font-size: 3.5em; /* Tăng kích thước */
+    color: #c4a07b; /* Màu nhấn */
     position: absolute;
-    top: 5px;
-    left: 5px;
-    opacity: 0.8;
+    top: 10px; /* Điều chỉnh vị trí */
+    left: 10px; /* Điều chỉnh vị trí */
+    opacity: 0.7;
 }
 .quote-box::after {
     content: '\201D';
-    font-size: 3em;
-    color: #b5651d;
+    font-size: 3.5em;
+    color: #c4a07b;
     position: absolute;
-    bottom: 5px;
-    right: 5px;
-    opacity: 0.8;
+    bottom: 10px; /* Điều chỉnh vị trí */
+    right: 10px; /* Điều chỉnh vị trí */
+    opacity: 0.7;
 }
 
 
@@ -322,96 +333,97 @@ body {
 .quote-box span {
     display: block;
     text-align: right;
-    font-size: 1em;
+    font-size: 1.1em; /* Tăng font size tên */
     color: #b0b0b0;
-    margin-top: 10px;
+    margin-top: 15px; /* Tăng khoảng cách */
+    font-weight: 400;
 }
 
 
 /* PHẦN KHÁM PHÁ CÁC PHONG CÁCH BRHUT (VISUAL LINKS) */
 .explore-styles {
      column-span: all;
-     margin-bottom: 50px;
-     padding: 40px 0; /* Padding trên dưới */
+     margin-bottom: 60px;
+     padding: 40px 0;
      text-align: center;
-     /* Có thể thêm nền hoặc viền khác biệt cho phần này */
-     /* background-color: #3a3a3a; */
-     /* border-top: 1px solid #444; */
-     /* border-bottom: 1px solid #444; */
+     /* background-color: #344352; /* Có thể thêm nền khác biệt */
+     /* border-top: 1px solid #4e5d6c; */
+     /* border-bottom: 1px solid #4e5d6c; */
 }
 
 .explore-styles h2 {
-    color: #e0e0e0; /* Màu tiêu đề sáng */
+    color: #ffffff; /* Màu tiêu đề trắng tinh */
     margin-bottom: 30px;
-    /* Sử dụng style gạch chân tương tự các section khác */
-    font-family: 'Lora', serif;
-    font-size: 2.2em;
+    font-family: 'Merriweather', serif;
+    font-size: 2.4em;
     position: relative;
-    padding-bottom: 12px;
+    padding-bottom: 15px;
+    font-weight: 700;
 }
 .explore-styles h2::after {
     content: '';
     display: block;
-    width: 60px;
-    height: 4px;
-    background-color: #b5651d;
-    margin: 8px auto 0 auto; /* Căn giữa gạch chân */
+    width: 80px;
+    height: 5px;
+    background-color: #c4a07b;
+    margin: 10px auto 0 auto;
 }
 
 
 .styles-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grid responsive */
-    gap: 30px; /* Khoảng cách giữa các item grid */
-    margin-top: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Tăng kích thước min */
+    gap: 40px; /* Tăng khoảng cách */
+    margin-top: 40px;
 }
 
 .style-item {
-    display: block; /* Để toàn bộ box là link */
-    text-decoration: none; /* Bỏ gạch chân link */
-    color: inherit; /* Kế thừa màu chữ */
-    background-color: #3a3a3a; /* Nền item grid */
-    border-radius: 8px;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background-color: #344352; /* Nền item grid */
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Tăng thời gian transition */
 }
 
 .style-item:hover {
-    transform: translateY(-10px); /* Hiệu ứng nâng khi hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-12px); /* Hiệu ứng nâng rõ hơn */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Bóng đổ rõ hơn */
 }
 
 .style-item img {
     display: block;
     width: 100%;
-    height: 200px; /* Chiều cao cố định cho ảnh */
-    object-fit: cover; /* Đảm bảo ảnh không bị méo */
-    transition: transform 0.3s ease;
+    height: 220px; /* Tăng chiều cao ảnh */
+    object-fit: cover;
+    transition: transform 0.4s ease;
 }
 
 .style-item:hover img {
-    transform: scale(1.05); /* Phóng to ảnh nhẹ khi hover */
+    transform: scale(1.08); /* Phóng to ảnh rõ hơn */
 }
 
 
 .style-item h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5em;
-    color: #b5651d; /* Màu tiêu đề item (Burnt Orange) */
-    margin: 15px 10px; /* Khoảng cách */
+    font-family: 'Merriweather', serif; /* Font tiêu đề */
+    font-size: 1.6em; /* Tăng kích thước */
+    color: #c4a07b; /* Màu tiêu đề item (Muted Gold) */
+    margin: 20px 15px; /* Tăng khoảng cách */
     text-align: center;
+    font-weight: 700;
 }
 
 
 /* PHẦN GIỚI THIỆU NGƯỜI SÁNG LẬP (FOUNDER) */
 .founder-section {
     column-span: all;
-    margin-bottom: 50px;
-    padding: 40px;
-    background-color: #3a3a3a; /* Nền phụ xám đậm */
-    border-radius: 8px;
-    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 60px;
+    padding: 50px; /* Tăng padding */
+    background-color: #344352; /* Nền phụ */
+    border-radius: 10px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
     text-align: center;
 }
 
@@ -419,46 +431,51 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
-    margin-top: 30px;
+    gap: 40px; /* Tăng khoảng cách */
+    margin-top: 40px;
 }
 
 .founder-photo img {
-    width: 180px;
-    height: 180px;
+    width: 200px; /* Tăng kích thước ảnh */
+    height: 200px;
     object-fit: cover;
     border-radius: 50%;
-    border: 6px solid #b5651d;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 8px solid #c4a07b; /* Viền màu nhấn dày hơn */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Bóng đổ rõ hơn */
 }
 
 .founder-bio {
     flex: 1;
     text-align: left;
-    max-width: 600px;
-    color: #f0f0f0; /* Màu chữ sáng */
+    max-width: 700px; /* Tăng max-width */
+    color: #e0e0e0; /* Màu chữ sáng */
+    font-weight: 300; /* Chữ mảnh hơn */
 }
 
 .founder-bio h3 {
-    font-family: 'Lora', serif;
-    font-size: 1.8em;
-    color: #e0e0e0; /* Màu tên sáng */
-    margin-bottom: 5px;
+    font-family: 'Merriweather', serif; /* Font tiêu đề */
+    font-size: 2em; /* Tăng kích thước */
+    color: #ffffff; /* Màu tên trắng tinh */
+    margin-bottom: 8px;
     margin-top: 0;
+    font-weight: 700;
 }
 
 .founder-bio .founder-role {
-    font-size: 1.1em;
-    color: #b0b0b0; /* Màu vai trò xám sáng */
-    margin-bottom: 15px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2em; /* Tăng kích thước */
+    color: #b0b0b0;
+    margin-bottom: 20px; /* Tăng khoảng cách */
     font-style: italic;
+    font-weight: 400;
 }
 
 .founder-bio p {
-    font-size: 1.1em;
-    color: #f0f0f0; /* Màu chữ nội dung bio */
+    font-size: 1.15em; /* Tăng font size */
+    color: #e0e0e0; /* Màu chữ nội dung bio */
     margin-bottom: 0;
-    text-align: left;
+    text-align: justify; /* Căn đều */
+    line-height: 1.9; /* Tăng line-height */
 }
 
 /* Đã bỏ style social icon ở đây */
@@ -469,7 +486,7 @@ body {
     .founder-details {
         flex-direction: row;
         align-items: flex-start;
-        gap: 50px;
+        gap: 60px; /* Tăng khoảng cách */
     }
 
     .founder-photo {
@@ -485,24 +502,24 @@ body {
 /* Style cho nút Call-to-Action (CTA) phong cách tạp chí */
 .btn-magazine {
     display: inline-block;
-    background-color: #b5651d;
-    border: 2px solid #b5651d;
-    color: #fff;
-    padding: 14px 35px;
-    font-size: 1.2em;
+    background-color: #c4a07b; /* Màu nền nút (Muted Gold) */
+    border: 2px solid #c4a07b;
+    color: #1e2a38; /* Màu chữ đậm từ nền body */
+    padding: 15px 40px; /* Tăng padding */
+    font-size: 1.3em; /* Tăng font size */
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px; /* Tăng letter-spacing */
     border-radius: 30px;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Thêm box-shadow transition */
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
     text-decoration: none;
     font-weight: bold;
 }
 
 .btn-magazine:hover {
-    background-color: #fff;
-    color: #b5651d;
-    border-color: #b5651d;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Bóng đổ khi hover */
+    background-color: #e0e0e0; /* Nền sáng khi hover */
+    color: #1e2a38; /* Chữ đậm khi hover */
+    border-color: #e0e0e0;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
 
@@ -523,13 +540,14 @@ body {
     }
 
      .about-content.magazine-layout::before {
-        background-size: 20px;
+        background-size: 15px; /* Giảm kích thước họa tiết */
         opacity: 0.2;
      }
 
 
     .magazine-header {
         margin-bottom: 40px;
+        padding-bottom: 20px;
     }
 
     .magazine-header h1 {
@@ -547,7 +565,7 @@ body {
     }
 
     .article-intro {
-        padding: 20px 25px;
+        padding: 25px 30px;
         margin-bottom: 30px;
     }
 
@@ -559,28 +577,31 @@ body {
         font-size: 3.5em;
      }
 
-    .article-section, .explore-styles, .founder-section { /* Thêm explore-styles */
+    .article-section, .explore-styles, .founder-section {
         margin-bottom: 40px;
     }
 
     .article-section h2 {
         font-size: 1.8em;
         margin-bottom: 20px;
+        padding-bottom: 10px;
     }
 
     .article-section h2::after {
         width: 50px;
         height: 3px;
+        margin-top: 5px;
     }
 
     .article-section p,
     .article-section ul li {
-        font-size: 1.05em;
+        font-size: 1.1em;
         text-align: left;
+        line-height: 1.8;
     }
 
      .article-section ul li::before {
-        font-size: 1.5em;
+        font-size: 1.4em;
      }
 
 
@@ -600,32 +621,40 @@ body {
 
      .quote-box {
          margin-top: 0;
+         padding: 20px 25px;
+     }
+     .quote-box::before, .quote-box::after {
+        font-size: 2.5em;
+        top: 5px;
+        right: 5px;
+        left: 5px;
+        bottom: 5px;
      }
 
-    .values-section, .explore-styles, .founder-section { /* Thêm explore-styles */
-        padding: 25px;
+    .values-section, .explore-styles, .founder-section {
+        padding: 30px;
     }
 
+     .explore-styles h2 {
+        font-size: 1.8em;
+     }
      .explore-styles h2::after {
-         margin: 8px auto 0 auto; /* Căn giữa gạch chân trên mobile */
+         width: 50px;
      }
 
      .styles-grid {
-        grid-template-columns: 1fr; /* 1 cột trên mobile */
-        gap: 20px; /* Khoảng cách trên mobile */
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 20px;
      }
 
      .style-item img {
-        height: 150px; /* Chiều cao ảnh trên mobile */
+        height: 180px; /* Điều chỉnh chiều cao ảnh trên mobile */
      }
-
-
-    .quote-box {
-        padding: 15px 20px;
+    .style-item h3 {
+        font-size: 1.4em;
+        margin: 10px;
     }
-     .quote-box::before, .quote-box::after {
-        font-size: 2em;
-     }
 
 
     /* Founder section mobile adjustments */
@@ -633,6 +662,7 @@ body {
         flex-direction: column;
         align-items: center;
         gap: 20px;
+        margin-top: 20px;
     }
     .founder-photo img {
         width: 140px;
@@ -647,16 +677,20 @@ body {
     .founder-bio p {
         text-align: center;
     }
+     .founder-bio h3 { font-size: 1.6em; }
+     .founder-bio .founder-role { font-size: 1em; }
+     .founder-bio p { font-size: 1.05em; line-height: 1.8; }
 
 
     .btn-magazine {
-        padding: 10px 25px;
+        padding: 12px 30px;
         font-size: 1.1em;
-        letter-spacing: 1px;
+        letter-spacing: 1.5px;
     }
 }
 
-/* Hiệu ứng khi các phần tử AOS xuất hiện (tùy chỉnh nhẹ) */
+/* Hiệu ứng khi các phần tử AOS xuất hiện */
+/* Giữ nguyên hoặc tùy chỉnh thêm nếu cần */
 [data-aos^=fade][data-aos^=fade].aos-animate {
     opacity: 1;
     transform: translateZ(0);
@@ -671,3 +705,7 @@ body {
 [data-aos=fade-right].aos-animate {
     transform: translateX(0);
 }
+
+/* Có thể thêm hiệu ứng hover tinh tế cho các thẻ p, li nếu muốn */
+/* p:hover, li:hover { color: #c4a07b; transition: color 0.3s ease; } */
+
