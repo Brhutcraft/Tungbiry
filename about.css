@@ -1,197 +1,451 @@
 /* ========================================= */
-/* About Page CSS           */
+/* About Page CSS - Magazine Style           */
 /* ========================================= */
 
-/* Import Google Fonts (optional, choose fonts that fit your brand) */
-/* Ví dụ: font chữ cho tiêu đề và nội dung */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+/* Import Google Fonts (chọn font phù hợp với phong cách tạp chí - có thể cần 1-2 font) */
+/* Gợi ý: Playfair Display hoặc Lora cho tiêu đề, Open Sans hoặc Merriweather cho nội dung */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
 
 body {
     font-family: 'Open Sans', sans-serif; /* Font cho nội dung chính */
-    line-height: 1.6;
-    color: #333; /* Màu chữ chính */
-    background-color: #f8f8f8; /* Màu nền nhẹ nhàng */
+    line-height: 1.7; /* Tăng line-height cho dễ đọc */
+    color: #333;
+    background-color: #f8f8f8;
     margin: 0;
     padding: 0;
 }
 
 .container {
-    /* Đảm bảo container có padding hai bên trên mobile */
-    padding-left: 15px;
-    padding-right: 15px;
+    max-width: 1000px; /* Giới hạn chiều rộng container như trang tạp chí */
+    margin: 0 auto; /* Căn giữa container */
+    padding: 0 20px; /* Padding hai bên */
 }
 
-/* Section chính của trang About */
-.about-content {
-    padding: 60px 0; /* Khoảng cách trên dưới */
-    background-color: #ffffff; /* Nền trắng cho nội dung */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05); /* Tạo hiệu ứng nổi nhẹ */
-    margin-top: 20px; /* Khoảng cách với navbar */
-    margin-bottom: 20px; /* Khoảng cách với footer */
-    border-radius: 8px; /* Góc bo tròn nhẹ */
+/* Section chính của trang About - Phong cách tạp chí */
+.about-content.magazine-layout {
+    padding: 40px 0 60px 0; /* Điều chỉnh padding */
+    background-color: #ffffff;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng mạnh hơn một chút */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden; /* Đảm bảo không có nội dung tràn ra ngoài */
 }
 
-/* Tiêu đề chính của trang About */
-.about-header {
-    margin-bottom: 50px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid #eee; /* Đường kẻ nhẹ phía dưới tiêu đề chính */
+/* Phần tiêu đề đầu bài tạp chí */
+.magazine-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
 }
 
-.about-header h1 {
-    font-family: 'Merriweather', serif; /* Font cho tiêu đề chính */
-    font-size: 2.8em; /* Kích thước tiêu đề lớn */
-    color: #2c3e50; /* Màu sắc tiêu đề */
-    margin-bottom: 15px;
-    text-transform: uppercase; /* Chữ in hoa */
-    letter-spacing: 1.5px; /* Khoảng cách giữa các chữ */
+.magazine-header h1 {
+    font-family: 'Playfair Display', serif; /* Font tiêu đề chính tạp chí */
+    font-size: 3.5em;
+    color: #2c3e50;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
 }
 
-.about-header .lead {
-    font-size: 1.2em;
-    color: #555;
-    max-width: 800px; /* Giới hạn chiều rộng đoạn lead */
-    margin: 0 auto; /* Căn giữa đoạn lead */
+.magazine-header .subtitle {
+    font-family: 'Lora', serif; /* Font phụ cho subtitle */
+    font-size: 1.4em;
+    color: #7f8c8d; /* Màu xám nhẹ */
+    margin-top: 0;
+    font-style: italic; /* Kiểu chữ nghiêng */
 }
 
-/* Các section con trong trang About */
-.about-section {
-    margin-bottom: 60px; /* Khoảng cách giữa các section */
-    padding: 30px 0; /* Khoảng cách bên trong section */
+.magazine-divider {
+    width: 80px; /* Chiều dài đường phân cách */
+    height: 4px; /* Độ dày */
+    background-color: #e74c3c; /* Màu sắc (có thể thay đổi) */
+    margin: 20px auto 0 auto; /* Căn giữa và khoảng cách trên */
 }
 
-.about-section h2 {
-    font-family: 'Merriweather', serif; /* Font cho tiêu đề section */
-    font-size: 2em;
-    color: #34495e; /* Màu sắc tiêu đề section */
-    margin-bottom: 25px;
-    position: relative; /* Để thêm hiệu ứng underline */
-    display: inline-block; /* Chỉ gạch chân phần text */
+/* Nội dung chính của bài viết (tạp chí) */
+.magazine-article {
+    column-count: 1; /* Mặc định 1 cột trên mobile */
+    column-gap: 40px; /* Khoảng cách giữa các cột */
 }
 
-/* Hiệu ứng gạch chân cho tiêu đề section */
-.about-section h2::after {
+/* Áp dụng nhiều cột cho màn hình lớn hơn */
+@media (min-width: 768px) {
+    .magazine-article {
+        column-count: 2; /* 2 cột trên màn hình lớn */
+    }
+}
+
+/* Reset để các phần tử không bị chia cột */
+.article-intro,
+.article-section,
+.team-section,
+.magazine-header {
+    column-span: all; /* Làm cho các div này chiếm toàn bộ chiều rộng */
+    margin-bottom: 40px; /* Khoảng cách dưới mỗi section */
+    page-break-inside: avoid; /* Ngăn chia section giữa các cột in */
+    break-inside: avoid-column; /* Ngăn chia section giữa các cột trình duyệt */
+}
+
+
+.article-intro .first-paragraph {
+    font-size: 1.2em; /* Kích thước font lớn hơn cho đoạn mở đầu */
+    font-weight: 600; /* Chữ đậm hơn */
+    margin-bottom: 30px;
+}
+
+/* Hiệu ứng chữ cái lớn đầu dòng (Drop Cap) */
+.first-paragraph .dropcap {
+    float: left; /* Đặt chữ cái đầu dòng sang trái */
+    font-family: 'Playfair Display', serif; /* Font khác cho dropcap */
+    font-size: 4em; /* Kích thước rất lớn */
+    line-height: 0.8; /* Điều chỉnh line-height */
+    margin-right: 10px; /* Khoảng cách bên phải dropcap */
+    font-weight: 700;
+    color: #e74c3c; /* Màu sắc dropcap (có thể thay đổi) */
+}
+
+
+.article-section h2 {
+    font-family: 'Lora', serif; /* Font tiêu đề section */
+    font-size: 1.8em;
+    color: #34495e;
+    margin-bottom: 20px;
+    margin-top: 0; /* Đảm bảo không có margin top thừa */
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* Đường kẻ dưới tiêu đề section */
+.article-section h2::after {
     content: '';
     display: block;
-    width: 50px; /* Chiều dài gạch chân */
-    height: 3px; /* Độ dày gạch chân */
+    width: 40px;
+    height: 3px;
     background-color: #e74c3c; /* Màu gạch chân (có thể thay đổi) */
-    margin-top: 8px;
-    margin-left: 0; /* Căn trái */
+    margin-top: 5px;
 }
 
-.about-section p {
+.article-section p {
     font-size: 1.1em;
     color: #555;
     margin-bottom: 20px;
+    text-align: justify; /* Căn đều văn bản */
 }
 
-.about-section ul {
-    list-style: none; /* Bỏ dấu đầu dòng mặc định */
+.article-section ul {
+    list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 0 20px 0; /* Khoảng cách dưới ul */
 }
 
-.about-section ul li {
-    background: url('path/to/your/leaf-icon.png') no-repeat left center; /* Thêm icon tùy chỉnh */
-    background-size: 18px; /* Kích thước icon */
-    padding-left: 25px; /* Khoảng cách giữa icon và text */
-    margin-bottom: 15px;
+.article-section ul li {
+     /* Giữ nguyên style icon nếu có */
+    /* background: url('path/to/your/leaf-icon.png') no-repeat left center; */
+    /* background-size: 18px; */
+    /* padding-left: 25px; */
+    margin-bottom: 12px;
     font-size: 1.1em;
     color: #555;
+    /* Nếu không dùng icon, dùng dấu chấm mặc định */
+    list-style: disc;
+    margin-left: 20px;
 }
 
-/* Nếu không có icon tùy chỉnh, sử dụng dấu chấm tròn */
-.about-section ul li strong {
+.article-section ul li strong {
     color: #333;
 }
 
-/* Style cho hình ảnh trong section */
-.about-section img {
+
+/* Bố cục đặc biệt cho các section - Sử dụng Flexbox hoặc Grid để tạo layout phức tạp hơn*/
+/* Ví dụ: Section Câu Chuyện (Story) - Ảnh bên phải, text bên trái trên màn hình lớn */
+.story-section {
+    display: flex;
+    flex-direction: column; /* Mặc định xếp dọc trên mobile */
+    align-items: flex-start;
+}
+
+.story-content {
+    flex: 1; /* Cho phép phần nội dung chiếm hết không gian */
+    margin-bottom: 30px; /* Khoảng cách dưới nội dung trên mobile */
+}
+
+.story-image {
+     flex: 1; /* Cho phép ảnh chiếm hết không gian còn lại */
+     width: 100%; /* Ảnh full chiều rộng trên mobile */
+     margin-bottom: 20px;
+}
+
+.story-image img {
+    display: block;
     max-width: 100%;
     height: auto;
-    display: block; /* Loại bỏ khoảng trống dưới ảnh */
-    margin: 0 auto; /* Căn giữa ảnh */
-    border: 1px solid #eee; /* Đường viền nhẹ quanh ảnh */
-    padding: 5px; /* Khoảng cách giữa ảnh và viền */
-    background-color: #fff; /* Nền trắng cho ảnh */
+    border: 1px solid #eee;
+    padding: 5px;
+    background-color: #fff;
+}
+
+.image-caption {
+    font-size: 0.9em;
+    color: #7f8c8d;
+    text-align: center;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* Áp dụng bố cục ngang cho Story Section trên desktop */
+@media (min-width: 768px) {
+    .story-section {
+        flex-direction: row; /* Xếp ngang trên desktop */
+        gap: 40px; /* Khoảng cách giữa nội dung và ảnh */
+        align-items: stretch; /* Căn chỉnh các item theo chiều cao */
+    }
+
+     .story-content, .story-image {
+         margin-bottom: 0; /* Bỏ margin-bottom trên desktop */
+     }
+
+    .story-image {
+        /* Điều chỉnh kích thước ảnh để phù hợp với bố cục tạp chí */
+        /* Ví dụ: ảnh chiếm 40% chiều rộng */
+        flex-basis: 40%;
+        flex-shrink: 0; /* Ngăn ảnh bị co lại */
+        width: auto; /* Để flex-basis kiểm soát kích thước */
+        margin-top: 40px; /* Tạo khoảng trống phía trên ảnh */
+    }
+}
+
+
+/* Ví dụ: Section Giá Trị (Values) - Quote box bên phải, danh sách bên trái */
+.values-section {
+    display: flex;
+    flex-direction: column; /* Mặc định xếp dọc trên mobile */
+    align-items: flex-start;
+}
+
+.values-content {
+     flex: 2; /* Nội dung chiếm 2 phần */
+     margin-bottom: 30px; /* Khoảng cách dưới trên mobile */
+}
+
+.values-quote {
+    flex: 1; /* Quote box chiếm 1 phần */
+    width: 100%; /* Full chiều rộng trên mobile */
+}
+
+.quote-box {
+    border: 2px solid #e74c3c; /* Viền nổi bật (có thể thay đổi màu) */
+    padding: 20px;
+    margin-left: 0; /* Căn trái trên mobile */
+    font-family: 'Lora', serif;
+    font-size: 1.3em;
+    font-style: italic;
+    color: #555;
+    background-color: #fefefe; /* Nền hơi khác biệt */
+}
+
+.quote-box p {
+    margin-bottom: 10px;
+    font-size: 1em; /* Kích thước font trong quote box */
+    text-align: center; /* Căn giữa text trong quote */
+}
+
+.quote-box span {
+    display: block;
+    text-align: right; /* Căn phải tên người trích dẫn */
+    font-size: 0.9em;
+    color: #7f8c8d;
+    margin-top: 10px;
+}
+
+/* Áp dụng bố cục ngang cho Values Section trên desktop */
+@media (min-width: 768px) {
+     .values-section {
+        flex-direction: row; /* Xếp ngang trên desktop */
+        gap: 40px;
+        align-items: flex-start;
+    }
+     .values-content, .values-quote {
+         margin-bottom: 0;
+     }
+
+    .values-content {
+        flex-basis: 60%; /* Nội dung chiếm 60% */
+    }
+
+     .values-quote {
+        flex-basis: 40%; /* Quote chiếm 40% */
+         /* Có thể điều chỉnh margin-top để quote box bắt đầu thấp hơn */
+        margin-top: 40px;
+     }
+}
+
+
+/* Ví dụ: Section Tầm Nhìn (Vision) - Ảnh bên trái, text bên phải */
+.vision-section {
+    display: flex;
+    flex-direction: column; /* Mặc định xếp dọc trên mobile */
+    align-items: flex-start;
+}
+
+.vision-image {
+    flex: 1;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.vision-image img {
+     display: block;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #eee;
+    padding: 5px;
+    background-color: #fff;
+}
+
+.vision-content {
+    flex: 1;
+}
+
+/* Áp dụng bố cục ngang cho Vision Section trên desktop */
+@media (min-width: 768px) {
+    .vision-section {
+        flex-direction: row; /* Xếp ngang trên desktop */
+        gap: 40px;
+        align-items: flex-start;
+    }
+    .vision-image, .vision-content {
+         margin-bottom: 0;
+     }
+
+     .vision-image {
+        flex-basis: 40%;
+        flex-shrink: 0;
+     }
+
+    .vision-content {
+        flex-basis: 60%;
+        margin-top: 40px; /* Tạo khoảng trống phía trên nội dung */
+    }
 }
 
 /* Phần giới thiệu đội ngũ (Team Section) */
-.team-member-img {
-    width: 150px; /* Kích thước ảnh thành viên */
-    height: 150px;
-    object-fit: cover; /* Đảm bảo ảnh không bị méo */
-    margin-bottom: 15px;
-    border: 4px solid #e74c3c; /* Viền màu cho ảnh */
+.team-section {
+    text-align: center; /* Căn giữa toàn bộ section */
 }
 
-.about-section .row {
-    /* Đảm bảo có khoảng cách giữa các cột trên mobile */
-    margin-left: -15px;
-    margin-right: -15px;
+.team-gallery {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép xuống hàng trên màn hình nhỏ */
+    justify-content: center; /* Căn giữa các thành viên */
+    gap: 30px; /* Khoảng cách giữa các thành viên */
+    margin-top: 30px;
 }
 
-.about-section .row > [class*="col-"] {
-     padding-left: 15px;
-     padding-right: 15px;
-     margin-bottom: 30px; /* Khoảng cách dưới mỗi cột trên mobile */
+.team-member {
+    flex-basis: 150px; /* Kích thước cơ bản của mỗi thành viên */
+    text-align: center;
 }
 
-/* Điều chỉnh khoảng cách dưới cột cho desktop */
-@media (min-width: 768px) {
-    .about-section .row > [class*="col-"] {
-        margin-bottom: 0;
-    }
-    .about-section .row {
-         margin-bottom: 30px; /* Khoảng cách dưới hàng */
-    }
+.team-member img {
+    width: 120px; /* Kích thước ảnh thành viên */
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%; /* Bo tròn ảnh */
+    border: 4px solid #e74c3c; /* Viền màu cho ảnh (có thể thay đổi) */
+    margin-bottom: 10px;
 }
 
+.team-member h4 {
+    font-family: 'Lora', serif;
+    font-size: 1.2em;
+    color: #34495e;
+    margin-bottom: 5px;
+}
 
-/* Style cho nút Call-to-Action (CTA) - nếu có dùng Bootstrap */
-.btn-primary {
-    background-color: #e74c3c; /* Màu nền nút */
-    border-color: #e74c3c; /* Màu viền nút */
-    color: #fff; /* Màu chữ nút */
-    padding: 12px 25px;
+.team-member p {
+    font-size: 0.9em;
+    color: #7f8c8d;
+    margin: 0;
+}
+
+/* Style cho nút Call-to-Action (CTA) phong cách tạp chí */
+.btn-magazine {
+    display: inline-block; /* Để nút hiển thị đúng */
+    background-color: #e74c3c; /* Màu nền nút (có thể thay đổi) */
+    border: 2px solid #e74c3c; /* Màu viền nút (có thể thay đổi) */
+    color: #fff;
+    padding: 12px 30px;
     font-size: 1.1em;
-    border-radius: 5px;
-    transition: background-color 0.3s ease; /* Hiệu ứng hover */
+    text-transform: uppercase; /* Chữ in hoa */
+    letter-spacing: 1px;
+    border-radius: 30px; /* Nút bo tròn */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-decoration: none; /* Bỏ gạch chân link */
 }
 
-.btn-primary:hover {
-    background-color: #c0392b; /* Màu nền khi hover */
-    border-color: #c0392b;
+.btn-magazine:hover {
+    background-color: #fff;
+    color: #e74c3c; /* Màu chữ khi hover (có thể thay đổi) */
+    border-color: #e74c3c; /* Màu viền khi hover (có thể thay đổi) */
 }
+
 
 /* Tối ưu hóa cho các kích thước màn hình nhỏ hơn */
 @media (max-width: 767px) {
-    .about-header h1 {
-        font-size: 2em;
+    .magazine-header h1 {
+        font-size: 2.5em;
     }
 
-    .about-header .lead {
+    .magazine-header .subtitle {
+        font-size: 1.2em;
+    }
+
+    .article-intro .first-paragraph {
+         font-size: 1.1em;
+    }
+
+     .first-paragraph .dropcap {
+        font-size: 3em;
+     }
+
+    .article-section h2 {
+        font-size: 1.5em;
+    }
+
+    .article-section p,
+    .article-section ul li {
         font-size: 1em;
+        text-align: left; /* Bỏ căn đều trên mobile nếu cần */
     }
 
-    .about-section h2 {
-        font-size: 1.6em;
-    }
-
-    .about-section p,
-    .about-section ul li {
-        font-size: 1em;
-    }
-
-    .team-member-img {
+     .team-member img {
         width: 100px;
         height: 100px;
+     }
+
+    .btn-magazine {
+        padding: 10px 20px;
+        font-size: 1em;
     }
-     /* Căn giữa các cột trong team section trên mobile */
-    .about-section .col-md-4.text-center {
-        text-align: center !important;
+     /* Đảm bảo các phần tử flex xếp chồng lên nhau trên mobile */
+    .story-section, .values-section, .vision-section {
+        flex-direction: column;
+        gap: 0; /* Bỏ khoảng cách ngang */
     }
+     .story-content, .story-image,
+     .values-content, .values-quote,
+     .vision-image, .vision-content {
+         flex-basis: auto !important; /* Reset flex-basis */
+         margin-bottom: 20px; /* Thêm khoảng cách dưới */
+         width: 100%; /* Đảm bảo chiếm đủ chiều rộng */
+     }
+     .story-image, .vision-image {
+         margin-top: 0; /* Bỏ margin-top ảnh */
+     }
+
+     .quote-box {
+         margin-top: 0; /* Bỏ margin-top quote box */
+     }
 }
-
-
