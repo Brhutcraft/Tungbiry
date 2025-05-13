@@ -1,9 +1,8 @@
+/* style.css - BỘ MÀU TỐI GIẢN&TINH TẾ (FONT POPPINS + INTER + LORA) */
 
-/* style.css - BỘ MÀU TỐI GIẢN&TINH TẾ (FONT CHỮ MỚI) */
-
-/* --- ĐÃ SỬA: Import các font chữ mới từ Google Fonts --- */
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap'); /* Giữ Lora cho quote */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap'); /* Thêm Inter cho body và Poppins cho tiêu đề */
+/* --- ĐÃ CHẮC CHẮN: Import các font chữ cần dùng --- */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap'); /* Lora cho quote */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap'); /* Inter cho body và Poppins cho tiêu đề */
 /* ---------------------------------------------------- */
 
 :root {
@@ -35,9 +34,7 @@ html {
 }
 
 body {
-  /* --- ĐÃ SỬA: Font cho body --- */
   font-family: 'Inter', sans-serif; /* Sử dụng Inter làm font mặc định */
-  /* ---------------------------- */
   background-color: var(--background);
   color: var(--text-dark);
   line-height: 1.6;
@@ -106,9 +103,7 @@ a:hover {
 .nav-links li a {
   font-weight: 500;
   transition: color 0.3s ease;
-  /* --- ĐÃ SỬA: Font cho link navbar --- */
-  font-family: 'Inter', sans-serif; /* Sử dụng Inter */
-  /* --------------------------------- */
+  font-family: 'Inter', sans-serif;
 }
 
 .nav-links li a:hover {
@@ -201,6 +196,7 @@ a:hover {
     transform: translateX(0);
 }
 
+/* Nội dung bên trong Mobile Menu */
 .mobile-menu {
     padding: 2rem 1.5rem;
     display: flex;
@@ -220,6 +216,7 @@ a:hover {
     z-index: 1020;
 }
 
+/* Style danh sách link trong mobile menu */
 .mobile-menu .nav-links {
     display: flex;
     flex-direction: column;
@@ -244,9 +241,7 @@ a:hover {
     font-size: 1.1rem;
     font-weight: 500;
     transition: color 0.3s ease, background-color 0.3s ease;
-    /* --- ĐÃ SỬA: Font cho link mobile menu --- */
-    font-family: 'Inter', sans-serif; /* Sử dụng Inter */
-    /* --------------------------------------- */
+    font-family: 'Inter', sans-serif;
 }
 
 .mobile-menu .nav-links li a:hover {
@@ -344,9 +339,9 @@ header {
 }
 
 header h1 {
-  /* --- ĐÃ SỬA: Font cho h1 --- */
-  font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
-  /* -------------------------- */
+  /* --- ĐÃ SỬA: Font cho h1 - Chắc chắn là Poppins --- */
+  font-family: 'Poppins', sans-serif;
+  /* ------------------------------------------------- */
   font-size: clamp(2.8rem, 6vw, 3.5rem);
   font-weight: 700;
   margin-bottom: 0.8rem;
@@ -356,9 +351,7 @@ header h1 {
 }
 
 header p {
-  /* --- ĐÃ SỬA: Font cho p trong header --- */
-  font-family: 'Inter', sans-serif; /* Sử dụng Inter */
-  /* ------------------------------------- */
+  font-family: 'Inter', sans-serif;
   font-size: clamp(1.1rem, 3.5vw, 1.3rem);
   max-width: 700px;
   line-height: 1.7;
@@ -377,9 +370,7 @@ header p {
   display: inline-block;
   border: none;
   cursor: pointer;
-  /* --- ĐÃ SỬA: Font cho button --- */
-  font-family: 'Inter', sans-serif; /* Sử dụng Inter */
-  /* ------------------------------ */
+  font-family: 'Inter', sans-serif;
   font-size: 1em;
 }
 
@@ -408,9 +399,9 @@ header p {
   font-size: clamp(1.5rem, 4vw, 2rem);
   margin-bottom: 2rem;
   color: var(--text-dark);
-   /* --- ĐÃ SỬA: Font cho h2 các section khác --- */
-  font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
-  /* ------------------------------------------ */
+   /* --- ĐÃ SỬA: Font cho h2 các section khác - Chắc chắn là Poppins --- */
+  font-family: 'Poppins', sans-serif;
+  /* ------------------------------------------------------------------ */
 }
 
 /* Styling cho SVG nếu vẫn dùng */
@@ -626,8 +617,8 @@ header p {
    padding: 0;
    border-radius: 0;
    transition: color 0.3s ease;
-   /* --- ĐÃ SỬA: Font cho h3 trong category --- */
-   font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
+   /* --- ĐÃ SỬA: Font cho h3 trong category - Chắc chắn là Poppins --- */
+   font-family: 'Poppins', sans-serif;
    /* ---------------------------------------- */
  }
 
@@ -641,13 +632,13 @@ header p {
     font-size: 0.95rem;
     color: var(--accent-secondary);
     line-height: 1.4;
-     /* --- ĐÃ SỬA: Font cho p trong category --- */
-    font-family: 'Inter', sans-serif; /* Sử dụng Inter */
-    /* --------------------------------------- */
+    font-family: 'Inter', sans-serif;
 }
 
 
 /* Styles cho phần nội dung chính trang Giới thiệu (about-content) */
+/* Lưu ý: Phần lớn style chi tiết cho about-content nên nằm trong about.css */
+/* Nhưng các quy tắc chung cho h2, p... nếu không có rule riêng ở about.css sẽ dùng style ở đây */
 .about-content {
   padding: 4rem 0;
   background-color: var(--background);
@@ -667,8 +658,8 @@ header p {
     color: var(--text-dark);
     line-height: 1.2;
     text-align: center;
-     /* --- ĐÃ SỬA: Font cho h2 trong about-content --- */
-    font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
+     /* --- ĐÃ SỬA: Font cho h2 trong about-content - Chắc chắn là Poppins --- */
+    font-family: 'Poppins', sans-serif;
     /* --------------------------------------------- */
 }
 
@@ -676,7 +667,7 @@ header p {
 .about-content h2 + p {
      font-size: 1.1rem;
      font-style: italic;
-     color: var(--accent-secondary); /* Giữ màu xám phụ */
+     color: var(--accent-secondary);
      margin-top: 0;
      margin-bottom: 3rem;
      text-align: center;
@@ -684,9 +675,7 @@ header p {
      padding: 0;
      box-shadow: none;
      border-radius: 0;
-      /* --- ĐÃ SỬA: Font cho p dịch nghĩa trong about-content --- */
-     font-family: 'Inter', sans-serif; /* Sử dụng Inter */
-     /* ------------------------------------------------------ */
+     font-family: 'Inter', sans-serif;
 }
 
 /* Style cho các đoạn văn bản chính - làm chúng trông như các khung */
@@ -694,15 +683,13 @@ header p {
     font-size: 1rem;
     line-height: 1.8;
     margin-bottom: 2rem;
-    color: var(--text-dark); /* Màu chữ chung */
-    background-color: var(--element-background-dark); /* Nền khung Xanh Đậm Hơi Nhạt Hơn */
+    color: var(--text-dark);
+    background-color: var(--element-background-dark);
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-     /* --- ĐÃ SỬA: Font cho p nội dung trong about-content --- */
-    font-family: 'Inter', sans-serif; /* Sử dụng Inter */
-    /* ---------------------------------------------------- */
+    font-family: 'Inter', sans-serif;
 }
 
 /* Khoảng trống phía trên tiêu đề H2 thứ hai (phần tiếng Anh) */
@@ -735,18 +722,14 @@ footer {
   font-size: 0.9rem;
   margin: 0.5rem 0;
   line-height: 1.5;
-   /* --- ĐÃ SỬA: Font cho p trong footer --- */
-  font-family: 'Inter', sans-serif; /* Sử dụng Inter */
-  /* ------------------------------------- */
+  font-family: 'Inter', sans-serif;
 }
 
 .footer-content a {
   color: var(--main-color);
   font-weight: bold;
   transition: color 0.3s ease;
-   /* --- ĐÃ SỬA: Font cho a trong footer --- */
-  font-family: 'Inter', sans-serif; /* Sử dụng Inter */
-  /* ------------------------------------- */
+  font-family: 'Inter', sans-serif;
 }
 
 .footer-content a:hover {
@@ -786,8 +769,8 @@ footer {
   font-size: clamp(1.5rem, 4vw, 2rem);
   margin-bottom: 2.5rem;
   color: var(--text-dark);
-   /* --- ĐÃ SỬA: Font cho h2 trong gallery-process-section --- */
-  font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
+   /* --- ĐÃ SỬA: Font cho h2 trong gallery-process-section - Chắc chắn là Poppins --- */
+  font-family: 'Poppins', sans-serif;
   /* ---------------------------------------------------- */
 }
 
@@ -836,9 +819,7 @@ footer {
   border-radius: 0;
     margin-bottom: 0;
     line-height: 1.5;
-     /* --- ĐÃ SỬA: Font cho p trong gallery-item --- */
-    font-family: 'Inter', sans-serif; /* Sử dụng Inter */
-    /* --------------------------------------------- */
+    font-family: 'Inter', sans-serif;
 }
 
 
@@ -860,8 +841,8 @@ footer {
     margin-bottom: 1rem;
     color: var(--text-dark);
     line-height: 1.2;
-    /* --- ĐÃ SỬA: Font cho h2 trong cta-section --- */
-    font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
+    /* --- ĐÃ SỬA: Font cho h2 trong cta-section - Chắc chắn là Poppins --- */
+    font-family: 'Poppins', sans-serif;
     /* ------------------------------------------ */
 }
 
@@ -876,9 +857,7 @@ footer {
     box-shadow: none;
     border-radius: 0;
     padding: 0;
-     /* --- ĐÃ SỬA: Font cho p trong cta-section --- */
-    font-family: 'Inter', sans-serif; /* Sử dụng Inter */
-    /* ------------------------------------------- */
+    font-family: 'Inter', sans-serif;
 }
 
 /* Nút trong CTA sẽ tự động dùng style của class .button đã có */
