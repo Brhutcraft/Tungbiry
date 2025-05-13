@@ -1,18 +1,19 @@
 /* ========================================= */
-/* About Page CSS - Magazine Style (Refined Dark Theme & Professional) */
+/* About Page CSS - Magazine Style (Refined Dark Theme & Modern Elegance) */
 /* ========================================= */
 
 /* Import Google Fonts (chọn font phù hợp với phong cách tạp chí hiện đại và chuyên nghiệp) */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap');
 /* Gợi ý: Merriweather cho tiêu đề (có chân), Open Sans cho nội dung (không chân, sạch sẽ) */
 
+/* NEW PRIMARY ACCENT COLOR: #B08D57 (Refined Gold/Bronze) */
 
 body {
     font-family: 'Open Sans', sans-serif; /* Font nội dung sạch sẽ */
     font-weight: 400; /* Độ đậm mặc định */
     line-height: 1.8;
-    color: #e0e0e0; /* Màu chữ sáng (xám nhạt) cho nền tối */
-    background-color: #1e2a38; /* MÀU NỀN CHÍNH: Xanh dương đen (Deep Blue-Grey) */
+    color: #D8D8D8; /* MÀU CHỮ CHÍNH: Xám nhạt, dịu mắt */
+    background-color: #24292e; /* MÀU NỀN CHÍNH: Xám đen hiện đại (Modern Dark Grey) */
     margin: 0;
     padding: 0;
     text-rendering: optimizeLegibility;
@@ -29,8 +30,8 @@ body {
 /* Section chính của trang About - Tạo khối nội dung nổi bật trên nền body */
 .about-content.magazine-layout {
     padding: 60px 0 80px 0;
-    background-color: #283645; /* NỀN NỘI DUNG CHÍNH: Hơi sáng hơn body */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5); /* Bóng đổ chuyên nghiệp hơn */
+    background-color: #2f363d; /* NỀN NỘI DUNG CHÍNH: Sáng hơn body, tạo chiều sâu */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6); /* Bóng đổ sâu hơn */
     margin: 30px auto; /* Căn giữa và tạo khoảng cách với đầu/cuối trang */
     border-radius: 12px; /* Bo tròn góc nhiều hơn */
     overflow: hidden;
@@ -47,10 +48,11 @@ body {
     right: 0;
     bottom: 0;
     /* Họa tiết dạng chấm hoặc đường kẻ tinh tế hơn */
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgNiA2IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMCUyRnN2ZyI+PGcgZmlsbD0iIzRhNWE2YyIgZmlsbC1vcGFjaXR5PSIwLjQiIGZpbGwtcnVsZT0iZXZlbm9kZSI+PHBhdGggZD0iTTUuOTg1IDZWMGgwLTAwNWwxIC4wMDUgNC45OCA2eiIvPjxwYXRoIGQ9Ik01Ljk4NSA2VjBoMC0wMDVsMSAuMDA1IDQuOTggNnoiLz48L2c+PC9zdmc+'); /* Họa tiết đường chéo tinh tế */
+    /* fill của SVG được đổi sang màu #55606e để phù hợp hơn */
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgNiA2IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMCUyRnN2ZyI+PGcgZmlsbD0iIzU1NjA2ZSIgZmlsbC1vcGFjaXR5PSIwLjQiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PHBhdGggZD0iTTUuOTg1IDZWMGgwLTAwNWwxIC4wMDUgNC45OCA2eiIvPjxwYXRoIGQ9Ik01Ljk4NSA2VjBoMC0wMDVsMSAuMDA1IDQuOTggNnoiLz48L2c+PC9zdmc+'); /* Họa tiết đường chéo tinh tế */
     background-repeat: repeat;
     background-size: 12px; /* Kích thước họa tiết nhỏ */
-    opacity: 0.3;
+    opacity: 0.15; /* Giảm opacity cho sự tinh tế */
     pointer-events: none;
     z-index: 0;
 }
@@ -61,14 +63,14 @@ body {
     text-align: center;
     margin-bottom: 60px; /* Tăng khoảng cách */
     padding-bottom: 30px;
-    border-bottom: 1px solid #4e5d6c; /* Đường kẻ màu đậm hơn */
+    border-bottom: 1px solid #4a5568; /* Đường kẻ màu xám đậm hơn, hài hòa */
     position: relative;
 }
 
 .magazine-header h1 {
     font-family: 'Merriweather', serif; /* Font tiêu đề có chân */
     font-size: 4.2em; /* Tăng kích thước */
-    color: #ffffff; /* Màu tiêu đề trắng tinh */
+    color: #FFFFFF; /* Màu tiêu đề trắng tinh */
     margin-bottom: 10px;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -79,7 +81,7 @@ body {
 .magazine-header .subtitle {
     font-family: 'Open Sans', sans-serif; /* Font nội dung */
     font-size: 1.7em; /* Tăng kích thước */
-    color: #b0b0b0; /* Màu phụ đề xám */
+    color: #aeb8c4; /* MÀU PHỤ ĐỀ: Xám xanh nhạt, tinh tế */
     margin-top: 0;
     font-style: italic;
     letter-spacing: 0.8px;
@@ -89,7 +91,7 @@ body {
 .magazine-divider {
     width: 120px; /* Tăng chiều dài */
     height: 4px;
-    background-color: #c4a07b; /* MÀU NHẤN CHÍNH: Muted Gold/Brass */
+    background-color: #B08D57; /* MÀU NHẤN CHÍNH: Refined Gold/Bronze */
     margin: 30px auto 0 auto;
     border-radius: 2px;
 }
@@ -124,8 +126,8 @@ body {
 
 .article-intro {
     padding: 40px 50px; /* Tăng padding */
-    background-color: #344352; /* NỀN PHỤ: Màu tối hơn một chút */
-    border-left: 8px solid #c4a07b; /* Viền màu nhấn dày hơn */
+    background-color: #37404a; /* NỀN PHỤ: Màu tối hơn một chút, hài hòa */
+    border-left: 8px solid #B08D57; /* Viền màu nhấn (Refined Gold/Bronze) dày hơn */
     border-radius: 10px;
     margin-bottom: 50px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -136,7 +138,7 @@ body {
     font-size: 1.4em; /* Tăng kích thước font */
     font-weight: 400;
     margin-bottom: 20px;
-    color: #e0e0e0; /* Màu chữ sáng */
+    color: #D8D8D8; /* Màu chữ sáng */
 }
 
 /* Hiệu ứng chữ cái lớn đầu dòng (Drop Cap) */
@@ -147,14 +149,14 @@ body {
     line-height: 0.7;
     margin-right: 15px;
     font-weight: 700;
-    color: #c4a07b; /* Màu dropcap (Muted Gold) */
+    color: #B08D57; /* Màu dropcap (Refined Gold/Bronze) */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .article-section h2 {
     font-family: 'Merriweather', serif; /* Font tiêu đề có chân */
     font-size: 2.4em; /* Tăng kích thước */
-    color: #ffffff; /* Màu tiêu đề trắng tinh */
+    color: #FFFFFF; /* Màu tiêu đề trắng tinh */
     margin-bottom: 30px; /* Tăng khoảng cách */
     margin-top: 15px; /* Thêm khoảng cách trên */
     position: relative;
@@ -168,13 +170,13 @@ body {
     display: block;
     width: 80px; /* Tăng chiều dài */
     height: 5px; /* Tăng độ dày */
-    background-color: #c4a07b; /* Màu gạch chân (Muted Gold) */
+    background-color: #B08D57; /* Màu gạch chân (Refined Gold/Bronze) */
     margin-top: 10px;
 }
 
 .article-section p {
     font-size: 1.2em; /* Tăng font size */
-    color: #e0e0e0; /* Màu chữ sáng */
+    color: #D8D8D8; /* Màu chữ sáng */
     margin-bottom: 25px;
     text-align: justify;
 }
@@ -191,13 +193,13 @@ body {
     padding-left: 30px; /* Tăng khoảng cách cho dấu chấm */
     margin-bottom: 18px; /* Tăng khoảng cách giữa các item */
     font-size: 1.2em; /* Tăng font size */
-    color: #e0e0e0; /* Màu chữ sáng */
+    color: #D8D8D8; /* Màu chữ sáng */
     font-weight: 300; /* Chữ mảnh hơn */
 }
 /* Tạo dấu chấm tùy chỉnh */
 .article-section ul li::before {
     content: '\2022';
-    color: #7b9c8d; /* MÀU PHỤ: Desaturated Teal/Green */
+    color: #8A9BA8; /* MÀU PHỤ NHẤN: Xám xanh lam nhạt, hiện đại */
     font-weight: bold;
     display: inline-block;
     width: 1em;
@@ -209,7 +211,7 @@ body {
 
 
 .article-section ul li strong {
-    color: #ffffff; /* Màu chữ đậm trắng tinh */
+    color: #FFFFFF; /* Màu chữ đậm trắng tinh */
     font-weight: 600; /* Độ đậm */
 }
 
@@ -260,15 +262,15 @@ body {
     display: block;
     max-width: 100%;
     height: auto;
-    border: 6px solid #4e5d6c; /* Viền màu đậm */
+    border: 6px solid #4a5568; /* Viền màu xám đậm, hài hòa */
     padding: 10px; /* Tăng padding */
-    background-color: #344352; /* Nền tối cho padding */
+    background-color: #37404a; /* Nền tối cho padding, hài hòa */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 .image-caption {
     font-size: 1em; /* Tăng font size caption */
-    color: #b0b0b0; /* Màu caption xám */
+    color: #aeb8c4; /* Màu caption xám xanh nhạt */
     text-align: center;
     margin-top: 15px; /* Tăng khoảng cách trên caption */
     font-style: italic;
@@ -279,7 +281,7 @@ body {
 /* Section Giá Trị (Values) - Nền phụ */
 .values-section {
     padding: 50px; /* Tăng padding */
-    background-color: #344352; /* Nền phụ */
+    background-color: #37404a; /* Nền phụ, hài hòa */
     border-radius: 10px;
     box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
 }
@@ -292,13 +294,13 @@ body {
 
 .quote-box {
     border: none;
-    border-left: 5px solid #c4a07b; /* Viền màu nhấn */
+    border-left: 5px solid #B08D57; /* Viền màu nhấn (Refined Gold/Bronze) */
     padding: 25px 30px; /* Tăng padding */
     margin-left: 0;
     font-family: 'Merriweather', serif; /* Font tiêu đề cho quote */
     font-size: 1.5em; /* Tăng font size */
     font-style: italic;
-    color: #e0e0e0; /* Màu chữ sáng */
+    color: #D8D8D8; /* Màu chữ sáng */
     background-color: transparent;
     position: relative;
 }
@@ -306,7 +308,7 @@ body {
 .quote-box::before {
     content: '\201C';
     font-size: 3.5em; /* Tăng kích thước */
-    color: #c4a07b; /* Màu nhấn */
+    color: #B08D57; /* Màu nhấn (Refined Gold/Bronze) */
     position: absolute;
     top: 10px; /* Điều chỉnh vị trí */
     left: 10px; /* Điều chỉnh vị trí */
@@ -315,7 +317,7 @@ body {
 .quote-box::after {
     content: '\201D';
     font-size: 3.5em;
-    color: #c4a07b;
+    color: #B08D57; /* Màu nhấn (Refined Gold/Bronze) */
     position: absolute;
     bottom: 10px; /* Điều chỉnh vị trí */
     right: 10px; /* Điều chỉnh vị trí */
@@ -334,7 +336,7 @@ body {
     display: block;
     text-align: right;
     font-size: 1.1em; /* Tăng font size tên */
-    color: #b0b0b0;
+    color: #aeb8c4; /* Màu tên xám xanh nhạt */
     margin-top: 15px; /* Tăng khoảng cách */
     font-weight: 400;
 }
@@ -346,13 +348,10 @@ body {
      margin-bottom: 60px;
      padding: 40px 0;
      text-align: center;
-     /* background-color: #344352; /* Có thể thêm nền khác biệt */
-     /* border-top: 1px solid #4e5d6c; */
-     /* border-bottom: 1px solid #4e5d6c; */
 }
 
 .explore-styles h2 {
-    color: #ffffff; /* Màu tiêu đề trắng tinh */
+    color: #FFFFFF; /* Màu tiêu đề trắng tinh */
     margin-bottom: 30px;
     font-family: 'Merriweather', serif;
     font-size: 2.4em;
@@ -365,7 +364,7 @@ body {
     display: block;
     width: 80px;
     height: 5px;
-    background-color: #c4a07b;
+    background-color: #B08D57; /* Màu nhấn (Refined Gold/Bronze) */
     margin: 10px auto 0 auto;
 }
 
@@ -381,7 +380,7 @@ body {
     display: block;
     text-decoration: none;
     color: inherit;
-    background-color: #344352; /* Nền item grid */
+    background-color: #37404a; /* Nền item grid, hài hòa */
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
@@ -409,7 +408,7 @@ body {
 .style-item h3 {
     font-family: 'Merriweather', serif; /* Font tiêu đề */
     font-size: 1.6em; /* Tăng kích thước */
-    color: #c4a07b; /* Màu tiêu đề item (Muted Gold) */
+    color: #B08D57; /* Màu tiêu đề item (Refined Gold/Bronze) */
     margin: 20px 15px; /* Tăng khoảng cách */
     text-align: center;
     font-weight: 700;
@@ -421,7 +420,7 @@ body {
     column-span: all;
     margin-bottom: 60px;
     padding: 50px; /* Tăng padding */
-    background-color: #344352; /* Nền phụ */
+    background-color: #37404a; /* Nền phụ, hài hòa */
     border-radius: 10px;
     box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
     text-align: center;
@@ -440,7 +439,7 @@ body {
     height: 200px;
     object-fit: cover;
     border-radius: 50%;
-    border: 8px solid #c4a07b; /* Viền màu nhấn dày hơn */
+    border: 8px solid #B08D57; /* Viền màu nhấn (Refined Gold/Bronze) dày hơn */
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Bóng đổ rõ hơn */
 }
 
@@ -448,14 +447,14 @@ body {
     flex: 1;
     text-align: left;
     max-width: 700px; /* Tăng max-width */
-    color: #e0e0e0; /* Màu chữ sáng */
+    color: #D8D8D8; /* Màu chữ sáng */
     font-weight: 300; /* Chữ mảnh hơn */
 }
 
 .founder-bio h3 {
     font-family: 'Merriweather', serif; /* Font tiêu đề */
     font-size: 2em; /* Tăng kích thước */
-    color: #ffffff; /* Màu tên trắng tinh */
+    color: #FFFFFF; /* Màu tên trắng tinh */
     margin-bottom: 8px;
     margin-top: 0;
     font-weight: 700;
@@ -464,7 +463,7 @@ body {
 .founder-bio .founder-role {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.2em; /* Tăng kích thước */
-    color: #b0b0b0;
+    color: #aeb8c4; /* Màu vai trò xám xanh nhạt */
     margin-bottom: 20px; /* Tăng khoảng cách */
     font-style: italic;
     font-weight: 400;
@@ -472,7 +471,7 @@ body {
 
 .founder-bio p {
     font-size: 1.15em; /* Tăng font size */
-    color: #e0e0e0; /* Màu chữ nội dung bio */
+    color: #D8D8D8; /* Màu chữ nội dung bio */
     margin-bottom: 0;
     text-align: justify; /* Căn đều */
     line-height: 1.9; /* Tăng line-height */
@@ -502,9 +501,9 @@ body {
 /* Style cho nút Call-to-Action (CTA) phong cách tạp chí */
 .btn-magazine {
     display: inline-block;
-    background-color: #c4a07b; /* Màu nền nút (Muted Gold) */
-    border: 2px solid #c4a07b;
-    color: #1e2a38; /* Màu chữ đậm từ nền body */
+    background-color: #B08D57; /* Màu nền nút (Refined Gold/Bronze) */
+    border: 2px solid #B08D57; /* Viền cùng màu */
+    color: #24292e; /* Màu chữ đậm (tương phản với nền nút) */
     padding: 15px 40px; /* Tăng padding */
     font-size: 1.3em; /* Tăng font size */
     text-transform: uppercase;
@@ -516,9 +515,9 @@ body {
 }
 
 .btn-magazine:hover {
-    background-color: #e0e0e0; /* Nền sáng khi hover */
-    color: #1e2a38; /* Chữ đậm khi hover */
-    border-color: #e0e0e0;
+    background-color: #c8a670; /* Nền sáng hơn khi hover (Light Refined Gold) */
+    color: #1a1e22; /* Chữ đậm hơn khi hover */
+    border-color: #c8a670; /* Viền cùng màu nền hover */
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
@@ -541,7 +540,7 @@ body {
 
      .about-content.magazine-layout::before {
         background-size: 15px; /* Giảm kích thước họa tiết */
-        opacity: 0.2;
+        opacity: 0.1; /* Giảm opacity hơn nữa trên mobile */
      }
 
 
@@ -707,5 +706,5 @@ body {
 }
 
 /* Có thể thêm hiệu ứng hover tinh tế cho các thẻ p, li nếu muốn */
-/* p:hover, li:hover { color: #c4a07b; transition: color 0.3s ease; } */
+/* p:hover, li:hover { color: #B08D57; transition: color 0.3s ease; } */
 
