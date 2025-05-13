@@ -1,468 +1,887 @@
-/* ========================================= */
-/* General Styles for About Page Content     */
-/* ========================================= */
+/* style.css - BỘ MÀU TỐI GIẢN&TINH TẾ (FONT CHỮ MỚI) */
 
-/* Reset/Base styles - Cần đảm bảo style.css đã có reset hoặc base */
-/* Điều chỉnh màu nền và màu chữ cơ bản cho Body */
+/* --- ĐÃ SỬA: Import các font chữ mới từ Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap'); /* Giữ Lora cho quote */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap'); /* Thêm Inter cho body và Poppins cho tiêu đề */
+/* ---------------------------------------------------- */
+
+:root {
+  --background: #1A1A2E; /* MÀU NỀN CHÍNH: Xanh Đen Đậm */
+  --text-dark: #E0E0E0; /* MÀU CHỮ CHUNG: Xám Nhạt */
+  --text-light: #FFFFFF; /* MÀU CHỮ SÁNG: Trắng Tinh */
+
+  --main-color: #00BCD4; /* MÀU CHỦ ĐẠO/NHẤN 1: Cyan/Teal Sáng */
+  --accent: #8A9EFF; /* MÀU NHẤN 2: Xanh Tím Nhạt */
+  --accent-secondary: #B0B0B0; /* MÀU XÁM PHỤ: Xám Nhạt Vừa */
+
+  --element-background-dark: #2C2C4B; /* NỀN THÀNH PHẦN TỐI: Xanh Đậm Hơi Nhạt Hơn */
+  --border-color-dark: #3A3A5A; /* MÀU ĐƯỜNG KẺ TỐI */
+
+  --overlay-color: rgba(0, 0, 0, 0.5); /* Lớp phủ nền đen mờ */
+  --mobile-menu-bg: var(--background);
+  --mobile-menu-text: var(--text-dark);
+  --mobile-menu-border: var(--border-color-dark);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-    margin: 0;
-    font-family: 'Lato', sans-serif;
-    line-height: 1.6;
-    /* Màu nền xanh đen đậm */
-    background-color: #1A1A2E; /* Hoặc một màu xanh đen đậm khác như #0A192F */
-    /* Màu chữ mặc định sáng để nổi trên nền tối */
-    color: #E0E0E0; /* Màu xám nhạt */
+  /* --- ĐÃ SỬA: Font cho body --- */
+  font-family: 'Inter', sans-serif; /* Sử dụng Inter làm font mặc định */
+  /* ---------------------------- */
+  background-color: var(--background);
+  color: var(--text-dark);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
 }
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+body.menu-open {
+    overflow-y: hidden;
 }
 
 
-.about-page-content {
-    padding: 80px 0; /* Khoảng cách trên dưới cho nội dung chính */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
 }
 
-.content-section {
+a:hover {
+    color: var(--main-color);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(169, 169, 169, 0.2);
+  padding: 0.8rem 1.2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  width: auto;
+}
+
+.nav-logo img {
+  width: 130px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 1rem;
+  display: block;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.nav-links {
+  list-style: none;
+  gap: 1rem;
+  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
+}
+
+.desktop-nav-links {
     display: flex;
-    flex-direction: column; /* Mặc định xếp dọc trên mobile */
-    align-items: center;
-    margin-bottom: 80px; /* Khoảng cách giữa các section lớn */
-    padding: 40px 0;
-    /* Đường kẻ nhẹ phân cách các section - đổi màu để hiển thị trên nền tối */
-    border-bottom: 1px solid #3A3A5A; /* Màu đường kẻ xám xanh nhạt */
 }
 
-.content-section:last-child {
-    border-bottom: none; /* Không có đường kẻ ở section cuối */
-    margin-bottom: 40px;
+.nav-links li a {
+  font-weight: 500;
+  transition: color 0.3s ease;
+  /* --- ĐÃ SỬA: Font cho link navbar --- */
+  font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+  /* --------------------------------- */
 }
 
-.section-header {
-    margin-bottom: 40px;
+.nav-links li a:hover {
+  color: var(--main-color);
 }
 
-.section-header.text-center {
-    text-align: center;
+.nav-right {
+  display: flex;
+  align-items: center;
 }
 
-.section-content {
-    flex: 1; /* Cho phép phần nội dung chiếm không gian */
-    padding: 0 20px;
+.cart-icon {
+  font-size: 1.4rem;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
-.section-image {
-    flex: 1; /* Cho phép phần ảnh chiếm không gian */
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column; /* Xếp ảnh và caption dọc */
-    align-items: center;
+.cart-icon:hover {
+  color: var(--main-color);
 }
 
-.section-image img {
-    border-radius: 8px; /* Bo góc nhẹ cho ảnh */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Đổ bóng đậm hơn trên nền tối */
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: var(--main-color);
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 50%;
 }
 
-.image-caption {
-    font-size: 0.9em;
-    /* Màu chữ sáng hơn hoặc cùng màu chữ body */
-    color: #B0B0B0;
-    margin-top: 10px;
-    text-align: center;
+.kofi-icon {
+     font-size: 1.4rem;
+     margin-left: 1rem;
+     transition: color 0.3s ease;
 }
 
-
-/* ========================================= */
-/* Typography and Headings Styles          */
-/* ========================================= */
-
-h1, h2, h3 {
-    font-family: 'Playfair Display', serif;
-    /* Đổi màu tiêu đề sang màu sáng để nổi trên nền tối */
-    color: #FFFFFF; /* Màu trắng */
-    line-height: 1.3;
-    margin-bottom: 20px;
-}
-
-h1 {
-    font-size: 3em; /* Kích thước lớn cho tiêu đề chính */
-    font-weight: 700;
-    letter-spacing: -0.03em; /* Giãn chữ âm nhẹ cho Playfair Display */
-    margin-bottom: 10px;
-    color: #F0F0F0; /* Có thể dùng màu trắng ngà cho h1 */
-}
-
-h2 {
-    font-size: 2em; /* Kích thước cho tiêu đề section */
-    font-weight: 700;
-    margin-bottom: 25px; /* Khoảng cách dưới h2 lớn hơn */
-    position: relative;
-    padding-bottom: 10px;
-}
-
-/* Hiệu ứng đường kẻ độc lạ dưới h2 - Đổi màu để hiển thị trên nền tối */
-h2::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 50px; /* Chiều dài đường kẻ */
-    height: 3px;
-    /* Màu đường kẻ sáng, có thể là màu nhấn */
-    background-color: #8A9EFF; /* Một màu xanh tím nhạt nổi bật */
-    border-radius: 2px;
-    transition: width 0.3s ease-in-out;
-}
-
-/* Ví dụ hover cho h2 */
-/* h2:hover::after {
-    width: 80px;
-} */
-
-
-h3 {
-    font-size: 1.5em; /* Kích thước cho tiêu đề phụ (tên người sáng lập) */
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: #B5B5FF; /* Màu xanh tím nhạt hơn cho h3 */
-}
-
-.subtitle {
-    font-size: 1.2em;
-    /* Đổi màu subtitle sang màu sáng */
-    color: #B0B0B0;
-    margin-top: -10px;
-    margin-bottom: 30px;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-}
-
-.divider {
-    width: 80px;
-    height: 2px;
-    /* Đổi màu divider sang màu sáng */
-    background-color: #8A9EFF; /* Giống màu đường kẻ h2 */
-    margin: 20px auto;
-    border-radius: 1px;
-}
-
-p {
-    margin-bottom: 20px;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    /* Màu chữ đã đặt ở body, nếu muốn p khác thì đặt lại ở đây */
-    /* color: #E0E0E0; */
-}
-
-.first-paragraph {
-    font-size: 1.15em;
-    line-height: 1.8;
-    /* Màu dropcap sáng, có thể là màu nhấn */
-    color: #B5B5FF;
-}
-
-.dropcap {
-    float: left;
-    font-size: 4em;
-    font-family: 'Playfair Display', serif;
-    line-height: 0.8;
-    margin-right: 10px;
-    margin-bottom: 5px;
-    /* Màu dropcap đã đặt ở first-paragraph, nếu muốn khác thì đặt lại ở đây */
-    /* color: #8A9EFF; */
-    font-weight: 700;
-}
-
-strong {
-    font-weight: 700;
-    /* Màu strong có thể giữ nguyên màu chữ body hoặc đậm hơn một chút */
-    color: #FFFFFF;
+.kofi-icon:hover {
+    color: var(--main-color);
 }
 
 
-/* ========================================= */
-/* Specific Section Styles                 */
-/* ========================================= */
-
-/* Values Section */
-.values-list {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  padding: 5px;
+  z-index: 1010;
 }
 
-.values-list li {
-    margin-bottom: 15px;
-    padding-left: 25px;
-    position: relative;
-}
+/* --- MOBILE MENU SLIDE-IN STYLES --- */
 
-/* Custom bullet point - Đổi màu để hiển thị trên nền tối */
-.values-list li::before {
-    content: '\2022'; /* Dấu chấm Unicode */
-    color: #8A9EFF; /* Màu nhấn sáng */
-    font-size: 1.5em;
-    position: absolute;
-    left: 0;
+.mobile-menu-overlay {
+    position: fixed;
     top: 0;
-    line-height: 1.5;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--overlay-color);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.quote-box {
-    /* Đổi màu nền và viền để phù hợp nền tối */
-    background-color: #2C2C4B; /* Một màu xanh đậm nhạt hơn nền body */
-    border-left: 4px solid #8A9EFF; /* Màu nhấn sáng */
-    padding: 20px;
-    font-style: italic;
-    /* Màu chữ trong quote box sáng */
-    color: #E0E0E0;
-    margin-top: 30px;
-    border-radius: 0 8px 8px 0; /* Bo góc bên phải */
+.mobile-menu-overlay.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
-.quote-box span {
-    display: block;
-    text-align: right;
-    margin-top: 10px;
-    font-style: normal;
-    font-weight: 700;
-    /* Màu tên tác giả sáng hơn */
-    color: #FFFFFF;
-}
-
-/* Explore Styles Section */
-.explore-styles-section {
-    margin-bottom: 80px;
-}
-
-.styles-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.style-item {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    text-align: center;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Đổ bóng đậm hơn */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    background-color: #2C2C4B; /* Nền nhẹ hơn cho từng item */
-}
-
-.style-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
-}
-
-.style-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
+.mobile-menu-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: var(--mobile-menu-bg);
+    z-index: 1000;
+    transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.5);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
-.style-item:hover img {
-    transform: scale(1.05);
+.mobile-menu-wrapper.open {
+    transform: translateX(0);
 }
 
-.style-name {
-    display: block;
-    padding: 15px 10px;
-    /* Màu nền và chữ cho tên phong cách */
-    background-color: #1A1A2E; /* Nền giống body */
-    font-size: 1.2em;
-    font-weight: 700;
-    color: #FFFFFF; /* Chữ trắng */
-    font-family: 'Playfair Display', serif;
-}
-
-/* Founder Section */
-.founder-details {
+.mobile-menu {
+    padding: 2rem 1.5rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    margin-top: 40px;
 }
 
-.founder-photo {
-    flex-shrink: 0;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Đổ bóng đậm hơn */
-    border: 3px solid #8A9EFF; /* Thêm viền màu nhấn cho ảnh đại diện */
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.8rem;
+    color: var(--mobile-menu-text);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1020;
 }
 
-.founder-photo img {
+.mobile-menu .nav-links {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.5rem;
+    padding: 0;
+    gap: 0;
+}
+
+.mobile-menu .nav-links li {
+    list-style: none;
+    border-bottom: 1px solid var(--mobile-menu-border);
+}
+.mobile-menu .nav-links li:last-child {
+    border-bottom: none;
+}
+
+
+.mobile-menu .nav-links li a {
+    display: block;
+    padding: 1rem 0;
+    color: var(--mobile-menu-text);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    /* --- ĐÃ SỬA: Font cho link mobile menu --- */
+    font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+    /* --------------------------------------- */
+}
+
+.mobile-menu .nav-links li a:hover {
+     color: var(--main-color);
+     background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* --- CSS cho Social Icons trong Mobile Menu --- */
+.mobile-menu .menu-social {
+  margin-top: 20px;
+  padding: 15px;
+  text-align: center;
+  border-top: 1px solid var(--mobile-menu-border);
+}
+
+.mobile-menu .menu-social .social-link {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 24px;
+  color: var(--mobile-menu-text);
+  transition: color 0.3s ease;
+}
+
+.mobile-menu .menu-social .social-link:hover {
+  color: var(--main-color);
+}
+/* --- KẾT THÚC CSS cho Social Icons trong Mobile Menu --- */
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-left {
+    flex-wrap: wrap;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    justify-content: space-between;
+  }
+
+  .desktop-nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-right {
+      margin-left: auto;
+      padding-left: 1rem;
+  }
+
+   .nav-logo, .hamburger {
+       align-self: center;
+   }
+
+   .mobile-menu-overlay,
+   .mobile-menu-wrapper {
+   }
+
+   body.menu-open {
+        overflow-y: hidden;
+    }
 }
 
-.founder-bio {
-    flex: 1;
+@media (min-width: 769px) {
+    .desktop-nav-links {
+        display: flex;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+     .mobile-menu-overlay,
+     .mobile-menu-wrapper {
+         display: none !important;
+     }
+
+     body.menu-open {
+         overflow-y: auto;
+     }
+}
+
+/* --- STYLE CHO HEADER VỚI FONT VÀ NỀN TỐI --- */
+header {
+  background: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/full2kne1134848563423638875.jpg') center/cover no-repeat;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--text-light);
+  padding: 1rem;
+  position: relative;
+}
+
+header h1 {
+  /* --- ĐÃ SỬA: Font cho h1 --- */
+  font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
+  /* -------------------------- */
+  font-size: clamp(2.8rem, 6vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.8);
+  letter-spacing: -1px;
+  color: rgba(240, 240, 240, 0.8);
+}
+
+header p {
+  /* --- ĐÃ SỬA: Font cho p trong header --- */
+  font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+  /* ------------------------------------- */
+  font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+  max-width: 700px;
+  line-height: 1.7;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+  color: var(--text-light);
+}
+
+.button {
+  margin-top: 1.5rem;
+  background: rgba(0, 188, 212, 0.8);
+  padding: 0.7rem 1.2rem;
+  color: var(--text-light);
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  /* --- ĐÃ SỬA: Font cho button --- */
+  font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+  /* ------------------------------ */
+  font-size: 1em;
+}
+
+.button:hover {
+  background: var(--main-color);
+  transform: translateY(-2px);
+}
+/* --- KẾT THÚC STYLE CHO HEADER --- */
+
+
+/* Styles cho phần Slider Trích dẫn */
+.quotes-slider-section {
+  padding: 3rem 0;
+  background-color: var(--background);
+  overflow: hidden;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.quotes-slider-section .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.quotes-slider-section h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 2rem;
+  color: var(--text-dark);
+   /* --- ĐÃ SỬA: Font cho h2 các section khác --- */
+  font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
+  /* ------------------------------------------ */
+}
+
+/* Styling cho SVG nếu vẫn dùng */
+.quotes-slider-section h2 svg {
+    margin: 0 10px;
+    width: 25px;
+    height: 25px;
+    color: var(--main-color);
+    stroke-width: 2;
+}
+
+.quotes-slider-wrapper {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 1.5rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+
+.quotes-slider-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.quotes-slider-wrapper .quote-item {
+  flex: 0 0 auto;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+/* Cải thiện giao diện Blockquote bên trong item */
+.quote-item blockquote {
+    background-color: var(--element-background-dark);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    border-left: 5px solid var(--main-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    min-height: 350px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.quote-item blockquote::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    z-index: 1;
+}
+
+.quote-item blockquote p,
+.quote-item blockquote footer {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    color: var(--text-light);
+}
+
+/* --- Giữ nguyên: Kiểu chữ và Căn giữa cho đoạn văn trong quote (dùng font Lora) --- */
+.quote-item blockquote p {
+    font-style: italic;
+    font-family: 'Lora', serif; /* Giữ font Lora */
+    text-align: center;
+}
+/* -------------------------------------------------------------- */
+
+
+/* CSS cho hiệu ứng hiện dần văn bản khi item hiển thị */
+.quote-item.is-in-view blockquote p,
+.quote-item.is-in-view blockquote footer {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===================================================
+   Các rule riêng cho từng trích dẫn (để dùng ảnh nền khác nhau)
+   Bạn cần thay thế đường dẫn ảnh ở đây
+   =================================================== */
+
+/* Trích dẫn thứ 1 */
+.quotes-slider-wrapper .quote-item:nth-child(1) blockquote {
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/17453029449736329168703743478656.jpg');
+}
+
+/* Trích dẫn thứ 2 */
+.quotes-slider-wrapper .quote-item:nth-child(2) blockquote {
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/17465133939912039875614403165308.jpg');
+}
+
+/* Trích dẫn thứ 3 */
+.quotes-slider-wrapper .quote-item:nth-child(3) blockquote {
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/17465127147144149722737175316447.jpg');
+}
+
+/* Trích dẫn thứ 4 */
+.quotes-slider-wrapper .quote-item:nth-child(4) blockquote {
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/1746514185906737048108887341860.jpg');
+}
+
+/* Trích dẫn thứ 5 */
+.quotes-slider-wrapper .quote-item:nth-child(5) blockquote {
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/17465126690376539023984443098602.jpg');
+}
+
+/* Responsive cho item trích dẫn */
+@media (max-width: 768px) {
+    .quotes-slider-wrapper .quote-item {
+         width: calc(100% / 1.5);
+         max-width: none;
+         margin: 0 auto;
+    }
+     .quotes-slider-wrapper {
+        padding: 0 1.5rem 1.5rem 1.5rem;
+     }
+}
+
+@media (min-width: 769px) {
+    .quotes-slider-wrapper .quote-item {
+        width: calc( (100% - 1.5rem) / 2.25 );
+        max-width: none;
+        margin: 0;
+    }
+     .quotes-slider-wrapper {
+        padding: 0 1.5rem 1.5rem 1.5rem;
+     }
+}
+
+@media (min-width: 1024px) {
+     .quotes-slider-wrapper .quote-item {
+        width: calc( (100% - 1.5rem * 2) / 3 );
+     }
+      .quotes-slider-wrapper {
+         padding: 0 1.5rem 1.5rem 1.5rem;
+      }
+}
+
+
+/* Categories Section - Chuyển sang dạng Card */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  background: var(--background);
+  transition: background-color 0.3s ease;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.category {
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--element-background-dark);
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+ .category:hover {
+   transform: translateY(-5px) scale(1.02);
+   box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+ }
+
+ .category img {
+   width: 100%;
+   height: 200px;
+   object-fit: cover;
+   display: block;
+   transition: transform 0.3s ease-out;
+}
+
+  .category:hover img {
+  }
+
+/* Tạo một khu vực riêng cho nội dung văn bản bên trong card */
+.category-content {
+    padding: 1rem;
+    background-color: var(--element-background-dark);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
 }
 
-.founder-bio h3 {
-     margin-bottom: 5px;
+
+ .category h3 {
+   position: static;
+   margin: 0 0 0.5rem 0;
+   color: var(--text-dark);
+   font-size: 1.1rem;
+   background: none;
+   padding: 0;
+   border-radius: 0;
+   transition: color 0.3s ease;
+   /* --- ĐÃ SỬA: Font cho h3 trong category --- */
+   font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
+   /* ---------------------------------------- */
+ }
+
+  .category:hover h3 {
+     color: var(--main-color);
+  }
+
+/* Thêm style cho đoạn văn mô tả */
+.category-content p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--accent-secondary);
+    line-height: 1.4;
+     /* --- ĐÃ SỬA: Font cho p trong category --- */
+    font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+    /* --------------------------------------- */
 }
 
-.founder-role {
-    font-style: italic;
-    /* Màu chữ vai trò sáng hơn một chút */
-    color: #B0B0B0;
-    margin-bottom: 20px;
+
+/* Styles cho phần nội dung chính trang Giới thiệu (about-content) */
+.about-content {
+  padding: 4rem 0;
+  background-color: var(--background);
+  transition: background-color 0.3s ease;
 }
 
-/* Call to action button */
-.btn.primary-btn {
-    display: inline-block;
-    background-color: #8A9EFF; /* Màu nền nút là màu nhấn */
-    color: #1A1A2E; /* Màu chữ trên nút là màu nền đậm */
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 700;
+.about-content .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    text-align: left;
+}
+
+.about-content h2 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+    line-height: 1.2;
+    text-align: center;
+     /* --- ĐÃ SỬA: Font cho h2 trong about-content --- */
+    font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
+    /* --------------------------------------------- */
+}
+
+/* Style cho đoạn văn ngay sau H2 (dịch nghĩa) */
+.about-content h2 + p {
+     font-size: 1.1rem;
+     font-style: italic;
+     color: var(--accent-secondary); /* Giữ màu xám phụ */
+     margin-top: 0;
+     margin-bottom: 3rem;
+     text-align: center;
+     background-color: transparent;
+     padding: 0;
+     box-shadow: none;
+     border-radius: 0;
+      /* --- ĐÃ SỬA: Font cho p dịch nghĩa trong about-content --- */
+     font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+     /* ------------------------------------------------------ */
+}
+
+/* Style cho các đoạn văn bản chính - làm chúng trông như các khung */
+.about-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: var(--text-dark); /* Màu chữ chung */
+    background-color: var(--element-background-dark); /* Nền khung Xanh Đậm Hơi Nhạt Hơn */
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+     /* --- ĐÃ SỬA: Font cho p nội dung trong about-content --- */
+    font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+    /* ---------------------------------------------------- */
+}
+
+/* Khoảng trống phía trên tiêu đề H2 thứ hai (phần tiếng Anh) */
+.about-content h2:nth-of-type(2) {
+    margin-top: 4rem;
+     margin-bottom: 2rem;
+}
+
+/* Đảm bảo tiêu đề H2 đầu tiên không có margin trên thừa */
+.about-content .container>h2:first-child {
+    margin-top: 0;
+}
+
+/* Loại bỏ margin dưới cho đoạn văn cuối cùng */
+.about-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Footer */
+footer {
+  background-color: var(--background);
+  color: var(--text-dark);
+  padding: 2rem 1rem;
+  text-align: center;
+  border-top: 3px solid var(--main-color);
+  transition: background-color 0.3s ease;
+}
+
+.footer-content p {
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  line-height: 1.5;
+   /* --- ĐÃ SỬA: Font cho p trong footer --- */
+  font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+  /* ------------------------------------- */
+}
+
+.footer-content a {
+  color: var(--main-color);
+  font-weight: bold;
+  transition: color 0.3s ease;
+   /* --- ĐÃ SỬA: Font cho a trong footer --- */
+  font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+  /* ------------------------------------- */
+}
+
+.footer-content a:hover {
+  color: var(--text-light);
+}
+
+/* Footer Social Icons */
+.footer-social {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.footer-social a {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--main-color);
+}
+
+
+/* --- BẮT ĐẦU BỔ SUNG CSS CHO CÁC SECTION MỚI (Gallery, CTA) --- */
+
+/* Styles cho section Không Gian&Quy Trình (Gallery&Process) */
+.gallery-process-section {
+  padding: 3rem 1.5rem;
+  background-color: var(--background);
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.gallery-process-section h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 2.5rem;
+  color: var(--text-dark);
+   /* --- ĐÃ SỬA: Font cho h2 trong gallery-process-section --- */
+  font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
+  /* ---------------------------------------------------- */
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  background-color: var(--element-background-dark);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.gallery-item:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 4px 15px rgba(0,0,0,0.45);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+   transition: transform 0.3s ease-out;
+}
+
+  .category:hover img {
+  }
+
+.gallery-item p {
+  padding: 1rem;
+  margin-top: auto;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  text-align: left;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+    margin-bottom: 0;
+    line-height: 1.5;
+     /* --- ĐÃ SỬA: Font cho p trong gallery-item --- */
+    font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+    /* --------------------------------------------- */
+}
+
+
+/* Styles cho section Kêu Gọi Hành Động Đặc Biệt (Call to Action) */
+.cta-section {
+    padding: 4rem 1.5rem;
+    background-color: var(--element-background-dark);
+    text-align: center;
     transition: background-color 0.3s ease;
-    font-family: 'Lato', sans-serif;
-    border: 1px solid #8A9EFF; /* Thêm viền cùng màu */
 }
 
-.btn.primary-btn:hover {
-    background-color: #B5B5FF; /* Màu nhấn nhạt hơn khi hover */
-    color: #1A1A2E;
-    border-color: #B5B5FF;
+.cta-section .container {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.mt-3 {
-    margin-top: 15px;
+.cta-section h2 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    line-height: 1.2;
+    /* --- ĐÃ SỬA: Font cho h2 trong cta-section --- */
+    font-family: 'Poppins', sans-serif; /* Sử dụng Poppins */
+    /* ------------------------------------------ */
 }
 
-
-/* ========================================= */
-/* Responsive Adjustments                  */
-/* ========================================= */
-
-@media (min-width: 768px) {
-    .about-page-content {
-        padding: 100px 0;
-    }
-
-    .content-section {
-        flex-direction: row; /* Xếp ngang trên tablet và desktop */
-        align-items: flex-start;
-        gap: 60px;
-    }
-
-    /* Đảo ngược thứ tự ở một số section */
-    .story-section .section-image {
-        order: 2;
-    }
-     .story-section .section-content {
-        order: 1;
-    }
-
-    .vision-section .section-image {
-        order: 1;
-    }
-     .vision-section .section-content {
-        order: 2;
-    }
-
-    .section-content,
-    .section-image,
-    .section-quote {
-         padding: 0;
-    }
-
-    .section-content {
-         margin-bottom: 0;
-    }
-
-    .founder-details {
-        flex-direction: row;
-        text-align: left;
-        gap: 60px;
-    }
-
-    .founder-bio {
-         text-align: left;
-    }
-
-    h2::after {
-        left: 0;
-    }
-
-    /* Căn chỉnh đường kẻ h2 cho tiêu đề căn giữa hoặc căn phải */
-    .text-center h2::after {
-        left: 50%;
-        transform: translateX(-50%); /* Căn giữa */
-    }
-
-    /* Nếu có tiêu đề h2 căn phải */
-    /* .text-right h2::after {
-         right: 0;
-         left: auto;
-    } */
-
-
+.cta-section p {
+    font-size: clamp(1rem, 3vw, 1.1rem);
+    margin-bottom: 2rem;
+    color: var(--accent-secondary);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+     /* --- ĐÃ SỬA: Font cho p trong cta-section --- */
+    font-family: 'Inter', sans-serif; /* Sử dụng Inter */
+    /* ------------------------------------------- */
 }
 
-@media (min-width: 992px) {
-    h1 {
-        font-size: 4em;
-    }
-
-    h2 {
-        font-size: 2.5em;
-    }
-
-    h3 {
-        font-size: 1.8em;
-    }
-
-    .about-page-content {
-        padding: 120px 0;
-    }
-
-    .content-section {
-        gap: 80px;
-        margin-bottom: 100px;
-    }
-
-     .section-content {
-        flex: 1.5;
-     }
-
-     .section-image {
-        flex: 1;
-     }
-
-    .founder-photo {
-        width: 250px;
-        height: 250px;
-    }
-
-    .styles-grid {
-         grid-template-columns: repeat(3, 1fr);
-         gap: 40px;
-    }
-
+/* Nút trong CTA sẽ tự động dùng style của class .button đã có */
+.cta-section .button {
+    margin-top: 1.5rem;
 }
+/* --- KẾT THÚC BỔ SUNG CSS CHO CÁC SECTION MỚI --- */
