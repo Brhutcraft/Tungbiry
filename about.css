@@ -1,36 +1,35 @@
 /* ========================================= */
-/* About Page CSS - Magazine Style           */
+/* About Page CSS - Magazine Style (Color Scheme Applied) */
 /* ========================================= */
 
 /* Import Google Fonts (chọn font phù hợp với phong cách tạp chí - có thể cần 1-2 font) */
-/* Gợi ý: Playfair Display hoặc Lora cho tiêu đề, Open Sans hoặc Merriweather cho nội dung */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
 
 
 body {
     font-family: 'Open Sans', sans-serif; /* Font cho nội dung chính */
     line-height: 1.7; /* Tăng line-height cho dễ đọc */
-    color: #333;
-    background-color: #f8f8f8;
+    color: #4a4a4a; /* Màu chữ chính (Xám than ấm) */
+    background-color: #f8f5ed; /* Màu nền nhẹ nhàng (Trắng ngà ấm) */
     margin: 0;
     padding: 0;
 }
 
 .container {
-    max-width: 1000px; /* Giới hạn chiều rộng container như trang tạp chí */
-    margin: 0 auto; /* Căn giữa container */
-    padding: 0 20px; /* Padding hai bên */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 /* Section chính của trang About - Phong cách tạp chí */
 .about-content.magazine-layout {
-    padding: 40px 0 60px 0; /* Điều chỉnh padding */
-    background-color: #ffffff;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng mạnh hơn một chút */
+    padding: 40px 0 60px 0;
+    background-color: #ffffff; /* Giữ nền trắng cho phần nội dung chính để nổi bật */
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.08); /* Hiệu ứng bóng nhẹ */
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 8px;
-    overflow: hidden; /* Đảm bảo không có nội dung tràn ra ngoài */
+    overflow: hidden;
 }
 
 /* Phần tiêu đề đầu bài tạp chí */
@@ -38,42 +37,42 @@ body {
     text-align: center;
     margin-bottom: 40px;
     padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #eee; /* Giữ đường kẻ xám nhạt */
 }
 
 .magazine-header h1 {
-    font-family: 'Playfair Display', serif; /* Font tiêu đề chính tạp chí */
+    font-family: 'Playfair Display', serif;
     font-size: 3.5em;
-    color: #2c3e50;
+    color: #3a3a3a; /* Màu tiêu đề (Xám đậm) */
     margin-bottom: 5px;
     letter-spacing: 2px;
 }
 
 .magazine-header .subtitle {
-    font-family: 'Lora', serif; /* Font phụ cho subtitle */
+    font-family: 'Lora', serif;
     font-size: 1.4em;
-    color: #7f8c8d; /* Màu xám nhẹ */
+    color: #70625a; /* Màu phụ đề (Nâu xám) */
     margin-top: 0;
-    font-style: italic; /* Kiểu chữ nghiêng */
+    font-style: italic;
 }
 
 .magazine-divider {
-    width: 80px; /* Chiều dài đường phân cách */
-    height: 4px; /* Độ dày */
-    background-color: #e74c3c; /* Màu sắc (có thể thay đổi) */
-    margin: 20px auto 0 auto; /* Căn giữa và khoảng cách trên */
+    width: 80px;
+    height: 4px;
+    background-color: #b07b65; /* Màu đường phân cách (Nâu đất) */
+    margin: 20px auto 0 auto;
 }
 
 /* Nội dung chính của bài viết (tạp chí) */
 .magazine-article {
-    column-count: 1; /* Mặc định 1 cột trên mobile */
-    column-gap: 40px; /* Khoảng cách giữa các cột */
+    column-count: 1;
+    column-gap: 40px;
 }
 
 /* Áp dụng nhiều cột cho màn hình lớn hơn */
 @media (min-width: 768px) {
     .magazine-article {
-        column-count: 2; /* 2 cột trên màn hình lớn */
+        column-count: 2;
     }
 }
 
@@ -82,37 +81,37 @@ body {
 .article-section,
 .team-section,
 .magazine-header {
-    column-span: all; /* Làm cho các div này chiếm toàn bộ chiều rộng */
-    margin-bottom: 40px; /* Khoảng cách dưới mỗi section */
-    page-break-inside: avoid; /* Ngăn chia section giữa các cột in */
-    break-inside: avoid-column; /* Ngăn chia section giữa các cột trình duyệt */
+    column-span: all;
+    margin-bottom: 40px;
+    page-break-inside: avoid;
+    break-inside: avoid-column;
 }
 
 
 .article-intro .first-paragraph {
-    font-size: 1.2em; /* Kích thước font lớn hơn cho đoạn mở đầu */
-    font-weight: 600; /* Chữ đậm hơn */
+    font-size: 1.2em;
+    font-weight: 600;
     margin-bottom: 30px;
 }
 
 /* Hiệu ứng chữ cái lớn đầu dòng (Drop Cap) */
 .first-paragraph .dropcap {
-    float: left; /* Đặt chữ cái đầu dòng sang trái */
-    font-family: 'Playfair Display', serif; /* Font khác cho dropcap */
-    font-size: 4em; /* Kích thước rất lớn */
-    line-height: 0.8; /* Điều chỉnh line-height */
-    margin-right: 10px; /* Khoảng cách bên phải dropcap */
+    float: left;
+    font-family: 'Playfair Display', serif;
+    font-size: 4em;
+    line-height: 0.8;
+    margin-right: 10px;
     font-weight: 700;
-    color: #e74c3c; /* Màu sắc dropcap (có thể thay đổi) */
+    color: #b07b65; /* Màu dropcap (Nâu đất) */
 }
 
 
 .article-section h2 {
-    font-family: 'Lora', serif; /* Font tiêu đề section */
+    font-family: 'Lora', serif;
     font-size: 1.8em;
-    color: #34495e;
+    color: #3a3a3a; /* Màu tiêu đề section (Xám đậm) */
     margin-bottom: 20px;
-    margin-top: 0; /* Đảm bảo không có margin top thừa */
+    margin-top: 0;
     position: relative;
     padding-bottom: 10px;
 }
@@ -123,57 +122,57 @@ body {
     display: block;
     width: 40px;
     height: 3px;
-    background-color: #e74c3c; /* Màu gạch chân (có thể thay đổi) */
+    background-color: #b07b65; /* Màu gạch chân (Nâu đất) */
     margin-top: 5px;
 }
 
 .article-section p {
     font-size: 1.1em;
-    color: #555;
+    color: #4a4a4a; /* Màu chữ chính */
     margin-bottom: 20px;
-    text-align: justify; /* Căn đều văn bản */
+    text-align: justify;
 }
 
 .article-section ul {
     list-style: none;
     padding: 0;
-    margin: 0 0 20px 0; /* Khoảng cách dưới ul */
+    margin: 0 0 20px 0;
 }
 
 .article-section ul li {
-     /* Giữ nguyên style icon nếu có */
-    /* background: url('path/to/your/leaf-icon.png') no-repeat left center; */
-    /* background-size: 18px; */
-    /* padding-left: 25px; */
+     /* Bạn có thể đổi màu icon nếu dùng ảnh */
+     /* background: url('path/to/your/leaf-icon.png') no-repeat left center; */
+     /* background-size: 18px; */
+     /* padding-left: 25px; */
     margin-bottom: 12px;
     font-size: 1.1em;
-    color: #555;
+    color: #4a4a4a; /* Màu chữ chính */
     /* Nếu không dùng icon, dùng dấu chấm mặc định */
     list-style: disc;
     margin-left: 20px;
+    color: #8fbc8f; /* Màu dấu chấm (Xanh lá) */
 }
 
 .article-section ul li strong {
-    color: #333;
+    color: #3a3a3a; /* Màu chữ đậm hơn cho từ khóa */
 }
 
 
-/* Bố cục đặc biệt cho các section - Sử dụng Flexbox hoặc Grid để tạo layout phức tạp hơn*/
-/* Ví dụ: Section Câu Chuyện (Story) - Ảnh bên phải, text bên trái trên màn hình lớn */
+/* Bố cục đặc biệt cho các section */
 .story-section {
     display: flex;
-    flex-direction: column; /* Mặc định xếp dọc trên mobile */
+    flex-direction: column;
     align-items: flex-start;
 }
 
 .story-content {
-    flex: 1; /* Cho phép phần nội dung chiếm hết không gian */
-    margin-bottom: 30px; /* Khoảng cách dưới nội dung trên mobile */
+    flex: 1;
+    margin-bottom: 30px;
 }
 
 .story-image {
-     flex: 1; /* Cho phép ảnh chiếm hết không gian còn lại */
-     width: 100%; /* Ảnh full chiều rộng trên mobile */
+     flex: 1;
+     width: 100%;
      margin-bottom: 20px;
 }
 
@@ -188,7 +187,7 @@ body {
 
 .image-caption {
     font-size: 0.9em;
-    color: #7f8c8d;
+    color: #70625a; /* Màu chữ caption (Nâu xám) */
     text-align: center;
     margin-top: 5px;
     font-style: italic;
@@ -197,95 +196,104 @@ body {
 /* Áp dụng bố cục ngang cho Story Section trên desktop */
 @media (min-width: 768px) {
     .story-section {
-        flex-direction: row; /* Xếp ngang trên desktop */
-        gap: 40px; /* Khoảng cách giữa nội dung và ảnh */
-        align-items: stretch; /* Căn chỉnh các item theo chiều cao */
+        flex-direction: row;
+        gap: 40px;
+        align-items: stretch;
     }
-
      .story-content, .story-image {
-         margin-bottom: 0; /* Bỏ margin-bottom trên desktop */
+         margin-bottom: 0;
      }
-
     .story-image {
-        /* Điều chỉnh kích thước ảnh để phù hợp với bố cục tạp chí */
-        /* Ví dụ: ảnh chiếm 40% chiều rộng */
         flex-basis: 40%;
-        flex-shrink: 0; /* Ngăn ảnh bị co lại */
-        width: auto; /* Để flex-basis kiểm soát kích thước */
-        margin-top: 40px; /* Tạo khoảng trống phía trên ảnh */
+        flex-shrink: 0;
+        width: auto;
+        margin-top: 40px;
     }
 }
 
 
-/* Ví dụ: Section Giá Trị (Values) - Quote box bên phải, danh sách bên trái */
+/* Section Giá Trị (Values) - Thêm màu nền nhẹ cho section này */
 .values-section {
     display: flex;
-    flex-direction: column; /* Mặc định xếp dọc trên mobile */
+    flex-direction: column;
     align-items: flex-start;
+    padding: 30px; /* Thêm padding khi có màu nền */
+    background-color: #fffaf0; /* Màu nền phụ (Trắng kem) */
+    border-radius: 8px;
+    column-span: all; /* Đảm bảo vẫn chiếm toàn bộ chiều rộng */
+    margin-bottom: 40px;
+}
+/* Đảm bảo các phần tử con không bị ảnh hưởng bởi padding nếu đã có */
+.values-section .values-content,
+.values-section .values-quote {
+    padding: 0;
 }
 
+
 .values-content {
-     flex: 2; /* Nội dung chiếm 2 phần */
-     margin-bottom: 30px; /* Khoảng cách dưới trên mobile */
+     flex: 2;
+     margin-bottom: 30px;
 }
 
 .values-quote {
-    flex: 1; /* Quote box chiếm 1 phần */
-    width: 100%; /* Full chiều rộng trên mobile */
+    flex: 1;
+    width: 100%;
 }
 
 .quote-box {
-    border: 2px solid #e74c3c; /* Viền nổi bật (có thể thay đổi màu) */
+    border: 2px solid #b07b65; /* Màu viền quote box (Nâu đất) */
     padding: 20px;
-    margin-left: 0; /* Căn trái trên mobile */
+    margin-left: 0;
     font-family: 'Lora', serif;
     font-size: 1.3em;
     font-style: italic;
-    color: #555;
-    background-color: #fefefe; /* Nền hơi khác biệt */
+    color: #4a4a4a; /* Màu chữ quote */
+    background-color: transparent; /* Không cần nền riêng nếu section đã có nền */
+    border-radius: 5px;
 }
 
 .quote-box p {
     margin-bottom: 10px;
-    font-size: 1em; /* Kích thước font trong quote box */
-    text-align: center; /* Căn giữa text trong quote */
+    font-size: 1em;
+    text-align: center;
+    color: inherit; /* Thừa hưởng màu chữ từ quote-box */
 }
 
 .quote-box span {
     display: block;
-    text-align: right; /* Căn phải tên người trích dẫn */
+    text-align: right;
     font-size: 0.9em;
-    color: #7f8c8d;
+    color: #70625a; /* Màu tên người trích dẫn (Nâu xám) */
     margin-top: 10px;
 }
 
 /* Áp dụng bố cục ngang cho Values Section trên desktop */
 @media (min-width: 768px) {
      .values-section {
-        flex-direction: row; /* Xếp ngang trên desktop */
+        flex-direction: row;
         gap: 40px;
         align-items: flex-start;
+        padding: 40px; /* Tăng padding trên desktop */
     }
      .values-content, .values-quote {
          margin-bottom: 0;
      }
 
     .values-content {
-        flex-basis: 60%; /* Nội dung chiếm 60% */
+        flex-basis: 60%;
     }
 
      .values-quote {
-        flex-basis: 40%; /* Quote chiếm 40% */
-         /* Có thể điều chỉnh margin-top để quote box bắt đầu thấp hơn */
-        margin-top: 40px;
+        flex-basis: 40%;
+        margin-top: 0; /* Bỏ margin-top đặc biệt khi section đã có padding */
      }
 }
 
 
-/* Ví dụ: Section Tầm Nhìn (Vision) - Ảnh bên trái, text bên phải */
+/* Section Tầm Nhìn (Vision) */
 .vision-section {
     display: flex;
-    flex-direction: column; /* Mặc định xếp dọc trên mobile */
+    flex-direction: column;
     align-items: flex-start;
 }
 
@@ -311,7 +319,7 @@ body {
 /* Áp dụng bố cục ngang cho Vision Section trên desktop */
 @media (min-width: 768px) {
     .vision-section {
-        flex-direction: row; /* Xếp ngang trên desktop */
+        flex-direction: row;
         gap: 40px;
         align-items: flex-start;
     }
@@ -326,69 +334,78 @@ body {
 
     .vision-content {
         flex-basis: 60%;
-        margin-top: 40px; /* Tạo khoảng trống phía trên nội dung */
+        margin-top: 40px;
     }
 }
 
-/* Phần giới thiệu đội ngũ (Team Section) */
+/* Phần giới thiệu đội ngũ (Team Section) - Thêm màu nền nhẹ cho section này */
 .team-section {
-    text-align: center; /* Căn giữa toàn bộ section */
+    text-align: center;
+    padding: 30px; /* Thêm padding */
+    background-color: #e8f5e9; /* Màu nền (Xanh lá nhạt) */
+    border-radius: 8px;
+    column-span: all; /* Đảm bảo chiếm toàn bộ chiều rộng */
+    margin-bottom: 40px;
+}
+
+.team-section h2 {
+     color: #1b5e20; /* Màu tiêu đề (Xanh lá đậm) */
 }
 
 .team-gallery {
     display: flex;
-    flex-wrap: wrap; /* Cho phép xuống hàng trên màn hình nhỏ */
-    justify-content: center; /* Căn giữa các thành viên */
-    gap: 30px; /* Khoảng cách giữa các thành viên */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
     margin-top: 30px;
 }
 
 .team-member {
-    flex-basis: 150px; /* Kích thước cơ bản của mỗi thành viên */
+    flex-basis: 150px;
     text-align: center;
 }
 
 .team-member img {
-    width: 120px; /* Kích thước ảnh thành viên */
+    width: 120px;
     height: 120px;
     object-fit: cover;
-    border-radius: 50%; /* Bo tròn ảnh */
-    border: 4px solid #e74c3c; /* Viền màu cho ảnh (có thể thay đổi) */
+    border-radius: 50%;
+    border: 4px solid #b07b65; /* Màu viền ảnh (Nâu đất) */
     margin-bottom: 10px;
 }
 
 .team-member h4 {
     font-family: 'Lora', serif;
     font-size: 1.2em;
-    color: #34495e;
+    color: #3a3a3a; /* Màu tên thành viên (Xám đậm) */
     margin-bottom: 5px;
 }
 
 .team-member p {
     font-size: 0.9em;
-    color: #7f8c8d;
+    color: #70625a; /* Màu vai trò (Nâu xám) */
     margin: 0;
 }
 
 /* Style cho nút Call-to-Action (CTA) phong cách tạp chí */
 .btn-magazine {
-    display: inline-block; /* Để nút hiển thị đúng */
-    background-color: #e74c3c; /* Màu nền nút (có thể thay đổi) */
-    border: 2px solid #e74c3c; /* Màu viền nút (có thể thay đổi) */
+    display: inline-block;
+    background-color: #b07b65; /* Màu nền nút (Nâu đất) */
+    border: 2px solid #b07b65; /* Màu viền nút (Nâu đất) */
     color: #fff;
     padding: 12px 30px;
     font-size: 1.1em;
-    text-transform: uppercase; /* Chữ in hoa */
+    text-transform: uppercase;
     letter-spacing: 1px;
-    border-radius: 30px; /* Nút bo tròn */
+    border-radius: 30px;
     transition: background-color 0.3s ease, color 0.3s ease;
-    text-decoration: none; /* Bỏ gạch chân link */
+    text-decoration: none;
 }
 
 .btn-magazine:hover {
     background-color: #fff;
-    color: #e74c3c; /* Màu chữ khi hover (có thể thay đổi) */
-    border-color: #e74c3c; /* Màu viền khi hover (có thể thay đổi) */
+    color: #b07b65; /* Màu chữ khi hover (Nâu đất) */
+    border-color: #b07b65;
 }
 
 
@@ -417,7 +434,7 @@ body {
     .article-section p,
     .article-section ul li {
         font-size: 1em;
-        text-align: left; /* Bỏ căn đều trên mobile nếu cần */
+        text-align: left;
     }
 
      .team-member img {
@@ -429,23 +446,29 @@ body {
         padding: 10px 20px;
         font-size: 1em;
     }
+    /* Điều chỉnh padding section trên mobile */
+     .values-section,
+     .team-section {
+        padding: 20px;
+     }
+
      /* Đảm bảo các phần tử flex xếp chồng lên nhau trên mobile */
     .story-section, .values-section, .vision-section {
         flex-direction: column;
-        gap: 0; /* Bỏ khoảng cách ngang */
+        gap: 0;
     }
      .story-content, .story-image,
      .values-content, .values-quote,
      .vision-image, .vision-content {
-         flex-basis: auto !important; /* Reset flex-basis */
-         margin-bottom: 20px; /* Thêm khoảng cách dưới */
-         width: 100%; /* Đảm bảo chiếm đủ chiều rộng */
+         flex-basis: auto !important;
+         margin-bottom: 20px;
+         width: 100%;
      }
      .story-image, .vision-image {
-         margin-top: 0; /* Bỏ margin-top ảnh */
+         margin-top: 0;
      }
 
      .quote-box {
-         margin-top: 0; /* Bỏ margin-top quote box */
+         margin-top: 0;
      }
 }
