@@ -1,110 +1,109 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Giới thiệu BrHut</title>
   <style>
-    /* Reset và nền */
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f8f5f0;
-      color: #2f2f2f;
-      line-height: 1.6;
+    :root {
+      --main-bg: #f3efe7;
+      --text-color: #2e2b29;
+      --accent: #8a6f4d;
+      --section-bg: #ffffffdd;
+      --font: 'Segoe UI', sans-serif;
     }
 
-    .about-section {
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: var(--text-color);
+    }
+
+    .wrapper {
       max-width: 900px;
       margin: auto;
       padding: 24px;
-      box-sizing: border-box;
+      background: var(--section-bg);
+      backdrop-filter: blur(5px);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      margin-top: 40px;
     }
 
-    .about-section h2 {
-      font-size: 24px;
-      margin-top: 32px;
-      margin-bottom: 16px;
-      color: #4b3b2a;
-      border-left: 4px solid #a78660;
+    h2 {
+      color: var(--accent);
+      font-size: 28px;
+      border-left: 5px solid var(--accent);
       padding-left: 12px;
+      margin-top: 40px;
+      margin-bottom: 16px;
     }
 
-    .about-section p {
-      font-size: 16px;
-      margin-bottom: 20px;
-      color: #3c3c3c;
+    p {
+      font-size: 17px;
+      line-height: 1.8;
+      margin-bottom: 24px;
       text-align: justify;
     }
 
-    .about-section img {
+    img {
       width: 100%;
-      max-height: 400px;
-      object-fit: cover;
-      border-radius: 12px;
+      border-radius: 10px;
       margin: 24px 0;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
     }
 
-    .about-section img:hover {
-      transform: scale(1.02);
+    a {
+      color: var(--accent);
+      text-decoration: none;
     }
 
-    @media (min-width: 600px) {
-      .about-section {
-        padding: 40px;
-      }
-
-      .about-section h2 {
-        font-size: 28px;
-      }
-
-      .about-section p {
-        font-size: 17px;
-      }
+    a:hover {
+      text-decoration: underline;
     }
 
-    @media (min-width: 992px) {
-      .about-section {
-        padding: 60px 80px;
+    @media (max-width: 768px) {
+      .wrapper {
+        padding: 16px;
+        margin-top: 20px;
       }
 
-      .about-section h2 {
-        font-size: 32px;
+      h2 {
+        font-size: 24px;
       }
 
-      .about-section p {
-        font-size: 18px;
+      p {
+        font-size: 16px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="about-section">
+  <div class="wrapper">
     <h2>Về BrHut</h2>
     <p>
-      BrHut là hành trình khám phá cuộc sống gần gũi với thiên nhiên, nơi con người có thể tự tay tạo ra những thứ cần thiết bằng chính đôi tay và trái tim của mình. Chúng tôi tin rằng sự đơn giản, mộc mạc và chậm rãi mang lại hạnh phúc sâu sắc hơn bất kỳ điều gì khác.
+      BrHut là hành trình sống chậm và gần gũi thiên nhiên. Chúng tôi tự tay dựng nhà, đan ghế, nhóm lửa, nấu ăn và tận hưởng từng khoảnh khắc đơn sơ. Mỗi sản phẩm, mỗi video đều chứa đựng sự thật lòng, không hoàn hảo — nhưng đầy cảm hứng.
     </p>
 
-    <img src="brhut-gioi-thieu.jpg" alt="Hình ảnh về BrHut">
+    <img src="brhut-gioi-thieu.jpg" alt="Hình ảnh về BrHut" />
 
     <h2>Sứ mệnh</h2>
     <p>
-      Chúng tôi tạo ra không gian để truyền cảm hứng sống chậm, sống xanh, và sống chân thành. Mỗi ngôi nhà, mỗi sản phẩm thủ công, mỗi đoạn video đều kể lại một phần của hành trình tự lập và gần gũi thiên nhiên.
+      Truyền cảm hứng sống đơn giản, độc lập, gắn bó với tự nhiên. Dựng nên không gian mà người ta có thể tự cung tự cấp, tìm thấy sự tĩnh lặng giữa thế giới ồn ào.
     </p>
 
     <h2>Giá trị cốt lõi</h2>
     <p>
-      - Tự tay làm ra mọi thứ bằng sự kiên nhẫn và tôn trọng thiên nhiên.<br>
-      - Chia sẻ kiến thức, kỹ năng, và cảm hứng sống đơn giản đến cộng đồng.<br>
-      - Không hoàn hảo, nhưng chân thật và tử tế.
+      - Mộc mạc, không màu mè.<br />
+      - Học hỏi và chia sẻ thật lòng.<br />
+      - Ưu tiên trải nghiệm và cảm xúc thật, không vì xu hướng.
     </p>
 
     <h2>Liên hệ</h2>
     <p>
-      Email: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a><br>
+      Email: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a><br />
       YouTube: <a href="https://www.youtube.com/@BrHut" target="_blank">@BrHut</a>
     </p>
   </div>
