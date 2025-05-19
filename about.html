@@ -3,56 +3,251 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Demo Khai Thác Coin Ảo</title>
+<title>Game Khai Thác Coin Ảo - Tinh Tế</title>
 <style>
-  body { font-family: Arial, sans-serif; text-align: center; padding: 40px; background: #f0f0f0; }
-  #coin { font-size: 48px; margin: 20px; color: #2e8b57; }
-  button { font-size: 24px; padding: 15px 30px; cursor: pointer; background: #2e8b57; color: white; border: none; border-radius: 8px; }
-  button:active { background: #246b43; }
-  #upgrade { margin-top: 30px; }
-  #message { margin-top: 20px; color: #cc0000; }
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+  /* Reset cơ bản */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #cce7ff 0%, #f5faff 100%);
+    color: #213547;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+    padding: 30px 20px;
+  }
+  h1 {
+    font-weight: 600;
+    font-size: 2.6rem;
+    margin-bottom: 24px;
+    letter-spacing: 0.05em;
+    color: #1a2b46;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.08);
+  }
+  #coin-display {
+    background: #ffffffcc;
+    box-shadow: 0 8px 20px rgba(33,53,71,0.15);
+    border-radius: 24px;
+    padding: 24px 48px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    min-width: 280px;
+  }
+  #coin-icon {
+    width: 64px;
+    height: 64px;
+    background: radial-gradient(circle at 25% 25%, #ffd94d, #c4a500);
+    border-radius: 50%;
+    box-shadow:
+      inset 0 4px 10px #fff7aa,
+      0 3px 6px rgba(0,0,0,0.12);
+    position: relative;
+    flex-shrink: 0;
+  }
+  #coin-icon svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    fill: #fff8b5;
+    filter: drop-shadow(0 0 1px rgba(0,0,0,0.2));
+    width: 36px;
+    height: 36px;
+  }
+  #coin-count {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #3a4a65;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    user-select: none;
+  }
+  button {
+    background: #3a86ff;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    padding: 18px 42px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(58,134,255,0.48);
+    transition:
+      background 0.3s ease,
+      box-shadow 0.3s ease,
+      transform 0.15s ease;
+    user-select: none;
+  }
+  button:hover {
+    background: #265ecf;
+    box-shadow: 0 12px 25px rgba(38,94,207,0.6);
+  }
+  button:active {
+    transform: scale(0.96);
+    box-shadow: 0 5px 12px rgba(38,94,207,0.7);
+  }
+  #upgrade-section {
+    background: #ffffffdd;
+    border-radius: 24px;
+    padding: 30px 40px;
+    box-shadow: 0 12px 35px rgba(33,53,71,0.12);
+    width: 340px;
+    text-align: center;
+    user-select: none;
+  }
+  #upgrade-section h3 {
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    color: #1a2b46;
+  }
+  #level-display, #upgrade-cost {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #3a4a65;
+    margin: 6px 0;
+  }
+  #progress-bar {
+    width: 100%;
+    height: 16px;
+    background: #d4e3fc;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 24px 0 16px;
+    box-shadow: inset 0 1px 3px rgba(255,255,255,0.7);
+  }
+  #progress-fill {
+    height: 100%;
+    background: #3a86ff;
+    width: 0%;
+    transition: width 0.35s ease;
+    box-shadow: 0 0 8px rgba(58,134,255,0.6);
+  }
+  #message {
+    min-height: 28px;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 6px;
+    color: #e03e3e;
+    text-shadow: 0 0 3px rgba(224,62,62,0.8);
+  }
+  #message.success {
+    color: #2e7d32;
+    text-shadow: 0 0 3px rgba(46,125,50,0.8);
+  }
+  /* Tooltip cho nút nâng cấp */
+  #upgrade-btn {
+    position: relative;
+  }
+  #upgrade-btn:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #3a86ffdd;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    box-shadow: 0 3px 10px rgba(58,134,255,0.6);
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+  }
+  #upgrade-btn::after {
+    opacity: 0;
+  }
+  /* Âm thanh tắt bật */
+  #sound-toggle {
+    margin-top: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #3a4a65;
+    font-size: 1.1rem;
+    font-weight: 600;
+    user-select: none;
+    text-decoration: underline;
+  }
+  #sound-toggle:hover {
+    color: #265ecf;
+  }
+  /* Responsive */
+  @media (max-width: 400px) {
+    #coin-display {
+      min-width: auto;
+      padding: 20px 28px;
+      flex-direction: column;
+      gap: 12px;
+    }
+    #coin-count {
+      font-size: 2.4rem;
+    }
+    #upgrade-section {
+      width: 90vw;
+      padding: 24px 30px;
+    }
+    button {
+      width: 100%;
+      padding: 16px 0;
+      font-size: 1.1rem;
+    }
+  }
 </style>
 </head>
 <body>
 
 <h1>Khai Thác Coin Ảo</h1>
-<div>Coin hiện có:</div>
-<div id="coin">0</div>
-<button id="mineBtn">Khai Thác Coin</button>
 
-<div id="upgrade">
-  <h3>Nâng cấp công cụ (Giá: 10 coin)</h3>
-  <button id="upgradeBtn">Nâng cấp</button>
-  <div>Cấp công cụ: <span id="level">1</span></div>
+<div id="coin-display" aria-live="polite" aria-atomic="true">
+  <div id="coin-icon" aria-hidden="true">
+    <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+      <circle cx="32" cy="32" r="30" />
+      <text x="32" y="42" font-size="32" font-weight="700" fill="#fff" text-anchor="middle" font-family="Montserrat, sans-serif">₵</text>
+    </svg>
+  </div>
+  <div id="coin-count" role="status" aria-label="Số coin hiện tại">0</div>
 </div>
 
-<div id="message"></div>
+<button id="mine-btn" aria-describedby="mine-desc">Khai Thác Coin</button>
+<div id="mine-desc" hidden>
+  Bấm để khai thác coin ảo, số coin tăng theo cấp độ công cụ.
+</div>
+
+<section id="upgrade-section" aria-labelledby="upgrade-title">
+  <h3 id="upgrade-title">Nâng cấp công cụ</h3>
+  <div>Cấp hiện tại: <span id="level-display">1</span></div>
+  <div>Giá nâng cấp: <span id="upgrade-cost">10</span> coin</div>
+  <div id="progress-bar" aria-label="Tiến độ tích lũy coin để nâng cấp" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+    <div id="progress-fill"></div>
+  </div>
+  <button id="upgrade-btn" data-tooltip="Bạn cần đủ coin để nâng cấp công cụ">Nâng cấp</button>
+  <div id="message" role="alert"></div>
+</section>
+
+<button id="sound-toggle" aria-pressed="false" title="Bật hoặc tắt âm thanh">Bật âm thanh</button>
 
 <script>
   let coin = 0;
   let level = 1;
-  const coinDisplay = document.getElementById('coin');
-  const levelDisplay = document.getElementById('level');
-  const message = document.getElementById('message');
+  let soundOn = true;
 
-  document.getElementById('mineBtn').onclick = () => {
-    coin += level; // Mỗi lần khai thác được coin = cấp công cụ
-    coinDisplay.textContent = coin;
-    message.textContent = '';
-  };
+  const coinCountEl = document.getElementById('coin-count');
+  const levelDisplayEl = document.getElementById('level-display');
+  const upgradeCostEl = document.getElementById('upgrade-cost');
+  const messageEl = document.getElementById('message');
+  const progressFillEl = document.getElementById('progress-fill');
+  const upgradeBtn = document.getElementById('upgrade-btn');
+  const soundToggleBtn = document.getElementById('sound-toggle');
 
-  document.getElementById('upgradeBtn').onclick = () => {
-    if (coin >= 10) {
-      coin -= 10;
-      level++;
-      coinDisplay.textContent = coin;
-      levelDisplay.textContent = level;
-      message.textContent = 'Nâng cấp thành công! Mỗi lần khai thác bạn nhận nhiều coin hơn.';
-    } else {
-      message.textContent = 'Bạn cần ít nhất 10 coin để nâng cấp!';
-    }
-  };
-</script>
-
-</body>
-</html>
+  const clickSound
