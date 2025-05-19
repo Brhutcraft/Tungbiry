@@ -1,111 +1,58 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Giới thiệu BrHut</title>
-  <style>
-    :root {
-      --main-bg: #f3efe7;
-      --text-color: #2e2b29;
-      --accent: #8a6f4d;
-      --section-bg: #ffffffdd;
-      --font: 'Segoe UI', sans-serif;
-    }
-
-    body {
-      margin: 0;
-      font-family: var(--font);
-      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
-      background-size: cover;
-      color: var(--text-color);
-    }
-
-    .wrapper {
-      max-width: 900px;
-      margin: auto;
-      padding: 24px;
-      background: var(--section-bg);
-      backdrop-filter: blur(5px);
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      margin-top: 40px;
-    }
-
-    h2 {
-      color: var(--accent);
-      font-size: 28px;
-      border-left: 5px solid var(--accent);
-      padding-left: 12px;
-      margin-top: 40px;
-      margin-bottom: 16px;
-    }
-
-    p {
-      font-size: 17px;
-      line-height: 1.8;
-      margin-bottom: 24px;
-      text-align: justify;
-    }
-
-    img {
-      width: 100%;
-      border-radius: 10px;
-      margin: 24px 0;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 768px) {
-      .wrapper {
-        padding: 16px;
-        margin-top: 20px;
-      }
-
-      h2 {
-        font-size: 24px;
-      }
-
-      p {
-        font-size: 16px;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Demo Khai Thác Coin Ảo</title>
+<style>
+  body { font-family: Arial, sans-serif; text-align: center; padding: 40px; background: #f0f0f0; }
+  #coin { font-size: 48px; margin: 20px; color: #2e8b57; }
+  button { font-size: 24px; padding: 15px 30px; cursor: pointer; background: #2e8b57; color: white; border: none; border-radius: 8px; }
+  button:active { background: #246b43; }
+  #upgrade { margin-top: 30px; }
+  #message { margin-top: 20px; color: #cc0000; }
+</style>
 </head>
 <body>
-  <div class="wrapper">
-    <h2>Về BrHut</h2>
-    <p>
-      BrHut là hành trình sống chậm và gần gũi thiên nhiên. Chúng tôi tự tay dựng nhà, đan ghế, nhóm lửa, nấu ăn và tận hưởng từng khoảnh khắc đơn sơ. Mỗi sản phẩm, mỗi video đều chứa đựng sự thật lòng, không hoàn hảo — nhưng đầy cảm hứng.
-    </p>
 
-    <img src="brhut-gioi-thieu.jpg" alt="Hình ảnh về BrHut" />
+<h1>Khai Thác Coin Ảo</h1>
+<div>Coin hiện có:</div>
+<div id="coin">0</div>
+<button id="mineBtn">Khai Thác Coin</button>
 
-    <h2>Sứ mệnh</h2>
-    <p>
-      Truyền cảm hứng sống đơn giản, độc lập, gắn bó với tự nhiên. Dựng nên không gian mà người ta có thể tự cung tự cấp, tìm thấy sự tĩnh lặng giữa thế giới ồn ào.
-    </p>
+<div id="upgrade">
+  <h3>Nâng cấp công cụ (Giá: 10 coin)</h3>
+  <button id="upgradeBtn">Nâng cấp</button>
+  <div>Cấp công cụ: <span id="level">1</span></div>
+</div>
 
-    <h2>Giá trị cốt lõi</h2>
-    <p>
-      - Mộc mạc, không màu mè.<br />
-      - Học hỏi và chia sẻ thật lòng.<br />
-      - Ưu tiên trải nghiệm và cảm xúc thật, không vì xu hướng.
-    </p>
+<div id="message"></div>
 
-    <h2>Liên hệ</h2>
-    <p>
-      Email: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a><br />
-      YouTube: <a href="https://www.youtube.com/@BrHut" target="_blank">@BrHut</a>
-    </p>
-  </div>
+<script>
+  let coin = 0;
+  let level = 1;
+  const coinDisplay = document.getElementById('coin');
+  const levelDisplay = document.getElementById('level');
+  const message = document.getElementById('message');
+
+  document.getElementById('mineBtn').onclick = () => {
+    coin += level; // Mỗi lần khai thác được coin = cấp công cụ
+    coinDisplay.textContent = coin;
+    message.textContent = '';
+  };
+
+  document.getElementById('upgradeBtn').onclick = () => {
+    if (coin >= 10) {
+      coin -= 10;
+      level++;
+      coinDisplay.textContent = coin;
+      levelDisplay.textContent = level;
+      message.textContent = 'Nâng cấp thành công! Mỗi lần khai thác bạn nhận nhiều coin hơn.';
+    } else {
+      message.textContent = 'Bạn cần ít nhất 10 coin để nâng cấp!';
+    }
+  };
+</script>
+
 </body>
 </html>
