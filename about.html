@@ -1,244 +1,149 @@
-<!DOCTYPE html>
-<html lang="vi">
+<!DOCTYPE html><html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Game Khai Thác Coin Ảo Tự Động</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(135deg, #cce7ff 0%, #f5faff 100%);
-    color: #213547;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    justify-content: center;
-    padding: 30px 20px;
-  }
-  h1 {
-    font-weight: 600;
-    font-size: 2.6rem;
-    margin-bottom: 24px;
-    letter-spacing: 0.05em;
-    color: #1a2b46;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.08);
-  }
-  #coin-display {
-    background: #ffffffcc;
-    box-shadow: 0 8px 20px rgba(33,53,71,0.15);
-    border-radius: 24px;
-    padding: 24px 48px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 40px;
-    min-width: 280px;
-    user-select: none;
-  }
-  #coin-icon {
-    width: 64px;
-    height: 64px;
-    background: radial-gradient(circle at 25% 25%, #ffd94d, #c4a500);
-    border-radius: 50%;
-    box-shadow:
-      inset 0 4px 10px #fff7aa,
-      0 3px 6px rgba(0,0,0,0.12);
-    position: relative;
-    flex-shrink: 0;
-  }
-  #coin-icon svg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    fill: #fff8b5;
-    filter: drop-shadow(0 0 1px rgba(0,0,0,0.2));
-    width: 36px;
-    height: 36px;
-  }
-  #coin-count {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #3a4a65;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.05);
-  }
-  button {
-    background: #3a86ff;
-    color: white;
-    border: none;
-    border-radius: 16px;
-    padding: 18px 42px;
-    font-size: 1.3rem;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 8px 18px rgba(58,134,255,0.48);
-    transition:
-      background 0.3s ease,
-      box-shadow 0.3s ease,
-      transform 0.15s ease;
-    user-select: none;
-  }
-  button:hover {
-    background: #265ecf;
-    box-shadow: 0 12px 25px rgba(38,94,207,0.6);
-  }
-  button:active {
-    transform: scale(0.96);
-    box-shadow: 0 5px 12px rgba(38,94,207,0.7);
-  }
-  #upgrade-section {
-    background: #ffffffdd;
-    border-radius: 24px;
-    padding: 30px 40px;
-    box-shadow: 0 12px 35px rgba(33,53,71,0.12);
-    width: 340px;
-    text-align: center;
-    user-select: none;
-  }
-  #upgrade-section h3 {
-    font-weight: 600;
-    font-size: 1.5rem;
-    margin-bottom: 16px;
-    color: #1a2b46;
-  }
-  #level-display, #upgrade-cost {
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: #3a4a65;
-    margin: 6px 0;
-  }
-  #progress-bar {
-    width: 100%;
-    height: 16px;
-    background: #d4e3fc;
-    border-radius: 12px;
-    overflow: hidden;
-    margin: 24px 0 16px;
-    box-shadow: inset 0 1px 3px rgba(255,255,255,0.7);
-  }
-  #progress-fill {
-    height: 100%;
-    background: #3a86ff;
-    width: 0%;
-    transition: width 0.35s ease;
-    box-shadow: 0 0 8px rgba(58,134,255,0.6);
-  }
-  #message {
-    min-height: 28px;
-    font-weight: 600;
-    font-size: 1rem;
-    margin-top: 6px;
-    color: #e03e3e;
-    text-shadow: 0 0 3px rgba(224,62,62,0.8);
-  }
-  #message.success {
-    color: #2e7d32;
-    text-shadow: 0 0 3px rgba(46,125,50,0.8);
-  }
-  #upgrade-btn {
-    position: relative;
-  }
-  #upgrade-btn:hover::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 110%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #3a86ffdd;
-    color: white;
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    white-space: nowrap;
-    box-shadow: 0 3px 10px rgba(58,134,255,0.6);
-    pointer-events: none;
-    opacity: 1;
-    transition: opacity 0.3s ease;
-    z-index: 10;
-  }
-  #upgrade-btn::after {
-    opacity: 0;
-  }
-  #sound-toggle {
-    margin-top: 20px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    color: #3a4a65;
-    font-size: 1.1rem;
-    font-weight: 600;
-    user-select: none;
-    text-decoration: underline;
-  }
-  #sound-toggle:hover {
-    color: #265ecf;
-  }
-  @media (max-width: 400px) {
-    #coin-display {
-      min-width: auto;
-      padding: 20px 28px;
-      flex-direction: column;
-      gap: 12px;
-    }
-    #coin-count {
-      font-size: 2.4rem;
-    }
-    #upgrade-section {
-      width: 90vw;
-      padding: 24px 30px;
-    }
-    button {
-      width: 100%;
-      padding: 16px 0;
-      font-size: 1.1rem;
-    }
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrHut - Thô Thật Sống</title>
+  <style>
+    :root {
+      --bg-color: #f4f1ed;
+      --text-color: #2e2b29;
+      --accent-color: #7c6a57;
+      --fade-time: 1s;
+      --font-main: 'Georgia', serif;
+    }* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+header {
+  background: url('https://images.unsplash.com/photo-1558981283-cc59dde2043d') center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+}
+
+header h1 {
+  font-size: 3em;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+  animation: fadeIn 2s ease-in;
+}
+
+header p {
+  margin-top: 1em;
+  font-size: 1.2em;
+  animation: fadeIn 2.5s ease-in;
+}
+
+nav {
+  background-color: var(--accent-color);
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  padding: 1em;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+section {
+  max-width: 900px;
+  margin: 4em auto;
+  padding: 0 1em;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quote {
+  font-style: italic;
+  border-left: 3px solid var(--accent-color);
+  padding-left: 1em;
+  margin: 2em 0;
+  color: #555;
+}
+
+footer {
+  text-align: center;
+  padding: 2em 1em;
+  background-color: #e8e1d9;
+  color: #333;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+  </style>
 </head>
 <body>
+  <header>
+    <h1>BrHut</h1>
+    <p>Sống chậm – Thô mộc – Gần thiên nhiên</p>
+  </header>  <nav>
+    <a href="#about">Giới thiệu</a>
+    <a href="#projects">Dự án</a>
+    <a href="#gallery">Thư viện</a>
+    <a href="#contact">Liên hệ</a>
+  </nav>  <section id="about">
+    <h2>BrHut là gì?</h2>
+    <p>BrHut là hành trình sống gần thiên nhiên, tự tay dựng nhà, làm ghế mây, nấu cơm bằng lửa củi, và tận hưởng từng khoảnh khắc của cuộc sống thô – thật – sống.</p>
+    <p class="quote">“Tôi không chọn theo đuổi ai. Nếu là duyên, chúng ta sẽ cùng chọn nhau.”</p>
+  </section>  <section id="projects">
+    <h2>Dự án tiêu biểu</h2>
+    <ul>
+      <li>Nhà tranh từ mây và lá</li>
+      <li>Ghế mây thủ công – kiểu Egg Chair</li>
+      <li>Video series Tự lập giữa thiên nhiên</li>
+      <li>Tips sinh tồn và tự cung tự cấp</li>
+    </ul>
+  </section>  <section id="gallery">
+    <h2>Thư viện ảnh/video</h2>
+    <p>Đang cập nhật – theo dõi kênh YouTube <strong>@BrHut</strong> để xem hành trình thực tế.</p>
+  </section>  <section id="contact">
+    <h2>Liên hệ</h2>
+    <p>Email: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>
+    <p>YouTube: <a href="https://www.youtube.com/@BrHut" target="_blank">@BrHut</a></p>
+  </section>  <footer>
+    <p>© 2025 BrHut – Tự tay dựng đời mình</p>
+  </footer>  <script>
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
 
-<h1>Khai Thác Coin Ảo</h1>
-
-<div id="coin-display" aria-live="polite" aria-atomic="true">
-  <div id="coin-icon" aria-hidden="true">
-    <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="32" cy="32" r="30" />
-      <text x="32" y="42" font-size="32" font-weight="700" fill="#fff" text-anchor="middle" font-family="Montserrat, sans-serif">₵</text>
-    </svg>
-  </div>
-  <div id="coin-count" role="status" aria-label="Số coin hiện tại">0</div>
-</div>
-
-<button id="mine-btn" aria-describedby="mine-desc" aria-pressed="false">Bắt đầu Khai Thác Tự Động</button>
-<div id="mine-desc" hidden>
-  Bấm để bật/tắt khai thác coin tự động, coin sẽ tăng theo cấp độ mỗi giây.
-</div>
-
-<section id="upgrade-section" aria-labelledby="upgrade-title">
-  <h3 id="upgrade-title">Nâng cấp công cụ</h3>
-  <div>Cấp hiện tại: <span id="level-display">1</span></div>
-  <div>Giá nâng cấp: <span id="upgrade-cost">10</span> coin</div>
-  <div id="progress-bar" aria-label="Tiến độ tích lũy coin để nâng cấp" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-    <div id="progress-fill"></div>
-  </div>
-  <button id="upgrade-btn" data-tooltip="Bạn cần đủ coin để nâng cấp công cụ">Nâng cấp</button>
-  <div id="message" role="alert"></div>
-</section>
-
-<button id="sound-toggle" aria-pressed="false" title="Bật hoặc tắt âm thanh">Bật âm thanh</button>
-
-<script>
-  let coin = 0;
-  let level = 1;
-  let autoMining = false;
-  let autoMiningInterval;
-  let soundOn = true;
-
-  const coinCountEl = document.getElementById('coin-count');
-  const level
+    sections.forEach(sec => observer.observe(sec));
+  </script></body>
+</html>
