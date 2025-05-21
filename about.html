@@ -2,14 +2,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BrHut - Thô Thật Sống</title>
+  <title>BrHut – Nhật ký sống thật</title>
   <style>
     :root {
-      --bg-color: #f4f1ed;
-      --text-color: #2e2b29;
-      --accent-color: #7c6a57;
-      --fade-time: 1s;
+      --bg-color: #f9f6f1;
+      --text-color: #3c2f2f;
+      --accent-color: #b08968;
       --font-main: 'Georgia', serif;
+      --fade-time: 1s;
     }* {
   margin: 0;
   padding: 0;
@@ -20,59 +20,55 @@ body {
   font-family: var(--font-main);
   background-color: var(--bg-color);
   color: var(--text-color);
-  line-height: 1.6;
-  overflow-x: hidden;
+  padding: 2em;
+  line-height: 1.8;
 }
 
 header {
-  background: url('https://images.unsplash.com/photo-1558981283-cc59dde2043d') center/cover no-repeat;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
   text-align: center;
-  color: white;
+  margin-bottom: 3em;
+  animation: fadeIn ease var(--fade-time);
 }
 
 header h1 {
-  font-size: 3em;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
-  animation: fadeIn 2s ease-in;
+  font-size: 2.5em;
+  color: var(--accent-color);
 }
 
 header p {
-  margin-top: 1em;
-  font-size: 1.2em;
-  animation: fadeIn 2.5s ease-in;
+  font-style: italic;
+  color: #6d5c4f;
+  margin-top: 0.5em;
 }
 
 nav {
-  background-color: var(--accent-color);
   display: flex;
   justify-content: center;
-  gap: 2em;
-  padding: 1em;
+  gap: 1.5em;
+  margin-bottom: 2em;
 }
 
 nav a {
-  color: white;
   text-decoration: none;
+  color: var(--text-color);
   font-weight: bold;
-  transition: 0.3s;
+  transition: color 0.3s;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  color: var(--accent-color);
 }
 
 section {
-  max-width: 900px;
-  margin: 4em auto;
-  padding: 0 1em;
+  max-width: 700px;
+  margin: 2em auto;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1s ease-out, transform 1s ease-out;
+  background-color: #fffaf3;
+  padding: 2em;
+  border-left: 4px solid var(--accent-color);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 section.visible {
@@ -80,24 +76,30 @@ section.visible {
   transform: translateY(0);
 }
 
+h2 {
+  font-size: 1.6em;
+  margin-bottom: 0.5em;
+  color: var(--accent-color);
+}
+
 .quote {
   font-style: italic;
+  margin: 1.5em 0;
+  color: #6a5849;
   border-left: 3px solid var(--accent-color);
   padding-left: 1em;
-  margin: 2em 0;
-  color: #555;
 }
 
 footer {
   text-align: center;
-  padding: 2em 1em;
-  background-color: #e8e1d9;
-  color: #333;
+  margin-top: 4em;
+  font-size: 0.9em;
+  color: #7c6f66;
 }
 
 @keyframes fadeIn {
-  from {opacity: 0; transform: translateY(10px);}
-  to {opacity: 1; transform: translateY(0);}
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
   </style>
@@ -105,33 +107,32 @@ footer {
 <body>
   <header>
     <h1>BrHut</h1>
-    <p>Sống chậm – Thô mộc – Gần thiên nhiên</p>
+    <p>Nhật ký sống gần thiên nhiên</p>
   </header>  <nav>
     <a href="#about">Giới thiệu</a>
-    <a href="#projects">Dự án</a>
+    <a href="#projects">Góc làm</a>
     <a href="#gallery">Thư viện</a>
     <a href="#contact">Liên hệ</a>
   </nav>  <section id="about">
-    <h2>BrHut là gì?</h2>
-    <p>BrHut là hành trình sống gần thiên nhiên, tự tay dựng nhà, làm ghế mây, nấu cơm bằng lửa củi, và tận hưởng từng khoảnh khắc của cuộc sống thô – thật – sống.</p>
+    <h2>Ghi chép đầu tiên</h2>
+    <p>BrHut không phải là một dự án. Nó là một hành trình. Một cuốn nhật ký mở, ghi lại những lần dựng nhà từ tay trần, những ngày mưa nấu cơm bên bếp đất, và những buổi chiều nghe gió qua mái lá.</p>
     <p class="quote">“Tôi không chọn theo đuổi ai. Nếu là duyên, chúng ta sẽ cùng chọn nhau.”</p>
   </section>  <section id="projects">
-    <h2>Dự án tiêu biểu</h2>
+    <h2>Góc làm hôm nay</h2>
     <ul>
-      <li>Nhà tranh từ mây và lá</li>
-      <li>Ghế mây thủ công – kiểu Egg Chair</li>
-      <li>Video series Tự lập giữa thiên nhiên</li>
-      <li>Tips sinh tồn và tự cung tự cấp</li>
+      <li>Ghế mây hình trứng đầu tiên – 6 tiếng, 1 đôi tay, và 1 ý tưởng</li>
+      <li>Gác tre nhìn ra suối – khung dựng trong ba ngày</li>
+      <li>Chắt nước mưa – sống tối giản, thật sự</li>
     </ul>
   </section>  <section id="gallery">
-    <h2>Thư viện ảnh/video</h2>
-    <p>Đang cập nhật – theo dõi kênh YouTube <strong>@BrHut</strong> để xem hành trình thực tế.</p>
+    <h2>Khoảnh khắc muốn lưu</h2>
+    <p>BrHut có những hình ảnh không đẹp theo chuẩn quảng cáo, nhưng chân thật như đời sống. Theo dõi <strong>@BrHut</strong> trên YouTube để xem đầy đủ hành trình.</p>
   </section>  <section id="contact">
-    <h2>Liên hệ</h2>
+    <h2>Gửi một lời</h2>
     <p>Email: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>
     <p>YouTube: <a href="https://www.youtube.com/@BrHut" target="_blank">@BrHut</a></p>
   </section>  <footer>
-    <p>© 2025 BrHut – Tự tay dựng đời mình</p>
+    <p>© 2025 – Viết tiếp bởi chính bạn, nếu bạn chọn sống thật</p>
   </footer>  <script>
     const sections = document.querySelectorAll('section');
     const observer = new IntersectionObserver(entries => {
